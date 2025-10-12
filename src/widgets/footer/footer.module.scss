@@ -7,3 +7,41 @@
     }
 
 }
+
+.contactsSocial {
+    margin-top: 20px;
+}
+
+.contactsLink {
+    margin-right: 25px;
+
+    svg {
+        width: 30px;
+        height: 30px;
+    }
+
+    &:hover {
+        text-decoration: none;
+    }
+}
+.contactsLinkGitHub {
+    &:hover {
+        svg path {
+            fill: #ffffff;
+        }
+    }
+}
+.contactsLinkInstagram {
+    &:hover {
+        svg path {
+            fill: #E1306C;
+        }
+    }
+}
+.contactsLinkTelegram {
+    &:hover {
+        svg path {
+            fill: #27a7e7;
+        }
+    }
+}
