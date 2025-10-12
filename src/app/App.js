@@ -2,6 +2,8 @@ import React from 'react';
 import './styles/global.scss';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
+import Footer from '../widgets/footer/footer';
+
 function App() {
 	return (
 		<div>
@@ -13,6 +15,7 @@ function App() {
 			>
 				Learn React
 			</a>
+			<Footer />
 		</div>
 	);
 }
