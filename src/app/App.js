@@ -3,6 +3,7 @@ import './styles/global.scss';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 import Footer from '../widgets/footer/footer';
+import MainForm from '../shared/ui/forms/form';
 
 function App() {
 	return (
@@ -16,6 +17,7 @@ function App() {
 				Learn React
 			</a>
 			<Footer />
+			<MainForm />
 		</div>
 	);
 }
