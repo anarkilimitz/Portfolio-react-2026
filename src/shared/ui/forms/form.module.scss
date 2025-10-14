@@ -1,37 +1,39 @@
 .form {
-    margin: 20px auto;
-    padding: 35px;
-    width: 700px;
-    min-height: 500px;
-    background-color: #00000051;
+    margin: 0 auto;
+    padding: 0;
+    max-width: 300px;
+    min-height: 380px;
+    background-color: rgba(var(--bs-dark-rgb), 0.9);
     border-radius: 4px;
     box-shadow: 7px 5px 20px 8px rgba(0, 0, 0, 0.25);
 
     h2 {
         text-align: center;
-        font-size: 28px;
+        font-size: 14px;
         font-weight: 300;
         font-style: italic;
         text-transform: uppercase;
+        color: #fff;
     }
 
     label {
         display: block;
-        margin-top: 25px;
+        margin-top: 3px;
         font-size: 16px;
         font-weight: 400;
+        color: #fff;
     }
 
     input {
         width: 100%;
         height: 30px;
-        margin-top: 15px;
-        padding: 5px 15px;
+        margin-top: 20px;
+        padding: 5px;
         background: #fff;
         border: 1px solid #e2e2e2;
         color: #353535;
-        border-radius: 10px;
-        font-size: 18px;
+        border-radius: 3px;
+        font-size: 16px;
 
         &:focus {
             outline: 1px solid #f57507;
@@ -39,15 +41,15 @@
     }
 
     textarea {
-        height: 180px;
+        height: 120px;
         width: 100%;
-        margin-top: 15px;
-        padding: 15px 20px;
-        font-size: 18px;
-        background: #fff;
+        margin-top: 20px;
+        padding: 5px;
+        font-size: 16px;
+        background: #ffffff;
         border: 1px solid #e2e2e2;
         color: #353535;
-        border-radius: 10px;
+        border-radius: 3px;
         resize: none;
         text-align: left;
         vertical-align: top;
@@ -63,7 +65,7 @@
         width: 25px;
         height: 25px;
         margin-top: 0;
-        margin-right: 15px;
+        margin-right: 20px;
         appearance: none; // отмена стандартного поведения чека
         border: 1px solid #000000;
     }
@@ -79,16 +81,16 @@
 
     button {
         display: block;
-        width: 120px;
+        width: 100px;
         height: 30px;
         padding: 15px;
         margin-top: 25px;
         text-align: center;
         line-height: 0;
-        font-size: 18px;
-        color: #fff;
+        font-size: 40px;
+        color: #ffffff;
         border: 0;
-        border-radius: 10px;
+        border-radius: 4px;
         background-image: linear-gradient(190deg, #ffffff, #000000);
 
     }
@@ -97,4 +99,9 @@
         color: #f57507;
         margin-top: 8px;
     }
+}
+
+a {
+    text-decoration: none !important;
+    color: #ffffff;
 }

@@ -69,22 +69,27 @@ const MainForm = () => {
 			onSubmit={(values) => {}} // для отправки формы на БУДУЩЕЕ
 		>
 			<Form className={styles.form}>
-				<h2>Можете написать мне</h2>
+				<h2 className="form__text-header">Можете написать мне</h2>
 
-				<MyTextInput label="Ваше имя" id="name" name="name" type="text" />
-
-				<MyTextInput label="Ваша почта" id="email" name="email" type="email" />
+				<MyTextInput id="name" name="name" type="text" placeholder="Ваше имя" />
 
 				<MyTextInput
-					label="Ваше сообщение"
+					id="email"
+					name="email"
+					type="email"
+					placeholder="Ваша почта"
+				/>
+
+				<MyTextInput
 					id="text"
 					name="text"
 					as="textarea"
 					className="textarea"
+					placeholder="Ваше сообщение"
 				/>
 
 				<MyCheckbox name="terms">
-					Соглашаетесь с политикой конфиденциальности?
+					<a href="#">Соглашаетесь с политикой конфиденциальности?</a>
 				</MyCheckbox>
 
 				<button type="submit">Отправить</button>
