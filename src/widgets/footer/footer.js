@@ -34,6 +34,8 @@ function Footer() {
 							<a
 								className={`${styles.contactsLink} ${styles.contactsLinkGitHub}`}
 								href="https://github.com/anarkilimitz"
+								target="_blank"
+								rel="noopener noreferrer"
 							>
 								<svg
 									width="20"
@@ -51,6 +53,8 @@ function Footer() {
 							<a
 								className={`${styles.contactsLink} ${styles.contactsLinkInstagram}`}
 								href="https://www.instagram.com/evgeniypavlenok/"
+								target="_blank"
+								rel="noopener noreferrer"
 							>
 								<svg
 									width="20"
@@ -76,6 +80,8 @@ function Footer() {
 							<a
 								href="https://t.me/rothludatha"
 								className={`${styles.contactsLink} ${styles.contactsLinkTelegram}`}
+								target="_blank"
+								rel="noopener noreferrer"
 							>
 								<svg
 									width="20"
@@ -94,8 +100,59 @@ function Footer() {
 					</Col>
 				</Row>
 				<Col md={{ span: 0, offset: 0 }}>
-					<p className="text-center">
-						&copy; 2025 Portfolio Website. All rights reserved.
+					<p className="text-center mt-3">
+						<span>&copy; 2025 Portfolio Website. All rights reserved.</span>
+						<span style={{ marginLeft: '20em', fontSize: '1em' }}>
+							Под лицензией{' '}
+							<a
+								href="https://creativecommons.org/licenses/by-nc-nd/4.0/"
+								className={styles.licenseLink}
+								target="_blank"
+								rel="noopener noreferrer"
+							>
+								CC BY-NC-ND 4.0
+							</a>
+							<img
+								src="https://mirrors.creativecommons.org/presskit/icons/cc.svg"
+								alt=""
+								style={{
+									maxWidth: '1.5em',
+									maxHeight: '1.5em',
+									marginLeft: '0.5em',
+									verticalAlign: 'middle',
+								}}
+							/>
+							<img
+								src="https://mirrors.creativecommons.org/presskit/icons/by.svg"
+								alt=""
+								style={{
+									maxWidth: '1.5em',
+									maxHeight: '1.5em',
+									marginLeft: '.2em',
+									verticalAlign: 'middle',
+								}}
+							/>
+							<img
+								src="https://mirrors.creativecommons.org/presskit/icons/nc.svg"
+								alt=""
+								style={{
+									maxWidth: '1.5em',
+									maxHeight: '1.5em',
+									marginLeft: '.2em',
+									verticalAlign: 'middle',
+								}}
+							/>
+							<img
+								src="https://mirrors.creativecommons.org/presskit/icons/nd.svg"
+								alt=""
+								style={{
+									maxWidth: '1.5em',
+									maxHeight: '1.5em',
+									marginLeft: '.2em',
+									verticalAlign: 'middle',
+								}}
+							/>
+						</span>
 					</p>
 				</Col>
 			</Container>

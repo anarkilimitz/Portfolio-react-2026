@@ -4,7 +4,6 @@
     max-width: 300px;
     min-height: 400px;
     background-color: rgba(33, 37, 41, 0.9);
-    border-radius: 4px;
 
     & .formHeader {
         text-align: center;
@@ -31,7 +30,7 @@
         background: #fff;
         border: 1px solid #e2e2e2;
         color: #353535;
-        border-radius: 3px;
+        border-radius: 2px;
         font-size: 16px;
 
         &:focus {
@@ -48,7 +47,7 @@
         background: #ffffff;
         border: 1px solid #e2e2e2;
         color: #353535;
-        border-radius: 3px;
+        border-radius: 2px;
         resize: none;
         text-align: left;
         vertical-align: top;
@@ -90,8 +89,16 @@
         font-size: 14px;
         color: #ffffff;
         border: 0;
-        border-radius: 4px;
+        border-radius: 2px;
         background-image: linear-gradient(190deg, #ffffff7a, #000000c5);
+
+        &:hover {
+            box-shadow: 1px 1px 12px 5px #0000007a;
+        }
+
+        &:active {
+            box-shadow: 0px 0px 20px 15px rgba(33, 37, 41, 0.9) inset;
+        }
     }
 
     & .error {
@@ -111,7 +118,7 @@
             position: absolute;
             left: 0;
             bottom: -2px;
-            width: 160px;
+            width: 130px;
             height: 1px;
             background-color: #ffffff;
         }
