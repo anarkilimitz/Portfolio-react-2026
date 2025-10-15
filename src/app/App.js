@@ -8,16 +8,7 @@ import MainForm from '../shared/ui/forms/form';
 function App() {
 	return (
 		<div>
-			<a
-				className="App-link"
-				href="https://reactjs.org"
-				target="_blank"
-				rel="noopener noreferrer"
-			>
-				Learn React
-			</a>
 			<Footer />
-			<MainForm />
 		</div>
 	);
 }
