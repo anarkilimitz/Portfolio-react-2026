@@ -1,19 +1,19 @@
 .promo {
-    h1 {
+    & .title {
         font-size: 4vw;
         margin: 23vw 0 2vw 2vw;
         color: white;
         font-weight: 900;
     }
 
-    h2 {
+    & .subtitle {
         font-size: 4vw;
         margin: 0 0 8vw 2vw;
         color: white;
         font-weight: 900;
     }
 
-    h3 {
+    & .description {
         font-size: 2vw;
         margin: 0 0 0 7vw;
         color: white;

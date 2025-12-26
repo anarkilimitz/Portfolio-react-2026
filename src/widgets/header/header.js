@@ -16,14 +16,16 @@ function Header() {
 						className="bg-black d-flex align-items-center justify-content-center"
 					>
 						<div className={styles.promo}>
-							<h1>Hi, I am Evgeniy</h1>
-							<h2>JavaScript and React Developer</h2>
-							<h3>
+							<h1 className={styles.title}>Hi, I am Evgeniy</h1>
+							<p className={styles.subtitle}>
+								JavaScript and React Developer
+							</p>
+							<div className={styles.description}>
 								Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum
 								excepturi ad in similique qui animi nesciunt sint magni, harum,
 								adipisci tenetur hic? Vero laudantium qui quisquam in magnam
 								accusamus excepturi.
-							</h3>
+							</div>
 						</div>
 					</Col>
 					{/* правая */}
