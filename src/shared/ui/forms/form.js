@@ -53,45 +53,48 @@ const MainForm = () => {
 				terms: false,
 			}}
 			validationSchema={Yup.object({
-				name: Yup.string()
-					.min(2, 'Введите не менее 2 символов')
-					.required('Обязательно для заполнения'),
+				name: Yup.string().min(2, 'At least 2 characters').required('Required'),
 				email: Yup.string()
-					.email('Некорректно введен email')
-					.matches(/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/, 'Введите корректный email')
-					.required('Обязательно для заполнения'),
+					.email('Invalid email address')
+					.matches(/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/, 'Valid email required')
+					.required('Required'),
 				text: Yup.string()
-					.min(10, 'Введите не менее 10 символов')
-					.required('Обязательно для заполнения'),
+					.min(10, 'At least 10 characters')
+					.required('Required'),
 				terms: Yup.boolean()
-					.required('Необходимо согласие!')
-					.oneOf([true], 'Необходимо согласие!'),
+					.required('Consent required')
+					.oneOf([true], 'Consent required'),
 			})}
 			onSubmit={(values) => {}} // для отправки формы на БУДУЩЕЕ
 		>
 			<Form className={styles.form}>
-				<h2 className={styles.formHeader}>Отправить сообщение</h2>
-				<MyTextInput id="name" name="name" type="text" placeholder="Ваше имя" />
+				<h2 className={styles.formHeader}>Send message</h2>
+				<MyTextInput
+					id="name"
+					name="name"
+					type="text"
+					placeholder="Your name"
+				/>
 				<MyTextInput
 					id="email"
 					name="email"
 					type="email"
-					placeholder="Ваша почта"
+					placeholder="Your email"
 				/>
 				<MyTextInput
 					id="text"
 					name="text"
 					as="textarea"
 					className="textarea"
-					placeholder="Ваше сообщение"
+					placeholder="Your message"
 				/>
 				<MyCheckbox name="terms">
 					<a href="#" className={styles.link}>
-						Соглашаетесь с политикой конфиденциальности?
+						Do you agree to the Privacy Policy?
 					</a>
 				</MyCheckbox>
 				<button type="submit" className={styles.button}>
-					Отправить
+					Send
 				</button>
 			</Form>
 		</Formik>

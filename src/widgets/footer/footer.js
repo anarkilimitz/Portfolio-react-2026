@@ -12,15 +12,12 @@ function Footer() {
 				<Row>
 					<Col md={{ span: 6, offset: 0 }}>
 						<h5>I am a React Developer</h5>
-						<p>
-							Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi,
-							quis rem.
-						</p>
+						<p>Creating modern interfaces using React 19 and Vite.</p>
 					</Col>
 					<Col md={{ span: 0, offset: 3 }}>
-						<h5>Контакты</h5>
-						<p>Email: info@example.com</p>
-						<p>Телефон: +7 (123) 456-78-90</p>
+						<h5>Contacts</h5>
+						<p>Email: devlimitz@yandex.ru</p>
+						<p>Phone: +7 (912) 284-50-53</p>
 					</Col>
 				</Row>
 				<Row>
@@ -28,7 +25,7 @@ function Footer() {
 						<MainForm />
 					</Col>
 					<Col md={{ span: 0, offset: 2 }}>
-						<h5>Социальные сети</h5>
+						<h5 className="ps-1">Social Networks</h5>
 						<div className={styles.contactsSocial}>
 							<a
 								className={`${styles.contactsLink} ${styles.contactsLinkGitHub}`}
@@ -102,7 +99,7 @@ function Footer() {
 					<p className="text-center mt-3">
 						<span>&copy; 2025 Portfolio Website. All rights reserved.</span>
 						<span style={{ marginLeft: '20em', fontSize: '1em' }}>
-							Под лицензией{' '}
+							License{' '}
 							<a
 								href="https://creativecommons.org/licenses/by-nc-nd/4.0/"
 								className={styles.licenseLink}

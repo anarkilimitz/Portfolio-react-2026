@@ -1,3 +1,5 @@
+@use '../../../app/styles/variables.scss' as *;
+
 .form {
     margin: 0 auto;
     padding: 0;
@@ -69,7 +71,7 @@
         background-color: #ffffff;
 
         &:checked {
-            background-color: #00a308;
+            background-color: $checkbox-footer;
         }
     }
 
@@ -118,7 +120,7 @@
             position: absolute;
             left: 0;
             bottom: -2px;
-            width: 130px;
+            width: 100%;
             height: 1px;
             background-color: #ffffff;
         }
