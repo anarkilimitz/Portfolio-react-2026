@@ -3,6 +3,8 @@
     min-height: 100vh;
     background-color: #181818;
     overflow: hidden;
+    display: flex;
+    flex-direction: column;
 }
 
 .header::before {
@@ -42,7 +44,7 @@
 }
 
 .customNavbar {
-    background: rgba(255, 255, 255, 0) !important;
+    background: rgba(255, 255, 255, 0.038) !important;
     backdrop-filter: blur(3px);
     -webkit-backdrop-filter: blur(3px);
     transition: all 0.3s ease;
@@ -62,5 +64,88 @@
                 rgba(255, 255, 255, 0.15) 20%,
                 rgba(255, 255, 255, 0.15) 80%,
                 transparent 100%);
+    }
+}
+
+/* бегущая строка - технологии */
+.fullWidthTechnologies {
+    width: 100%;
+    margin-top: auto; // прижать к низу хедера
+}
+
+.technologiesContainer {
+    width: 100%;
+    background: rgba(255, 255, 255, 0.038) !important;
+    backdrop-filter: blur(3px);
+    -webkit-backdrop-filter: blur(3px);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 1rem 0;
+
+    overflow: hidden;
+    position: relative;
+
+    &::before,
+    &::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        width: 100px;
+        z-index: 2;
+        pointer-events: none;
+    }
+}
+
+.technologiesWrapper {
+    width: 100%;
+    overflow: hidden;
+}
+
+.technologiesTrack {
+    display: inline-flex;
+    animation: scrollTechnologies 60s linear infinite;
+    white-space: nowrap; // запрет переноса
+    user-select: none;
+    will-change: transform; // для неприрывной анимации без дергания
+}
+
+.techItem {
+    display: inline-flex;
+    align-items: center;
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.95rem;
+    font-weight: 400;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 0 1.7rem;
+    transition: all 0.3s ease;
+    cursor: default;
+
+}
+
+@keyframes scrollTechnologies {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(-33.333%);
+    }
+}
+
+@media (max-width: 768px) {
+
+    .techItem {
+        font-size: 0.8rem;
+        padding: 0 1rem;
+    }
+}
+
+@media (max-width: 576px) {
+
+    .techItem {
+        font-size: 0.75rem;
+        padding: 0 0.8rem;
     }
 }

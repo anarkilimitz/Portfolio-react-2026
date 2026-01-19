@@ -22,11 +22,11 @@ code {
 }
 
 ::selection {
-    background-color: #51ff00;
-    color: #000000;
+    background-color: $bg-selection;
+    color: $text-selection;
 }
 
 ::-moz-selection {
-    background-color: #51ff00;
-    color: #000000;
+    background-color: $bg-selection;
+    color: $text-selection;
 }
