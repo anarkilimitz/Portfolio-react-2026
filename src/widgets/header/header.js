@@ -1,47 +1,41 @@
 import React from 'react';
 import styles from './header.module.scss';
 
-import { Container, Row, Col } from 'react-bootstrap';
-
-import backgroundImage from '../../assets/img/PortfolioBGcorrect.jpg';
+import { Container, Navbar, Nav } from 'react-bootstrap';
 
 function Header() {
 	return (
-		<header className="min-vh-100 d-flex align-items-stretch bg-black">
-			<Container fluid className="p-0 h-100">
-				<Row className="g-0 h-100">
-					{/* левая */}
-					<Col
-						md={7}
-						className="bg-black d-flex align-items-center justify-content-center"
-					>
-						<div className={styles.promo}>
-							<h1 className={styles.title}>Hi, I am Evgeniy</h1>
-							<p className={styles.subtitle}>
-								JavaScript and React Developer
-							</p>
-							<div className={styles.description}>
-								Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum
-								excepturi ad in similique qui animi nesciunt sint magni, harum,
-								adipisci tenetur hic? Vero laudantium qui quisquam in magnam
-								accusamus excepturi.
-							</div>
-						</div>
-					</Col>
-					{/* правая */}
-					<Col
-						md={5}
-						className="min-vh-100 d-flex align-items-center justify-content-center"
-						style={{
-							backgroundImage: `url(${backgroundImage})`,
-							backgroundSize: `cover`,
-							backgroundPosition: `center`,
-							backgroundRepeat: `no-repeat`,
-						}}
-					></Col>
-				</Row>
-			</Container>
-		</header>
+		<>
+			<Navbar
+				expand="lg"
+				className={`fixed-top ${styles.customNavbar}`}
+				variant="dark"
+			>
+				<Container>
+					<Navbar.Brand href="#home">Evgeniy Pavlenok</Navbar.Brand>
+					<Navbar.Toggle aria-controls="basic-navbar-nav" />
+					<Navbar.Collapse id="basic-navbar-nav">
+						<Nav className="ms-auto">
+							<Nav.Link href="#about">About</Nav.Link>
+							<Nav.Link href="#projects">Projects</Nav.Link>
+							<Nav.Link href="#contacts">Contacts</Nav.Link>
+						</Nav>
+					</Navbar.Collapse>
+				</Container>
+			</Navbar>
+
+			<header
+				className={`min-vh-100 d-flex align-items-stretch ${styles.header}`}
+			>
+				<Container fluid className="p-0 h-100">
+					<div className="text-white p-5" style={{ marginTop: '280px' }}>
+						<h1>Hi, I'm Evgeniy</h1>
+						<h3>Front-End JavaScript & React Developer</h3>
+						<p>I build modern, responsive web applications.</p>
+					</div>
+				</Container>
+			</header>
+		</>
 	);
 }
 
