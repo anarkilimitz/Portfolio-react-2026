@@ -1,0 +1,119 @@
+@use '../../app/styles/variables.scss' as *;
+
+.about {
+    background: #fff;
+    box-shadow: 0px 29px 52px -2px rgba(34, 60, 80, 0.08);
+}
+
+.imageWrapper {
+    position: relative;
+}
+
+.titleSection {
+    position: absolute;
+    top: -30px;
+    right: -265px;
+    z-index: 10;
+}
+
+.title {
+    position: relative;
+    display: inline-block;
+    color: #000;
+    letter-spacing: 6px;
+    line-height: 0.9;
+    text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.25);
+    font-weight: 600;
+    font-size: 5rem;
+    margin: 0;
+    white-space: nowrap;
+}
+
+.decoratedTitle {
+    &::before {
+        content: "❋";
+        position: absolute;
+        left: 310px;
+        top: -12%;
+        transform: translateY(-50%) rotate(-13deg);
+        font-size: 5.5rem;
+        color: #000;
+        z-index: 10;
+        opacity: 0.7;
+        pointer-events: none;
+        transition: all 0.4s ease;
+    }
+}
+
+.decoratedTitle:hover::before {
+    transform: translateY(-50%) rotate(30deg) scale(1.2);
+
+}
+
+.contentSection {
+    font-size: 1.1rem;
+    line-height: 1.8;
+}
+
+@media (max-width: 992px) {
+    .titleSection {
+        top: -25px;
+        right: -175px;
+    }
+
+    .title {
+        font-size: 4.2rem;
+        letter-spacing: 4px;
+    }
+
+    .decoratedTitle::before {
+        left: 255px;
+        top: -15%;
+        font-size: 4.2rem;
+        transform: translateY(-50%) rotate(-12deg);
+    }
+
+    .decoratedTitle:hover::before {
+        transform: translateY(-50%) rotate(25deg) scale(1.15);
+    }
+
+    .contentSection {
+        padding-top: 2.5rem;
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .titleSection {
+        top: -55px;
+        right: auto;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 90%;
+        text-align: center;
+    }
+
+    .title {
+        font-size: 3.2rem;
+        letter-spacing: 3px;
+    }
+
+    .decoratedTitle::before {
+        left: 102%;
+        top: -10%;
+        font-size: 3.2rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .title {
+        font-size: 2.6rem;
+        letter-spacing: 2px;
+    }
+
+    .decoratedTitle::before {
+        top: -28%;
+        font-size: 2.6rem;
+    }
+}

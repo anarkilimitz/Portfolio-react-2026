@@ -104,7 +104,7 @@
 
 .technologiesTrack {
     display: inline-flex;
-    animation: scrollTechnologies 60s linear infinite;
+    animation: scrollTechnologies 130s linear infinite;
     white-space: nowrap; // запрет переноса
     user-select: none;
     will-change: transform; // для неприрывной анимации без дергания
