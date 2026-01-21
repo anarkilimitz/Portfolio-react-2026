@@ -2,6 +2,10 @@ import React from 'react';
 import styles from './header.module.scss';
 
 import { Container, Navbar, Nav } from 'react-bootstrap';
+import Button from 'react-bootstrap/Button';
+
+import { FaGithub } from 'react-icons/fa';
+import { BiCodeAlt } from 'react-icons/bi';
 
 function Header() {
 	const technologies = [
@@ -48,6 +52,22 @@ function Header() {
 						<h1 className="pb-3">Hi, I'm Evgeniy</h1>
 						<h3 className="pb-3">Front-End JavaScript & React Developer</h3>
 						<p>I build modern, responsive web applications.</p>
+						<div className="d-flex gap-4 mt-5">
+							<Button variant="none" className={styles.primaryBtn} size="lg">
+								View Portfolio
+							</Button>
+							<Button
+								as="a"
+								href="https://github.com/anarkilimitz"
+								target="_blank"
+								rel="noopener noreferrer"
+								variant="none"
+								className={styles.primaryBtn}
+							>
+								<FaGithub style={{ marginRight: '10px' }} />
+								GitHub
+							</Button>
+						</div>
 					</div>
 				</Container>
 
