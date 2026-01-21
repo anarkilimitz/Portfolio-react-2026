@@ -11,7 +11,7 @@ function About() {
 				<section
 					className={`min-vh-100 d-flex align-items-stretch ${styles.about}`}
 				>
-					<Row className="p-5 g-0 min-vh-100">
+					<Row className="p-5 g-0 min-vh-100 align-items-center">
 						{/* Левая */}
 						<Col md={5}>
 							<div className={styles.imageWrapper}>
