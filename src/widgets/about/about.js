@@ -13,7 +13,7 @@ function About() {
 				>
 					<Row className="p-5 g-0 min-vh-100 align-items-center">
 						{/* Левая */}
-						<Col md={5}>
+						<Col xl={5}>
 							<div className={styles.imageWrapper}>
 								<img
 									src={aboutImag}
@@ -29,7 +29,7 @@ function About() {
 						</Col>
 
 						{/* Правая */}
-						<Col md={7}>
+						<Col xl={7}>
 							<div className={`ps-lg-5 ${styles.contentSection}`}>
 								<p className="lead mb-4">
 									Lorem ipsum dolor sit amet consectetur adipisicing elit.

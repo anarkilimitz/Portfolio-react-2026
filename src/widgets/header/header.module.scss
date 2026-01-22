@@ -5,6 +5,7 @@
     overflow: hidden;
     display: flex;
     flex-direction: column;
+
 }
 
 .header::before {
@@ -103,7 +104,12 @@
     }
 }
 
+.titleHeader {
+    margin-top: 280px;
+}
+
 // кнопки
+
 .primaryBtn {
     background: #ffffff00;
     color: #ffffff;
@@ -225,6 +231,9 @@
 }
 
 @media (max-width: 768px) {
+    .titleHeader {
+        padding: 0 !important;
+    }
 
     .techItem {
         font-size: 0.8rem;
@@ -233,9 +242,29 @@
 }
 
 @media (max-width: 576px) {
+    .header {
+        margin: 0;
+
+        h1 {
+            font-size: 1.7rem;
+        }
+
+        h3 {
+            font-size: 1rem;
+        }
+    }
+
+    .titleHeader {
+        margin: 260px 0 0 0;
+    }
 
     .techItem {
         font-size: 0.75rem;
         padding: 0 0.8rem;
+    }
+
+    .btnWrapper {
+        flex-direction: column;
+        width: 240px;
     }
 }

@@ -53,12 +53,12 @@ function Header() {
 				className={`min-vh-100 d-flex align-items-stretch ${styles.header}`}
 			>
 				{/* title */}
-				<Container fluid className="p-5 h-100">
-					<div className="text-white p-5" style={{ marginTop: '280px' }}>
+				<Container fluid className="p-3 p-sm-4 p-md-4 p-lg-5 h-100">
+					<div className={`text-white p-5 ${styles.titleHeader}`}>
 						<h1 className="pb-3">Hi, I'm Evgeniy</h1>
 						<h3 className="pb-3">Front-End JavaScript & React Developer</h3>
 						<p>I build modern, responsive web applications.</p>
-						<div className="d-flex gap-4 mt-5">
+						<div className={`d-flex gap-4 mt-5 ${styles.btnWrapper}`}>
 							<Button variant="none" className={styles.primaryBtn} size="lg">
 								View Portfolio
 							</Button>
