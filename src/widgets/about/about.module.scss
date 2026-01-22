@@ -73,9 +73,10 @@
 }
 
 @media (max-width: 992px) {
-        .contentSection {
-                margin-top: 0px;
-            }
+    .contentSection {
+        margin-top: 0px;
+    }
+
     .titleSection {
         right: -10px;
     }
@@ -126,6 +127,11 @@
 }
 
 @media (max-width: 576px) {
+    .aboutWrapper {
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+    }
+
     .title {
         font-size: 2.6rem;
         letter-spacing: 2px;

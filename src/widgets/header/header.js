@@ -35,13 +35,22 @@ function Header() {
 					<Navbar.Toggle aria-controls="basic-navbar-nav" />
 					<Navbar.Collapse id="basic-navbar-nav">
 						<Nav className="ms-auto">
-							<Nav.Link href="#about" className={styles.navbarNavLink}>
+							<Nav.Link
+								href="#about"
+								className={`${styles.navbarNavLink} px-3 px-lg-4`}
+							>
 								About
 							</Nav.Link>
-							<Nav.Link href="#projects" className={styles.navbarNavLink}>
+							<Nav.Link
+								href="#projects"
+								className={`${styles.navbarNavLink} px-3 px-lg-4`}
+							>
 								Projects
 							</Nav.Link>
-							<Nav.Link href="#contacts" className={styles.navbarNavLink}>
+							<Nav.Link
+								href="#contacts"
+								className={`${styles.navbarNavLink} px-3 px-lg-4`}
+							>
 								Contacts
 							</Nav.Link>
 						</Nav>

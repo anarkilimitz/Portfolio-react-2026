@@ -63,3 +63,59 @@
     text-decoration: underline;
     text-underline-offset: 5px;
 }
+
+@media (min-width: 992px) {
+    .row {
+        flex-direction: column !important;
+        align-items: center !important;
+        gap: 2rem !important; // расстояние между блоками
+    }
+
+    // Убираем все offset и span, которые ломают на md+
+    .col-md-6,
+    .col-md-3,
+    .col-md-0 {
+        width: 100% !important;
+        max-width: 100% !important;
+        flex: 0 0 100% !important;
+        margin-left: 0 !important;
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+    }
+
+    // Для первого ряда (имя + контакты)
+    .row:first-child {
+        gap: 1.5rem;
+
+        .col-md-6:first-child,
+        .col-md-0:last-child {
+            text-align: center; // или left, если хочешь слева
+        }
+    }
+
+    // Для второго ряда (форма + соцсети)
+    .row:nth-child(2) {
+        gap: 2rem;
+
+        .col-md-0:last-child {
+            text-align: center;
+
+            .contactsSocial {
+                justify-content: center;
+                margin: 0 auto !important;
+            }
+        }
+    }
+
+    // Нижний блок с копирайтом и лицензией
+    .row:last-child,
+    .text-center.mt-3 {
+        text-align: center !important;
+
+        span:last-child {
+            margin-left: 0 !important; // убиваем твой 20em
+            display: block;
+            margin-top: 0.5rem;
+        }
+    }
+}
