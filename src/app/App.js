@@ -17,7 +17,7 @@ function App() {
 			{/* <Snowfall color='#fff'/> */}
 			<Header />
 			<About />
-			{/* <Footer /> */}
+			<Footer />
 		</div>
 	);
 }

@@ -1,20 +1,21 @@
 .footer {
+    padding: 60px 0 30px;
 
     h5,
     p,
     a {
         font-weight: 100;
     }
-
 }
 
 .contactsSocial {
-    margin: 30px 0 0 15px;
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    margin-top: 12px;
 }
 
 .contactsLink {
-    margin-right: 25px;
-
     svg path {
         fill: #ffffff;
     }
@@ -29,93 +30,61 @@
     }
 }
 
-.contactsLinkGitHub {
-    &:hover {
-        svg path {
-            fill: #ffffffbd;
-        }
-    }
+.contactsLinkGitHub:hover svg path {
+    fill: #ffffffbd;
 }
 
-.contactsLinkInstagram {
-    &:hover {
-        svg path {
-            fill: #E1306C;
-        }
-    }
+.contactsLinkInstagram:hover svg path {
+    fill: #E1306C;
 }
 
-.contactsLinkTelegram {
-    &:hover {
-        svg path {
-            fill: #27a7e7;
-        }
-    }
+.contactsLinkTelegram:hover svg path {
+    fill: #27a7e7;
 }
 
-.licenseLink {
+.divider {
+    margin: 30px 0 20px;
+    border-color: rgb(255, 255, 255);
+}
+
+.bottomBar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    font-size: 0.9rem;
+}
+
+.license {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.license a {
     color: #ffffff;
     text-decoration: none;
     font-size: 0.9em;
 }
 
-.licenseLink:hover {
+.license a:hover {
     text-decoration: underline;
-    text-underline-offset: 5px;
+    text-underline-offset: 4px;
 }
 
-@media (min-width: 992px) {
-    .row {
-        flex-direction: column !important;
-        align-items: center !important;
-        gap: 2rem !important; // расстояние между блоками
+.license img {
+    max-width: 1.5em;
+    max-height: 1.5em;
+}
+
+@media (max-width: 768px) {
+    .contactsSocial {
+        justify-content: center;
     }
 
-    // Убираем все offset и span, которые ломают на md+
-    .col-md-6,
-    .col-md-3,
-    .col-md-0 {
-        width: 100% !important;
-        max-width: 100% !important;
-        flex: 0 0 100% !important;
-        margin-left: 0 !important;
-        padding-left: 0 !important;
-        padding-right: 0 !important;
-    }
-
-    // Для первого ряда (имя + контакты)
-    .row:first-child {
-        gap: 1.5rem;
-
-        .col-md-6:first-child,
-        .col-md-0:last-child {
-            text-align: center; // или left, если хочешь слева
-        }
-    }
-
-    // Для второго ряда (форма + соцсети)
-    .row:nth-child(2) {
-        gap: 2rem;
-
-        .col-md-0:last-child {
-            text-align: center;
-
-            .contactsSocial {
-                justify-content: center;
-                margin: 0 auto !important;
-            }
-        }
-    }
-
-    // Нижний блок с копирайтом и лицензией
-    .row:last-child,
-    .text-center.mt-3 {
-        text-align: center !important;
-
-        span:last-child {
-            margin-left: 0 !important; // убиваем твой 20em
-            display: block;
-            margin-top: 0.5rem;
-        }
+    .bottomBar {
+        justify-content: center;
+        text-align: center;
     }
 }
