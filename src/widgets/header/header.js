@@ -5,7 +5,6 @@ import { Container, Navbar, Nav } from 'react-bootstrap';
 import Button from 'react-bootstrap/Button';
 
 import { FaGithub } from 'react-icons/fa';
-import { BiCodeAlt } from 'react-icons/bi';
 
 function Header() {
 	const technologies = [
