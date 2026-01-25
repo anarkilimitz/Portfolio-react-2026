@@ -1,0 +1,27 @@
+@use '../../app/styles/variables.scss' as *;
+@use '../../app/styles/mixins.scss' as *;
+
+.projects {
+    min-height: 50vw;
+    // border: 1px solid green;
+
+    background-image: url('../../assets/img/Wall.png');
+    background-size: 60%;
+    background-position: bottom right;
+    background-repeat: no-repeat;
+    z-index: 0;
+
+    h1 {
+        @include section-title;
+
+        &::after {
+            content: '';
+            display: block;
+            margin-left: 6px;
+            width: 80px;
+            height: 4px;
+            background: #000;
+            margin-top: 1rem;
+        }
+    }
+}

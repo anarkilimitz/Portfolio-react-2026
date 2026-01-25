@@ -4,19 +4,17 @@ import './styles/variables.scss';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-// import Snowfall from 'react-snowfall';
-
 import Header from '../widgets/header/header';
 import Footer from '../widgets/footer/footer';
 import About from '../widgets/about/about';
-// import MainForm from '../shared/ui/forms/form';
+import Projects from '../widgets/projects/projects';
 
 function App() {
 	return (
 		<div>
-			{/* <Snowfall color='#fff'/> */}
 			<Header />
 			<About />
+			<Projects />
 			<Footer />
 		</div>
 	);
