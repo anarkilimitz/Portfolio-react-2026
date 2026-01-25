@@ -25,7 +25,7 @@ function Footer() {
 								className={`${styles.contactsLink} ${styles.contactsLinkGitHub}`}
 								href="https://github.com/anarkilimitz"
 								target="_blank"
-								rel="noreferrer"
+								rel="noopener noreferrer"
 							>
 								<svg
 									width="20"
@@ -42,7 +42,7 @@ function Footer() {
 								className={`${styles.contactsLink} ${styles.contactsLinkInstagram}`}
 								href="https://www.instagram.com/evgeniypavlenok/"
 								target="_blank"
-								rel="noreferrer"
+								rel="noopener noreferrer"
 							>
 								<svg
 									width="20"
@@ -61,7 +61,7 @@ function Footer() {
 								className={`${styles.contactsLink} ${styles.contactsLinkTelegram}`}
 								href="https://t.me/rothludatha"
 								target="_blank"
-								rel="noreferrer"
+								rel="noopener noreferrer"
 							>
 								<svg
 									width="20"
@@ -102,7 +102,7 @@ function Footer() {
 							<a
 								href="https://creativecommons.org/licenses/by-nc-nd/4.0/"
 								target="_blank"
-								rel="noreferrer"
+								rel="noopener noreferrer"
 							>
 								CC BY-NC-ND 4.0
 							</a>
