@@ -15,7 +15,7 @@ function Projects() {
 				<Row className="mt-5 align-items-start">
 					{/* левая колонка */}
 					<Col lg={7}>
-						<Accordion className="mt-5">
+						<Accordion className={`mt-5 ${styles.customAccordion}`}>
 							<Accordion.Item eventKey="0">
 								<Accordion.Header>E-commerce Store</Accordion.Header>
 								<Accordion.Body>
@@ -31,6 +31,7 @@ function Projects() {
 										<li>Platzi Fake Store API</li>
 									</ul>
 									<a
+										className={styles.customLink}
 										href="https://platzi-store-sable.vercel.app/"
 										target="_blank"
 										rel="noopener noreferrer"
@@ -54,6 +55,7 @@ function Projects() {
 										<li>Platzi Fake Store API</li>
 									</ul>
 									<a
+										className={styles.customLink}
 										href="https://platzi-store-sable.vercel.app/"
 										target="_blank"
 										rel="noopener noreferrer"
@@ -77,6 +79,7 @@ function Projects() {
 										<li>Platzi Fake Store API</li>
 									</ul>
 									<a
+										className={styles.customLink}
 										href="https://platzi-store-sable.vercel.app/"
 										target="_blank"
 										rel="noopener noreferrer"
@@ -100,6 +103,7 @@ function Projects() {
 										<li>Platzi Fake Store API</li>
 									</ul>
 									<a
+										className={styles.customLink}
 										href="https://platzi-store-sable.vercel.app/"
 										target="_blank"
 										rel="noopener noreferrer"
@@ -123,6 +127,7 @@ function Projects() {
 										<li>Platzi Fake Store API</li>
 									</ul>
 									<a
+										className={styles.customLink}
 										href="https://platzi-store-sable.vercel.app/"
 										target="_blank"
 										rel="noopener noreferrer"
