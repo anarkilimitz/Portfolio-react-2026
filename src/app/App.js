@@ -8,6 +8,7 @@ import Header from '../widgets/header/header';
 import Footer from '../widgets/footer/footer';
 import About from '../widgets/about/about';
 import Projects from '../widgets/projects/projects';
+import News from '../widgets/news/news';
 
 function App() {
 	return (
@@ -15,6 +16,7 @@ function App() {
 			<Header />
 			<About />
 			<Projects />
+			<News/>
 			<Footer />
 		</div>
 	);

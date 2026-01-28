@@ -1,0 +1,36 @@
+@use '../../app/styles/variables.scss' as *;
+@use '../../app/styles/mixins.scss' as *;
+
+.news {
+    margin-top: 150px;
+    min-height: 50vw;
+    background-size: 60%;
+    background-position: bottom right;
+    background-repeat: no-repeat;
+
+    .titleNews {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        padding-right: 5rem;
+
+        h1 {
+            @include section-title;
+            right: 0px;
+
+            &::after {
+                content: '';
+                display: block;
+                margin-left: 6px;
+                width: 115px;
+                height: 4px;
+                background: #000;
+                margin-top: 1rem;
+            }
+        }
+
+        h2 {
+            @include section-subtitle;
+        }
+    }
+}
