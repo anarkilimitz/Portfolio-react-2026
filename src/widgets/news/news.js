@@ -1,9 +1,16 @@
 import React from 'react';
 import styles from './news.module.scss';
 
-import { Container, Row, Col, Accordion } from 'react-bootstrap';
+import { Container, Row, Col, Card } from 'react-bootstrap';
+
+import { useNews } from '../../shared/hooks/useNews';
 
 function News() {
+	const { news, loading, error } = useNews();
+
+	if (loading) return <p>Загрузка новостей...</p>;
+	if (error) return <p>Ошибка: {error}</p>;
+
 	return (
 		<Container className="mt-5 mb-5">
 			<section className={styles.news}>
@@ -11,11 +18,37 @@ function News() {
 					<h1>Latest News</h1>
 					<h2>powered by NewsAPI</h2>
 				</div>
-				<Row className="mt-5 align-items-start">
-					{/* левая колонка */}
-					<Col lg={7}></Col>
-					{/* картинка справа*/}
-					<Col lg={5} className="mt-4 mt-lg-0"></Col>
+				<Row xs={1} md={2} className="g-4">
+					{news.map((article, idx) => (
+						<Col key={idx}>
+							<Card className={styles.newsCard}>
+								<Card.Img
+									variant="top"
+									src={article.urlToImage || '/fallback.jpg'}
+								/>
+
+								<Card.Body>
+									<Card.Title className={styles.cardTitle}>
+										{article.title}
+									</Card.Title>
+
+									<Card.Text className={styles.cardText}>
+										{article.description}
+									</Card.Text>
+								</Card.Body>
+
+								<Card.Body>
+									<Card.Link
+										href={article.url}
+										target="_blank"
+										rel="noreferrer"
+									>
+										Read more
+									</Card.Link>
+								</Card.Body>
+							</Card>
+						</Col>
+					))}
 				</Row>
 			</section>
 		</Container>

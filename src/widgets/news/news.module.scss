@@ -9,6 +9,7 @@
     background-repeat: no-repeat;
 
     .titleNews {
+        padding-bottom: 100px;
         display: flex;
         flex-direction: column;
         align-items: flex-end;
@@ -33,4 +34,34 @@
             @include section-subtitle;
         }
     }
+}
+// карточки
+.newsCard {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.newsCard img {
+    height: 200px;
+    object-fit: cover;
+}
+
+.newsCard .card-body {
+    flex-grow: 1;
+}
+
+// чтоб текст не растягивал карточку
+.cardTitle {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.cardText {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
 }
