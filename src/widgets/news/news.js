@@ -5,10 +5,20 @@ import { Container, Row, Col, Card } from 'react-bootstrap';
 
 import { useNews } from '../../shared/hooks/useNews';
 
+import { DNA } from 'react-loader-spinner';
+
 function News() {
 	const { news, loading, error } = useNews();
 
-	if (loading) return <p>Загрузка новостей...</p>;
+	// if (loading) return <p>Загрузка новостей...</p>;
+
+	if (loading)
+		return (
+			<div className={styles.loaderWrap}>
+				<DNA height="80" width="80" ariaLabel="dna-loading" />
+			</div>
+		);
+
 	if (error) return <p>Ошибка: {error}</p>;
 
 	return (

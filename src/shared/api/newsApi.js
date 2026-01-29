@@ -1,13 +1,13 @@
-const API_KEY = process.env.REACT_APP_NEWS_API_KEY;
+// const API_KEY = process.env.REACT_APP_NEWS_API_KEY;
 
 export async function fetchTechNews() {
 	// pageSize=6 загружать только 6 новостей
-	const url = `https://newsapi.org/v2/everything?q=apple&sortBy=publishedAt&pageSize=6&page=1&apiKey=${API_KEY}`;
+	// const url = `https://newsapi.org/v2/top-headlines?category=technology&pageSize=6&apiKey=${API_KEY}`;
 
-	const res = await fetch(url);
+	const res = await fetch('/news.php');
 
 	if (!res.ok) {
-		throw new Error('Не получилось загрузить новости');
+		throw new Error(`HTTP error: ${res.status}`);
 	}
 
 	const data = await res.json();
