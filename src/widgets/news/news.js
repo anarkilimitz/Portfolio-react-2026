@@ -7,10 +7,10 @@ import { useNews } from '../../shared/hooks/useNews';
 
 import { DNA } from 'react-loader-spinner';
 
+import imgFallback from '../../assets/img/fallback/newsfallback.png';
+
 function News() {
 	const { news, loading, error } = useNews();
-
-	// if (loading) return <p>Загрузка новостей...</p>;
 
 	if (loading)
 		return (
@@ -34,7 +34,16 @@ function News() {
 							<Card className={styles.newsCard}>
 								<Card.Img
 									variant="top"
-									src={article.urlToImage || '/fallback.jpg'}
+									src={article.urlToImage || imgFallback}
+									onError={(e) => {
+										e.currentTarget.onerror = null; // защита от зацикливания
+										e.currentTarget.src = imgFallback;
+									}}
+									// проверка ошибки загрузки картинки
+									// src={article.urlToImage || imgFallback}
+									// onError={(e) => {
+									// 	e.currentTarget.src = imgFallback;
+									// }}
 								/>
 
 								<Card.Body>

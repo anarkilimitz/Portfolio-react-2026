@@ -6,7 +6,10 @@ header('Access-Control-Allow-Origin: *');
 $config = require __DIR__ . '/config.php';
 $apiKey = $config['NEWS_API_KEY'];
 
-$url = "https://newsapi.org/v2/top-headlines?category=technology&pageSize=6&apiKey=$apiKey";
+// текущая дата загрузки новостей
+$today = date('Y-m-d');
+// pageSize=6 загружать только 6 новостей
+$url = "https://newsapi.org/v2/everything?q=apple&from=$today&to=$today&sortBy=popularity&pageSize=6&apiKey=$apiKey";
 
 // файл кэша (создастся автоматически)
 $cacheFile = __DIR__ . '/news_cache.json';
