@@ -1,3 +1,5 @@
+// для разработки
+
 export const mockNews = [
 	{
 		source: { name: 'BBC News' },

@@ -13,7 +13,7 @@ function TitleNewsSection() {
 					<h1 className={styles.title}>Latest News</h1>
 					<h2 className={styles.subtitle}>
 						Powered by{' '}
-						<a href="https://newsapi.org/" target="_blank">
+						<a href="https://newsapi.org/" target="_blank" rel="noreferrer">
 							<span>NewsAPI</span>
 						</a>
 					</h2>
