@@ -3,23 +3,24 @@ import { fetchTechNews } from '../api/newsApi';
 
 export function useNews() {
 	const [news, setNews] = useState([]);
+	const [page, setPage] = useState(1);
 	const [loading, setLoading] = useState(true);
 	const [error, setError] = useState(null);
 
 	useEffect(() => {
-		// console.log('useEffect fired');
-		fetchTechNews()
-			.then(setNews)
+		setLoading(true);
+		fetchTechNews(page)
+			.then((data) => {
+				setNews((prev) => [...prev, ...data]); // догрузка новостей
+			})
 			.catch((e) => setError(e.message))
 			.finally(() => setLoading(false));
-	}, []);
+	}, [page]);
 
-	// проверка на error
-	// useEffect(() => {
-	// 	Promise.reject(new Error('Test error'))
-	// 		.catch((e) => setError(e.message))
-	// 		.finally(() => setLoading(false));
-	// }, []);
-
-	return { news, loading, error };
+	return {
+		news,
+		loading,
+		error,
+		loadMore: () => setPage((prev) => prev + 1),
+	};
 }

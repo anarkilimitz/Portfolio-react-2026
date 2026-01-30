@@ -31,6 +31,8 @@
 }
 
 @mixin btn-news {
+    display: block;
+    width: 200px;
     background: #00000000;
     color: #000000;
     border: 2px solid #000000;
