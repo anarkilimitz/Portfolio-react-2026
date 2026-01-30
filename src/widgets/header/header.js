@@ -6,6 +6,8 @@ import Button from 'react-bootstrap/Button';
 
 import { FaGithub } from 'react-icons/fa';
 
+import { LanguageSwitcher } from '../../shared/i18n/languageSwitcher';
+
 function Header() {
 	const technologies = [
 		'HTML5',
@@ -53,6 +55,9 @@ function Header() {
 								Contacts
 							</Nav.Link>
 						</Nav>
+						<Nav.Item className="ms-3">
+							<LanguageSwitcher />
+						</Nav.Item>
 					</Navbar.Collapse>
 				</Container>
 			</Navbar>

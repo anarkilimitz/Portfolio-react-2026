@@ -10,8 +10,12 @@ import { DNA } from 'react-loader-spinner';
 import imgFallback from '../../assets/img/fallback/newsfallback.png';
 import ErrorMessage from '../../shared/ui/errorMessage/errorMessage';
 
+import { useLanguage } from '../../shared/i18n/languageContext';
+
 function News() {
 	const { news, loading, error, loadMore } = useNews();
+
+	const { t } = useLanguage();
 
 	if (loading && !news.length) {
 		return (
@@ -50,7 +54,7 @@ function News() {
 				size="lg"
 				disabled={loading}
 			>
-				{loading ? <DNA height="30" width="30" /> : 'Load More'}
+				{loading ? <DNA height="30" width="30" /> : t.loadMore}
 			</Button>
 		</>
 	);

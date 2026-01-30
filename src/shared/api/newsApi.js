@@ -32,47 +32,47 @@
 
 // эта настройка чтобы не тратить запросы с API чисто для разработки
 
-// import { mockNews } from '../mocks/news.mock';
+import { mockNews } from '../mocks/news.mock';
 
-// const isDev = process.env.NODE_ENV === 'development';
-
-// export async function fetchTechNews() {
-// 	if (isDev) {
-// 		console.log('🟡 MOCK NEWS USED');
-// 		return new Promise((resolve) => {
-// 			setTimeout(() => resolve(mockNews), 300);
-// 		});
-// 	}
-
-// 	const res = await fetch('/api/news.php');
-
-// 	if (!res.ok) {
-// 		throw new Error('Failed to fetch news');
-// 	}
-
-// 	const data = await res.json();
-// 	return data.articles;
-// }
-
-// тест
 const isDev = process.env.NODE_ENV === 'development';
 
-export async function fetchTechNews(page = 1) {
-	const url = isDev
-		? `https://newsapi.org/v2/top-headlines?category=technology&pageSize=4&page=${page}&apiKey=${process.env.REACT_APP_NEWS_API_KEY}`
-		: `/news.php?page=${page}`;
+export async function fetchTechNews() {
+	if (isDev) {
+		console.log('🟡 MOCK NEWS USED');
+		return new Promise((resolve) => {
+			setTimeout(() => resolve(mockNews), 300);
+		});
+	}
 
-	const res = await fetch(url);
+	const res = await fetch('/api/news.php');
 
 	if (!res.ok) {
-		throw new Error('Не получилось загрузить новости');
+		throw new Error('Failed to fetch news');
 	}
 
 	const data = await res.json();
-
-	if (data.status !== 'ok') {
-		throw new Error(data.message || 'Ошибка NewsAPI');
-	}
-
-	return data.articles || [];
+	return data.articles;
 }
+
+// ИСПОЛЬЗОВАТЬ ЭТУ НАСТРОЙКУ
+// const isDev = process.env.NODE_ENV === 'development';
+
+// export async function fetchTechNews(page = 1) {
+// 	const url = isDev
+// 		? `https://newsapi.org/v2/top-headlines?category=technology&pageSize=4&page=${page}&apiKey=${process.env.REACT_APP_NEWS_API_KEY}`
+// 		: `/news.php?page=${page}`;
+
+// 	const res = await fetch(url);
+
+// 	if (!res.ok) {
+// 		throw new Error('Не получилось загрузить новости');
+// 	}
+
+// 	const data = await res.json();
+
+// 	if (data.status !== 'ok') {
+// 		throw new Error(data.message || 'Ошибка NewsAPI');
+// 	}
+
+// 	return data.articles || [];
+// }

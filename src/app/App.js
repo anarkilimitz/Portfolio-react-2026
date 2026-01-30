@@ -13,9 +13,9 @@ import TitleNewsSection from '../widgets/titleNewsSection.jsx/titleNewsSection';
 function App() {
 	return (
 		<div>
-			{/* <Header /> */}
-			{/* <About /> */}
-			{/* <Projects /> */}
+			<Header />
+			<About />
+			<Projects />
 			<TitleNewsSection />
 			<Footer />
 		</div>
