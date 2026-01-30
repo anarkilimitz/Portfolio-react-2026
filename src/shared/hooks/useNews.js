@@ -7,6 +7,7 @@ export function useNews() {
 	const [error, setError] = useState(null);
 
 	useEffect(() => {
+		// console.log('useEffect fired');
 		fetchTechNews()
 			.then(setNews)
 			.catch((e) => setError(e.message))

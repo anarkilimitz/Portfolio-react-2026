@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './news.module.scss';
 
-import { Container, Row, Col, Card } from 'react-bootstrap';
+import { Row, Col, Card } from 'react-bootstrap';
 
 import { useNews } from '../../shared/hooks/useNews';
 
@@ -16,7 +16,7 @@ function News() {
 	if (loading)
 		return (
 			<div className={styles.loaderWrap}>
-				<DNA height="80" width="80" ariaLabel="dna-loading" />
+				<DNA height="100" width="100" ariaLabel="dna-loading" />
 			</div>
 		);
 

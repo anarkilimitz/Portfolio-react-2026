@@ -3,25 +3,54 @@
 // при npm start будет работать запрос напрямую
 // при npm run build будет собираться сборка с php прокси
 
+
+// эта настройка для заливки на Хостинг
+// const isDev = process.env.NODE_ENV === 'development';
+
+// const DEV_URL = `https://newsapi.org/v2/top-headlines?category=technology&pageSize=6&apiKey=${process.env.REACT_APP_NEWS_API_KEY}`;
+// const PROD_URL = '/news.php';
+
+// export async function fetchTechNews() {
+// 	const url = isDev ? DEV_URL : PROD_URL;
+
+// 	const res = await fetch(url);
+
+// 	if (!res.ok) {
+// 		throw new Error('Не получилось загрузить новости');
+// 	}
+
+// 	const data = await res.json();
+
+// 	if (data.status !== 'ok') {
+// 		throw new Error(data.message || 'Ошибка NewsAPI');
+// 	}
+
+// 	return data.articles || [];
+// }
+
+
+
+// эта настройка чтобы не тратить запросы с API чисто для разработки
+
+import { mockNews } from '../mocks/news.mock';
+
 const isDev = process.env.NODE_ENV === 'development';
 
-const DEV_URL = `https://newsapi.org/v2/top-headlines?category=technology&pageSize=6&apiKey=${process.env.REACT_APP_NEWS_API_KEY}`;
-const PROD_URL = '/news.php';
-
 export async function fetchTechNews() {
-	const url = isDev ? DEV_URL : PROD_URL;
+	if (isDev) {
+		console.log('🟡 MOCK NEWS USED');
+		return new Promise((resolve) => {
+			setTimeout(() => resolve(mockNews), 300);
+		});
+	}
 
-	const res = await fetch(url);
+	const res = await fetch('/api/news.php');
 
 	if (!res.ok) {
-		throw new Error('Не получилось загрузить новости');
+		throw new Error('Failed to fetch news');
 	}
 
 	const data = await res.json();
-
-	if (data.status !== 'ok') {
-		throw new Error(data.message || 'Ошибка NewsAPI');
-	}
-
-	return data.articles || [];
+	return data.articles;
 }
+
