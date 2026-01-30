@@ -88,6 +88,15 @@
     min-height: 60vh;
 }
 
+// кнопка
+
+.newsBtn {
+    @include btn-news;
+    display: block;
+    margin: 2.5rem auto;
+    align-items: center;
+}
+
 @media (max-width: 992px) {
     .news {
 

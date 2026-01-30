@@ -3,9 +3,19 @@ import React from 'react';
 import styles from '../../widgets/news/news.module.scss';
 
 import { Container } from 'react-bootstrap';
+import Button from 'react-bootstrap/Button';
 import News from '../news/news';
 
+import { useState } from 'react';
+
 function TitleNewsSection() {
+	const [newsCount, setNewsCount] = useState(2);
+	const [totalNews, setTotalNews] = useState(0);
+
+	const loadMore = () => {
+		setNewsCount((prev) => prev + 2);
+	};
+
 	return (
 		<Container className="mt-5 mb-5">
 			<section className={styles.news}>
@@ -19,7 +29,18 @@ function TitleNewsSection() {
 					</h2>
 				</div>
 
-				<News />
+				<News newsCount={newsCount} onTotalChange={setTotalNews} />
+
+				{newsCount < totalNews && (
+					<Button
+						onClick={() => setNewsCount((prev) => prev + 2)}
+						variant="none"
+						className={styles.newsBtn}
+						size="lg"
+					>
+						Load More
+					</Button>
+				)}
 			</section>
 		</Container>
 	);

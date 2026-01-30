@@ -29,3 +29,57 @@
     text-transform: capitalize;
     z-index: 1;
 }
+
+@mixin btn-news {
+    background: #00000000;
+    color: #000000;
+    border: 2px solid #000000;
+    padding: 0.75rem 2.2rem;
+    font-weight: 500;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    position: relative;
+
+    &::after {
+        content: "";
+        position: absolute;
+        left: 18%;
+        bottom: 10px;
+        width: 0%;
+        height: 2px;
+        background: orange;
+        transition: width 0.35s ease;
+    }
+
+    &:hover::after,
+    &:focus-visible::after {
+        width: 64%;
+    }
+
+    &:hover {
+        background: #2828281e;
+        color: orange;
+        border-color: orange;
+        box-shadow: 0px 29px 52px -2px rgba(34, 60, 80, 0.08);
+    }
+
+    &:active {
+        background-color: #ffffff00 !important;
+        outline: none !important;
+        box-shadow: none !important;
+    }
+
+    &:focus,
+    &:focus-visible {
+        background-color: rgb(255, 255, 255);
+        border-color: orange;
+        box-shadow: 0px 29px 52px -2px rgba(34, 60, 80, 0.08);
+        outline: none !important;
+        box-shadow: none !important;
+    }
+
+    &:active:focus {
+        box-shadow: none !important;
+    }
+}

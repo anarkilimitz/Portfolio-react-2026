@@ -10,8 +10,14 @@ import { DNA } from 'react-loader-spinner';
 import imgFallback from '../../assets/img/fallback/newsfallback.png';
 import ErrorMessage from '../../shared/ui/errorMessage/errorMessage';
 
-function News() {
+function News({ newsCount, onTotalChange }) {
 	const { news, loading, error } = useNews();
+	// скрыть кнопку, если новости закончились
+	React.useEffect(() => {
+		if (news.length && onTotalChange) {
+			onTotalChange(news.length);
+		}
+	}, [news, onTotalChange]);
 
 	if (loading)
 		return (
@@ -28,7 +34,7 @@ function News() {
 	return (
 		<div className={styles.newsInner}>
 			<Row xs={1} md={2} className="g-4">
-				{news.map((article, idx) => (
+				{news.slice(0, newsCount).map((article, idx) => (
 					<Col key={idx}>
 						<Card className={styles.newsCard}>
 							<Card.Img
