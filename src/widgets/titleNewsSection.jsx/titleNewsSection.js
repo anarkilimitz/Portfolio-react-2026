@@ -16,7 +16,7 @@ function TitleNewsSection() {
 				<div className={`text-white pt-5 ${styles.titleNews}`}>
 					<h1 className={styles.title}>{t.titleNews}</h1>
 					<h2 className={styles.subtitle}>
-						{t.poweredBy}
+						{t.poweredBy}{' '}
 						<a href="https://newsapi.org/" target="_blank" rel="noreferrer">
 							<span>NewsAPI</span>
 						</a>
