@@ -4,7 +4,11 @@ import { Container, Row, Col } from 'react-bootstrap';
 
 import aboutImag from '../../assets/img/PortfolioBgColor390Deg.jpg';
 
+import { useLanguage } from '../../shared/i18n/languageContext';
+
 function About() {
+	const { t } = useLanguage();
+
 	return (
 		<>
 			<Container className="mt-5 mb-5">
@@ -24,7 +28,7 @@ function About() {
 								/>
 								<div className={`${styles.titleSection} pe-lg-5`}>
 									<h1 className={`${styles.title} ${styles.decoratedTitle}`}>
-										ABOUT
+										{t.titleAbout}
 									</h1>
 								</div>
 							</div>
@@ -33,26 +37,7 @@ function About() {
 						{/* Правая */}
 						<Col xl={7}>
 							<div className={`ps-lg-5 ${styles.contentSection}`}>
-								<p className="lead mb-4">
-									Lorem ipsum dolor sit amet consectetur adipisicing elit.
-									Corporis natus et sit obcaecati dicta tempora fugit qui
-									aspernatur autem? Quasi suscipit voluptatibus eveniet illum,
-									dolores dolore vero dignissimos! Alias, ad. Lorem ipsum dolor
-									sit amet, consectetur adipisicing elit. Molestias sint hic
-									esse quisquam incidunt dicta? Aliquid qui cum consequuntur,
-									earum, nisi optio illo laudantium quod nobis ab,
-									exercitationem esse at?
-								</p>
-								<p className="mb-0">
-									Lorem ipsum dolor sit amet consectetur adipisicing elit.
-									Corporis natus et sit obcaecati dicta tempora fugit qui
-									aspernatur autem? Quasi suscipit voluptatibus eveniet illum,
-									dolores dolore vero dignissimos! Alias, ad. Lorem ipsum dolor
-									sit amet, consectetur adipisicing elit. Molestias sint hic
-									esse quisquam incidunt dicta? Aliquid qui cum consequuntur,
-									earum, nisi optio illo laudantium quod nobis ab,
-									exercitationem esse at?
-								</p>
+								<p className="lead mb-4">{t.textAbout}</p>
 							</div>
 						</Col>
 					</Row>

@@ -7,6 +7,7 @@ import Button from 'react-bootstrap/Button';
 import { FaGithub } from 'react-icons/fa';
 
 import { LanguageSwitcher } from '../../shared/i18n/languageSwitcher';
+import { useLanguage } from '../../shared/i18n/languageContext';
 
 function Header() {
 	const technologies = [
@@ -24,6 +25,8 @@ function Header() {
 		'UI/UX',
 	];
 
+	const { t } = useLanguage();
+
 	return (
 		<>
 			<Navbar
@@ -32,7 +35,7 @@ function Header() {
 				variant="dark"
 			>
 				<Container>
-					<Navbar.Brand href="#">Evgeniy Pavlenok</Navbar.Brand>
+					<Navbar.Brand href="#">{t.name}</Navbar.Brand>
 					<Navbar.Toggle aria-controls="basic-navbar-nav" />
 					<Navbar.Collapse id="basic-navbar-nav">
 						<Nav className="ms-auto">
@@ -40,19 +43,19 @@ function Header() {
 								href="#about"
 								className={`${styles.navbarNavLink} px-3 px-lg-4`}
 							>
-								About
+								{t.about}
 							</Nav.Link>
 							<Nav.Link
 								href="#projects"
 								className={`${styles.navbarNavLink} px-3 px-lg-4`}
 							>
-								Projects
+								{t.projects}
 							</Nav.Link>
 							<Nav.Link
 								href="#contacts"
 								className={`${styles.navbarNavLink} px-3 px-lg-4`}
 							>
-								Contacts
+								{t.contacts}
 							</Nav.Link>
 						</Nav>
 						<Nav.Item className="ms-3">
@@ -68,12 +71,12 @@ function Header() {
 				{/* title */}
 				<Container fluid className="p-3 p-sm-4 p-md-4 p-lg-5 h-100">
 					<div className={`text-white p-5 ${styles.titleHeader}`}>
-						<h1 className="pb-3">Hi, I'm Evgeniy</h1>
-						<h3 className="pb-3">Front-End JavaScript & React Developer</h3>
-						<p>I build modern, responsive web applications.</p>
+						<h1 className="pb-3">{t.titleHeader}</h1>
+						<h3 className="pb-3">{t.subtitleHeader}</h3>
+						<p>{t.textHeader}</p>
 						<div className={`d-flex gap-4 mt-5 ${styles.btnWrapper}`}>
 							<Button variant="none" className={styles.primaryBtn} size="lg">
-								View Portfolio
+								{t.btnViewHeader}
 							</Button>
 							<Button
 								as="a"

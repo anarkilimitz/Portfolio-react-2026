@@ -5,22 +5,25 @@ import { Container, Row, Col, Accordion } from 'react-bootstrap';
 
 import projectsImg from '../../assets/img/PlatziBg.png';
 
+import { useLanguage } from '../../shared/i18n/languageContext';
+
 function Projects() {
+	const { t } = useLanguage();
+
 	return (
 		<Container className="mt-5 mb-5">
 			<section className={styles.projects}>
 				<div className={`text-white pt-5 ${styles.titleProjects}`}>
-					<h1 className={styles.title}>Projects</h1>
+					<h1 className={styles.title}>{ t.projects}</h1>
 				</div>
 				<Row className="mt-5 align-items-start">
 					{/* левая колонка */}
 					<Col lg={7}>
 						<Accordion className={`mt-5 ${styles.customAccordion}`}>
 							<Accordion.Item eventKey="0">
-								<Accordion.Header>E-commerce Store</Accordion.Header>
+								<Accordion.Header>{t.titleAccordionProjects}</Accordion.Header>
 								<Accordion.Body>
-									An online store application powered by the Platzi Fake Store
-									API.
+									{t.subtitleAccordionProjects}
 									<ul className="mt-3">
 										<li>React 19</li>
 										<li>Redux Toolkit + React Redux</li>
