@@ -42,20 +42,32 @@ function News() {
 									<Card.Title>{article.title}</Card.Title>
 									<Card.Text>{article.description}</Card.Text>
 								</Card.Body>
+								<Card.Body>
+									<Card.Link
+										href={article.url}
+										target="_blank"
+										rel="noreferrer"
+									>
+										{t.btnViewNews}
+									</Card.Link>
+								</Card.Body>
 							</Card>
 						</Col>
 					))}
 				</Row>
 			</div>
-			<Button
-				onClick={loadMore}
-				className={styles.newsBtn}
-				variant="none"
-				size="lg"
-				disabled={loading}
-			>
-				{loading ? <DNA height="30" width="30" /> : t.loadMore}
-			</Button>
+
+			{news.length > 0 && (
+				<Button
+					onClick={loadMore}
+					className={styles.newsBtn}
+					variant="none"
+					size="lg"
+					disabled={loading}
+				>
+					{loading ? <DNA height="30" width="30" /> : t.loadMore}
+				</Button>
+			)}
 		</>
 	);
 }

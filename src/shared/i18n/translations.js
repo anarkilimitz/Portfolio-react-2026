@@ -24,6 +24,7 @@ export const translations = {
 		// News
 		titleNews: 'Latest News',
 		poweredBy: 'Powered by',
+		btnViewNews: 'View News',
 		loadMore: 'Load More',
 		error: 'Failed to load news',
 		noNews: 'No news available',
@@ -55,6 +56,7 @@ export const translations = {
 		// News
 		titleNews: 'Последние новости',
 		poweredBy: 'Работает на',
+		btnViewNews: 'Посмотреть новость',
 		loadMore: 'Загрузить ещё',
 		error: 'Не удалось загрузить новости',
 		noNews: 'Новостей нет',
