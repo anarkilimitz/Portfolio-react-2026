@@ -6,13 +6,24 @@ header('Access-Control-Allow-Origin: *');
 $config = require __DIR__ . '/config.php';
 $apiKey = $config['NEWS_API_KEY'];
 
+// номер страницы (для кнопки "Load more")
+$page = isset($_GET['page']) ? max(1, (int)$_GET['page']) : 1;
+
+// сколько новостей грузим за один запрос
+$pageSize = 4;
+
 // текущая дата загрузки новостей
 $today = date('Y-m-d');
-// pageSize=6 загружать только 6 новостей
-$url = "https://newsapi.org/v2/everything?q=apple&from=$today&to=$today&sortBy=popularity&pageSize=6&apiKey=$apiKey";
+
+// pageSize=4 — загружать только 4 новости
+$url = "https://newsapi.org/v2/top-headlines?"
+     . "category=technology"
+     . "&pageSize=$pageSize"
+     . "&page=$page"
+     . "&apiKey=$apiKey";
 
 // файл кэша (создастся автоматически)
-$cacheFile = __DIR__ . '/news_cache.json';
+$cacheFile = __DIR__ . "/news_cache_page_$page.json";
 
 // время жизни кэша в секундах
 $cacheTime = 600; // 10 минут
@@ -58,4 +69,5 @@ file_put_contents($cacheFile, $response);
 // отдаём результат
 echo $response;
 exit;
+
 

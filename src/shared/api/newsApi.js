@@ -55,6 +55,46 @@
 // }
 
 // ИСПОЛЬЗОВАТЬ ЭТУ НАСТРОЙКУ
+// const isDev = process.env.NODE_ENV === 'development';
+
+// export async function fetchTechNews(page = 1) {
+// 	const url = isDev
+// 		? `https://newsapi.org/v2/top-headlines?category=technology&pageSize=4&page=${page}&apiKey=${process.env.REACT_APP_NEWS_API_KEY}`
+// 		: `/news.php?page=${page}`;
+
+// 	const res = await fetch(url);
+
+// 	if (!res.ok) {
+// 		throw new Error('Не получилось загрузить новости');
+// 	}
+
+// 	const data = await res.json();
+
+// 	if (data.status !== 'ok') {
+// 		throw new Error(data.message || 'Ошибка NewsAPI');
+// 	}
+
+// 	return data.articles || [];
+// }
+
+// export async function fetchTechNews(page = 1) {
+// 	const url = `https://newsapi.org/v2/top-headlines?category=technology&pageSize=4&page=${page}&apiKey=${process.env.REACT_APP_NEWS_API_KEY}`;
+
+// 	const res = await fetch(url);
+
+// 	if (!res.ok) {
+// 		throw new Error('Не получилось загрузить новости');
+// 	}
+
+// 	const data = await res.json();
+
+// 	if (data.status !== 'ok') {
+// 		throw new Error(data.message || 'Ошибка NewsAPI');
+// 	}
+
+// 	return data.articles || [];
+// }
+
 const isDev = process.env.NODE_ENV === 'development';
 
 export async function fetchTechNews(page = 1) {
@@ -76,3 +116,4 @@ export async function fetchTechNews(page = 1) {
 
 	return data.articles || [];
 }
+
