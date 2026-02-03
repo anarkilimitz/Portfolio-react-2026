@@ -13,6 +13,11 @@ const Page404 = () => {
 				autoplay
 				className={styles.animation}
 			/>
+			
+			<Link to="/" className={styles.page404button}>
+				Вернуться на главную!
+			</Link>
+
 			<div className={styles.numbers}>
 				<span>4</span>
 				<span>0</span>
@@ -23,15 +28,11 @@ const Page404 = () => {
 				Похоже, ты зашёл не туда. Такой страницы не существует!
 			</p>
 
-			<Link to="/" className={styles.page404button}>
-				Вернуться на главную!
-			</Link>
-
 			<footer className={styles.page404footer}>
 				© {new Date().getFullYear()} Твоя Вселенная. 🚀
 			</footer>
 		</div>
 	);
-}
+};
 
 export default Page404;

@@ -1,0 +1,13 @@
+# Чтобы сервер переходил на МОЮ страницу 404 !!!!!!!!!!!
+# Это стандартная настройка SPA на сервере
+
+RewriteEngine On
+
+# Проверяем, что файл НЕ существует
+RewriteCond %{REQUEST_FILENAME} !-f
+
+# Проверяем, что директория НЕ существует
+RewriteCond %{REQUEST_FILENAME} !-d
+
+# Все остальные запросы отправляем в index.html (для React Router)
+RewriteRule ^ index.html [L]
