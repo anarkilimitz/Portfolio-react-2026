@@ -12,6 +12,7 @@ import Projects from '../widgets/projects/projects';
 import TitleNewsSection from '../widgets/titleNewsSection.jsx/titleNewsSection';
 
 import Page404 from '../pages/404/Page404';
+import Policy from '../pages/policy/policy';
 
 const Layout = () => (
 	<>
@@ -28,10 +29,11 @@ function App() {
 					index
 					element={
 						<>
-							<Header />
-							<About />
+							<Policy/>
+							{/* <Header /> */}
+							{/* <About />
 							<Projects />
-							<TitleNewsSection />
+							<TitleNewsSection /> */}
 						</>
 					}
 				/>
