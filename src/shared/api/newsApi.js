@@ -1,8 +1,29 @@
+const isDev = process.env.NODE_ENV === 'development';
+
+export async function fetchTechNews(page = 1) {
+	const url = isDev
+		? `https://newsapi.org/v2/top-headlines?category=technology&pageSize=4&page=${page}&apiKey=${process.env.REACT_APP_NEWS_API_KEY}`
+		: `/news.php?page=${page}`;
+
+	const res = await fetch(url);
+
+	if (!res.ok) {
+		throw new Error('Не получилось загрузить новости');
+	}
+
+	const data = await res.json();
+
+	if (data.status !== 'ok') {
+		throw new Error(data.message || 'Ошибка NewsAPI');
+	}
+
+	return data.articles || [];
+}
+
 // Суть этой настройки - локально всё продолжает работать без PHP,
 // 	а на сервере — через PHP - прокси.
 // при npm start будет работать запрос напрямую
 // при npm run build будет собираться сборка с php прокси
-
 
 // эта настройка для заливки на Хостинг
 // const isDev = process.env.NODE_ENV === 'development';
@@ -27,8 +48,6 @@
 
 // 	return data.articles || [];
 // }
-
-
 
 // эта настройка чтобы не тратить запросы с API чисто для разработки
 
@@ -94,26 +113,3 @@
 
 // 	return data.articles || [];
 // }
-
-const isDev = process.env.NODE_ENV === 'development';
-
-export async function fetchTechNews(page = 1) {
-	const url = isDev
-		? `https://newsapi.org/v2/top-headlines?category=technology&pageSize=4&page=${page}&apiKey=${process.env.REACT_APP_NEWS_API_KEY}`
-		: `/news.php?page=${page}`;
-
-	const res = await fetch(url);
-
-	if (!res.ok) {
-		throw new Error('Не получилось загрузить новости');
-	}
-
-	const data = await res.json();
-
-	if (data.status !== 'ok') {
-		throw new Error(data.message || 'Ошибка NewsAPI');
-	}
-
-	return data.articles || [];
-}
-

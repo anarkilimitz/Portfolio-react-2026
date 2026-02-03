@@ -25,9 +25,8 @@ $url = "https://newsapi.org/v2/top-headlines?"
 // файл кэша (создастся автоматически)
 $cacheFile = __DIR__ . "/news_cache_page_$page.json";
 
-// время жизни кэша в секундах
-$cacheTime = 600; // 10 минут
-
+// время жизни кэша
+$cacheTime = 600;
 
 // ====== ПРОВЕРКА КЭША ======
 if (file_exists($cacheFile)) {
@@ -39,8 +38,6 @@ if (file_exists($cacheFile)) {
         exit;
     }
 }
-// ============================
-
 
 // ====== ЗАПРОС К NewsAPI ======
 $ch = curl_init();

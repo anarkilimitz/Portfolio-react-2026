@@ -1,4 +1,5 @@
 import React from 'react';
+import { Routes, Route, Outlet } from 'react-router-dom';
 import './styles/global.scss';
 import './styles/variables.scss';
 
@@ -10,15 +11,33 @@ import About from '../widgets/about/about';
 import Projects from '../widgets/projects/projects';
 import TitleNewsSection from '../widgets/titleNewsSection.jsx/titleNewsSection';
 
+import Page404 from '../pages/404/Page404';
+
+const Layout = () => (
+	<>
+		<Outlet />
+		<Footer />
+	</>
+);
+
 function App() {
 	return (
-		<div>
-			<Header />
-			<About />
-			<Projects />
-			<TitleNewsSection />
-			<Footer />
-		</div>
+		<Routes>
+			<Route element={<Layout />}>
+				<Route
+					index
+					element={
+						<>
+							<Header />
+							<About />
+							<Projects />
+							<TitleNewsSection />
+						</>
+					}
+				/>
+				<Route path="*" element={<Page404 />} />
+			</Route>
+		</Routes>
 	);
 }
 

@@ -1,30 +1,37 @@
-import './page404.scss';
-import ErrorMessage from '../../errorMessage/ErrorMessage';
+import styles from './page404.module.scss';
+import Lottie from 'lottie-react';
+import lonely404Animation from '../../shared/ui/errorMessagePage/Lonely404.json';
+
 import { Link } from 'react-router-dom';
 
 const Page404 = () => {
 	return (
-		<div className="page-404">
-			<ErrorMessage />
-			<div className="page-404__numbers">
+		<div className={styles.page404}>
+			<Lottie
+				animationData={lonely404Animation}
+				loop
+				autoplay
+				className={styles.animation}
+			/>
+			<div className={styles.numbers}>
 				<span>4</span>
 				<span>0</span>
 				<span>4</span>
 			</div>
 
-			<p className="page-404__text">
-				Похоже, ты зашёл не туда. Но не переживай — даже баги бывают красивыми.
+			<p className={styles.page404text}>
+				Похоже, ты зашёл не туда. Такой страницы не существует!
 			</p>
 
-			<Link to="/" className="page-404__button">
+			<Link to="/" className={styles.page404button}>
 				Вернуться на главную!
 			</Link>
 
-			<footer className="page-404__footer">
-				© {new Date().getFullYear()} Твоя Вселенная. Ошибки — тоже часть пути 🚀
+			<footer className={styles.page404footer}>
+				© {new Date().getFullYear()} Твоя Вселенная. 🚀
 			</footer>
 		</div>
 	);
-};
+}
 
 export default Page404;
