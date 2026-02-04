@@ -3,6 +3,8 @@ import styles from '../forms/form.module.scss';
 import { Formik, Form, useField } from 'formik';
 import * as Yup from 'yup';
 
+import { Link } from 'react-router-dom';
+
 const MyTextInput = ({ label, as, ...props }) => {
 	const [field, meta] = useField(props);
 	const Component = as || 'input';
@@ -89,9 +91,9 @@ const MainForm = () => {
 					placeholder="Your message"
 				/>
 				<MyCheckbox name="terms">
-					<a href="#" className={styles.link}>
+					<Link to="/policy" className={styles.link}>
 						Do you agree to the Privacy Policy?
-					</a>
+					</Link>
 				</MyCheckbox>
 				<button type="submit" className={styles.button}>
 					Send

@@ -14,31 +14,39 @@ import TitleNewsSection from '../widgets/titleNewsSection.jsx/titleNewsSection';
 import Page404 from '../pages/404/Page404';
 import Policy from '../pages/policy/policy';
 
-const Layout = () => (
+const MainLayout = () => (
 	<>
 		<Outlet />
 		<Footer />
 	</>
 );
 
+const PolicyLayout = () => (
+	<>
+		<Outlet />
+	</>
+);
+
 function App() {
 	return (
 		<Routes>
-			<Route element={<Layout />}>
+			<Route element={<MainLayout />}>
 				<Route
 					index
 					element={
 						<>
-							<Policy/>
-							{/* <Header /> */}
-							{/* <About />
+							<Header />
+							<About />
 							<Projects />
-							<TitleNewsSection /> */}
+							<TitleNewsSection />
 						</>
 					}
 				/>
-				<Route path="*" element={<Page404 />} />
 			</Route>
+			<Route element={<PolicyLayout />}>
+				<Route path="/policy" element={<Policy />} />
+			</Route>
+			<Route path="*" element={<Page404 />} />
 		</Routes>
 	);
 }
