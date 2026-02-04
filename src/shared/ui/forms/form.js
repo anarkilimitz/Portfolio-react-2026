@@ -67,7 +67,34 @@ const MainForm = () => {
 					.required('Consent required')
 					.oneOf([true], 'Consent required'),
 			})}
-			onSubmit={(values) => {}} // для отправки формы на БУДУЩЕЕ
+			onSubmit={async (values, { resetForm, setSubmitting }) => {
+				try {
+					const response = await fetch('https://pavlenok.com/send-mail.php', {
+						method: 'POST',
+						headers: {
+							'Content-Type': 'application/json',
+						},
+						body: JSON.stringify({
+							name: values.name,
+							email: values.email,
+							text: values.text,
+						}),
+					});
+
+					const result = await response.json();
+
+					if (!response.ok || !result.success) {
+						throw new Error(result.error || 'Send error');
+					}
+
+					alert('Message sent successfully');
+					resetForm();
+				} catch (error) {
+					alert('Error: ' + error.message);
+				} finally {
+					setSubmitting(false);
+				}
+			}}
 		>
 			<Form className={styles.form}>
 				<h2 className={styles.formHeader}>Send message</h2>
