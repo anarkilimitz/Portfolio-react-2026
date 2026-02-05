@@ -1,3 +1,5 @@
+import styles from './languageSwitcher.module.scss';
+
 import { Button, ButtonGroup } from 'react-bootstrap';
 import { useLanguage } from './languageContext';
 
@@ -5,20 +7,26 @@ export function LanguageSwitcher() {
 	const { lang, switchLang } = useLanguage();
 
 	return (
-		<ButtonGroup>
+		<div className={styles.customSwitcher}>
 			<Button
-				variant={lang === 'en' ? 'primary' : 'dark'}
+				variant="none"
+				className={`${styles.customSwitcherBtn} ${
+					lang === 'en' ? styles.active : ''
+				}`}
 				onClick={() => switchLang('en')}
 			>
 				EN
 			</Button>
 
 			<Button
-				variant={lang === 'ru' ? 'primary' : 'dark'}
+				variant="none"
+				className={`${styles.customSwitcherBtn} ${
+					lang === 'ru' ? styles.active : ''
+				}`}
 				onClick={() => switchLang('ru')}
 			>
 				RU
 			</Button>
-		</ButtonGroup>
+		</div>
 	);
 }

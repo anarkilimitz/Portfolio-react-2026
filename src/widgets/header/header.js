@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import styles from './header.module.scss';
 
 import { Container, Navbar, Nav } from 'react-bootstrap';
@@ -26,13 +26,47 @@ function Header() {
 	];
 
 	const { t } = useLanguage();
+	// закрывать навбар при клике на категорию
+	const [expanded, setExpanded] = useState(false);
+	const closeNavbar = () => setExpanded(false);
+
+	// закрывать навбар при клике по экрану и esc
+	const navbarRef = useRef(null);
+
+	useEffect(() => {
+		const handleClickOutside = (e) => {
+			if (e.key === 'Escape') {
+				setExpanded(false);
+				return;
+			}
+
+			if (
+				expanded &&
+				navbarRef.current &&
+				!navbarRef.current.contains(e.target)
+			) {
+				setExpanded(false);
+			}
+		};
+
+		document.addEventListener('mousedown', handleClickOutside);
+		document.addEventListener('keydown', handleClickOutside);
+
+		return () => {
+			document.removeEventListener('mousedown', handleClickOutside);
+			document.removeEventListener('keydown', handleClickOutside);
+		};
+	}, [expanded]);
 
 	return (
 		<>
 			<Navbar
-				expand="lg"
 				className={`fixed-top ${styles.customNavbar}`}
 				variant="dark"
+				expand="lg"
+				expanded={expanded}
+				onToggle={setExpanded}
+				ref={navbarRef}
 			>
 				<Container>
 					<Navbar.Brand href="#">{t.name}</Navbar.Brand>
@@ -42,18 +76,21 @@ function Header() {
 							<Nav.Link
 								href="#about"
 								className={`${styles.navbarNavLink} px-3 px-lg-4`}
+								onClick={() => setExpanded(false)}
 							>
 								{t.about}
 							</Nav.Link>
 							<Nav.Link
 								href="#projects"
 								className={`${styles.navbarNavLink} px-3 px-lg-4`}
+								onClick={() => setExpanded(false)}
 							>
 								{t.projects}
 							</Nav.Link>
 							<Nav.Link
 								href="#contacts"
 								className={`${styles.navbarNavLink} px-3 px-lg-4`}
+								onClick={() => setExpanded(false)}
 							>
 								{t.contacts}
 							</Nav.Link>

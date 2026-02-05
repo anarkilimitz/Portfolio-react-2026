@@ -35,10 +35,10 @@ function App() {
 					index
 					element={
 						<>
-							{/* <Header />
+							<Header />
 							<About />
 							<Projects />
-							<TitleNewsSection /> */}
+							<TitleNewsSection />
 						</>
 					}
 				/>

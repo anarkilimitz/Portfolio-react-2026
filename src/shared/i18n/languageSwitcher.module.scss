@@ -1,0 +1,24 @@
+.customSwitcher {
+    display: flex;
+    gap: 5px;
+    background: rgba(255, 255, 255, 0);
+    padding: 0;
+    margin: 0;
+    border: none;
+
+
+    .customSwitcherBtn {
+        border-radius: 100% !important;
+        background: transparent;
+        color: #ffffff;
+        font-size: 0.8rem;
+        border: none;
+        padding: 0.4rem;
+
+        &.active {
+            background: #ffffff3d;
+            color: #ffffff;
+            border-color: none;
+        }
+    }
+}
