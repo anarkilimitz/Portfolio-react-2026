@@ -1,13 +1,5 @@
 <?php
 
-// Отладка GET — чтобы видеть, живой ли файл
-if ($_SERVER['REQUEST_METHOD'] === 'GET') {
-    header('Content-Type: application/json; charset=utf-8');
-    echo json_encode(['status' => 'alive', 'php' => phpversion()]);
-    exit;
-}
-
-// Основная часть — POST
 header('Content-Type: application/json; charset=utf-8');
 error_reporting(E_ALL);
 ini_set('display_errors', 0);
@@ -27,17 +19,13 @@ if (!is_array($data) || empty($data['name']) || empty($data['email']) || empty($
     exit;
 }
 
-// ─────────────────────────────────────────────
-// логика скопирована с учебного рабочего скрипта
-// ─────────────────────────────────────────────
-
 require_once __DIR__ . '/phpmailer/PHPMailerAutoload.php';
+
+$env = parse_ini_file(dirname(__DIR__) . '/.env.backend');
 
 $mail = new PHPMailer;
 $mail->CharSet = 'utf-8';
-$mail->SMTPDebug = 0;               // отладка 0 - выключена
-
-$env = parse_ini_file(dirname(__DIR__) . '/.env.backend');
+$mail->SMTPDebug = 0;
 
 $mail->isSMTP();
 $mail->Host       = $env['SMTP_HOST'];
@@ -61,10 +49,7 @@ $mail->Body    = "
 
 if (!$mail->send()) {
     http_response_code(500);
-    echo json_encode([
-        'error' => $mail->ErrorInfo,
-        'debug' => 'SMTP debug'
-    ]);
+    echo json_encode(['error' => $mail->ErrorInfo ?: 'Не удалось отправить письмо']);
 } else {
     echo json_encode(['success' => true]);
 }
