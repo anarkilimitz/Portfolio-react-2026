@@ -69,17 +69,20 @@ const MainForm = () => {
 			})}
 			onSubmit={async (values, { resetForm, setSubmitting }) => {
 				try {
-					const response = await fetch('https://pavlenok.com/send-mail.php', {
-						method: 'POST',
-						headers: {
-							'Content-Type': 'application/json',
-						},
-						body: JSON.stringify({
-							name: values.name,
-							email: values.email,
-							text: values.text,
-						}),
-					});
+					const response = await fetch(
+						'https://pavlenok.com/mailer/mailer.php',
+						{
+							method: 'POST',
+							headers: {
+								'Content-Type': 'application/json',
+							},
+							body: JSON.stringify({
+								name: values.name,
+								email: values.email,
+								text: values.text,
+							}),
+						}
+					);
 
 					const result = await response.json();
 
