@@ -1,9 +1,14 @@
 import React from 'react';
+import { useState } from 'react';
 import styles from '../forms/form.module.scss';
 import { Formik, Form, useField } from 'formik';
 import * as Yup from 'yup';
 
+import { Button } from 'react-bootstrap';
+
 import { Link } from 'react-router-dom';
+
+import { DNA } from 'react-loader-spinner';
 
 const MyTextInput = ({ label, as, ...props }) => {
 	const [field, meta] = useField(props);
@@ -46,90 +51,180 @@ const MyCheckbox = ({ children, ...props }) => {
 };
 
 const MainForm = () => {
+	const [overlay, setOverlay] = useState(null);
+
+	const MIN_DELAY = 2000;
+	// показать оверлей
+	const showOverlay = (type, message = '') => {
+		setOverlay({ type, message });
+	};
+	// закрыть оверлей
+	const hideOverlay = () => {
+		setOverlay(null);
+	};
+
 	return (
-		<Formik
-			initialValues={{
-				name: '',
-				email: '',
-				text: '',
-				terms: false,
-			}}
-			validationSchema={Yup.object({
-				name: Yup.string().min(2, 'At least 2 characters').required('Required'),
-				email: Yup.string()
-					.email('Invalid email address')
-					.matches(/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/, 'Valid email required')
-					.required('Required'),
-				text: Yup.string()
-					.min(10, 'At least 10 characters')
-					.required('Required'),
-				terms: Yup.boolean()
-					.required('Consent required')
-					.oneOf([true], 'Consent required'),
-			})}
-			onSubmit={async (values, { resetForm, setSubmitting }) => {
-				try {
-					const response = await fetch(
-						'https://pavlenok.com/mailer/mailer.php',
-						{
-							method: 'POST',
-							headers: {
-								'Content-Type': 'application/json',
-							},
-							body: JSON.stringify({
-								name: values.name,
-								email: values.email,
-								text: values.text,
-							}),
+		<>
+			<Formik
+				initialValues={{
+					name: '',
+					email: '',
+					text: '',
+					terms: false,
+				}}
+				validationSchema={Yup.object({
+					name: Yup.string()
+						.min(2, 'At least 2 characters')
+						.required('Required'),
+					email: Yup.string()
+						.email('Invalid email address')
+						.matches(/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/, 'Valid email required')
+						.required('Required'),
+					text: Yup.string()
+						.min(10, 'At least 10 characters')
+						.required('Required'),
+					terms: Yup.boolean()
+						.required('Consent required')
+						.oneOf([true], 'Consent required'),
+				})}
+				onSubmit={async (values, { resetForm, setSubmitting }) => {
+					// чтобы запомнить время начала отправки сообщения
+					const startTime = Date.now();
+					// сразу показать спиннер
+					showOverlay('loading');
+
+					try {
+						const response = await fetch(
+							'https://pavlenok.com/mailer/mailer.php',
+							{
+								method: 'POST',
+								headers: {
+									'Content-Type': 'application/json',
+								},
+								body: JSON.stringify({
+									name: values.name,
+									email: values.email,
+									text: values.text,
+								}),
+							}
+						);
+
+						const result = await response.json();
+
+						if (!response.ok || !result.success) {
+							throw new Error(result.error || 'Send error');
 						}
-					);
 
-					const result = await response.json();
+						const elapsed = Date.now() - startTime;
+						if (elapsed < MIN_DELAY) {
+							await new Promise((resolve) =>
+								setTimeout(resolve, MIN_DELAY - elapsed)
+							);
+						}
 
-					if (!response.ok || !result.success) {
-						throw new Error(result.error || 'Send error');
+						showOverlay('success', 'Message sent successfully!');
+						resetForm(); // очистить форму
+					} catch (error) {
+						const elapsed = Date.now() - startTime;
+						if (elapsed < MIN_DELAY) {
+							await new Promise((resolve) =>
+								setTimeout(resolve, MIN_DELAY - elapsed)
+							);
+						}
+
+						showOverlay('error', error.message || 'Failed to send the email.');
+					} finally {
+						setSubmitting(false); // в любом случае снять блокировку с формы
 					}
+				}}
+			>
+				{({ isSubmitting }) => (
+					<Form className={styles.form}>
+						<h2 className={styles.formHeader}>Send message</h2>
+						<MyTextInput
+							id="name"
+							name="name"
+							type="text"
+							placeholder="Your name"
+						/>
+						<MyTextInput
+							id="email"
+							name="email"
+							type="email"
+							placeholder="Your email"
+						/>
+						<MyTextInput
+							id="text"
+							name="text"
+							as="textarea"
+							className="textarea"
+							placeholder="Your message"
+						/>
+						<MyCheckbox name="terms">
+							<Link to="/policy" className={styles.link}>
+								Do you agree to the Privacy Policy?
+							</Link>
+						</MyCheckbox>
+						<button
+							type="submit"
+							className={styles.buttonForm}
+							disabled={isSubmitting} // отключить кнопку во время отправки
+						>
+							Send
+						</button>
+					</Form>
+				)}
+			</Formik>
 
-					alert('Message sent successfully');
-					resetForm();
-				} catch (error) {
-					alert('Error: ' + error.message);
-				} finally {
-					setSubmitting(false);
-				}
-			}}
-		>
-			<Form className={styles.form}>
-				<h2 className={styles.formHeader}>Send message</h2>
-				<MyTextInput
-					id="name"
-					name="name"
-					type="text"
-					placeholder="Your name"
-				/>
-				<MyTextInput
-					id="email"
-					name="email"
-					type="email"
-					placeholder="Your email"
-				/>
-				<MyTextInput
-					id="text"
-					name="text"
-					as="textarea"
-					className="textarea"
-					placeholder="Your message"
-				/>
-				<MyCheckbox name="terms">
-					<Link to="/policy" className={styles.link}>
-						Do you agree to the Privacy Policy?
-					</Link>
-				</MyCheckbox>
-				<button type="submit" className={styles.button}>
-					Send
-				</button>
-			</Form>
-		</Formik>
+			{overlay && (
+				<div className={styles.overlay}>
+					<div className={styles.overlayContent}>
+						{/* состояние загрузки */}
+						{overlay.type === 'loading' && (
+							<>
+								<DNA
+									height="150"
+									width="150"
+									radius="9"
+									color="#4fa94d"
+									ariaLabel="three-dots-loading"
+									visible={true}
+								/>
+								<p className={styles.messageMain}>Message sending...</p>
+							</>
+						)}
+
+						{overlay.type === 'success' && (
+							<>
+								<div className={styles.successIcon}>✓</div>
+								<p className={styles.successText}>{overlay.message}</p>
+								<Button
+									onClick={hideOverlay}
+									className={styles.overlayBtn}
+									variant="none"
+								>
+									Close
+								</Button>
+							</>
+						)}
+
+						{overlay.type === 'error' && (
+							<>
+								<div className={styles.errorIcon}>✗</div>
+								<p className={styles.errorText}>{overlay.message}</p>
+								<Button
+									onClick={hideOverlay}
+									className={styles.overlayBtn}
+									variant="none"
+								>
+									Close
+								</Button>
+							</>
+						)}
+					</div>
+				</div>
+			)}
+		</>
 	);
 };
 

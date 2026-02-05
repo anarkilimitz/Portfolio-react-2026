@@ -1,4 +1,5 @@
 @use '../../../app/styles/variables.scss' as *;
+@use '../../../app/styles/mixins.scss' as *;
 
 .form {
     margin: 0 auto;
@@ -81,7 +82,7 @@
         margin-top: 8px;
     }
 
-    & .button {
+    & .buttonForm {
         display: block;
         width: 100px;
         padding: 15px;
@@ -130,5 +131,80 @@
             height: 1px;
             background-color: #ffffff;
         }
+    }
+}
+
+// оверлэй
+
+.overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.65);
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    backdrop-filter: blur(3px);
+}
+
+.overlayContent {
+    background: white;
+    padding: 2.5rem 3rem;
+    border-radius: 12px;
+    text-align: center;
+    width: min(400px, 90vw);
+    min-width: 280px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+    box-sizing: border-box;
+    transform: translateY(-20%);
+
+    p {
+        margin: 1.2rem 0 1.8rem;
+        font-size: 1.5rem;
+    }
+
+    p.messageMain {
+        color: black;
+    }
+}
+
+.successIcon {
+    font-size: 4.5rem;
+    color: #28a745;
+    margin-bottom: 0.5rem;
+}
+
+.errorIcon {
+    font-size: 4.5rem;
+    color: #dc3545;
+    margin-bottom: 0.5rem;
+}
+
+.successText {
+    color: #155724;
+    font-weight: 700;
+}
+
+.errorText {
+    color: #721c24;
+    font-weight: 700;
+}
+
+.overlayBtn {
+    @include btn-news;
+    display: inline-block;
+    margin-bottom: 2.5rem;
+    padding: 0.75rem 1rem;
+    width: 10rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 1rem;
+    box-shadow:
+        0 10px 25px -5px rgba(34, 60, 80, 0.12),
+        0 20px 40px -10px rgba(34, 60, 80, 0.08);
+
+    &::after {
+        display: none;
+
     }
 }
