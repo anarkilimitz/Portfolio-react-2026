@@ -1,6 +1,6 @@
 import styles from './languageSwitcher.module.scss';
 
-import { Button, ButtonGroup } from 'react-bootstrap';
+import { Button } from 'react-bootstrap';
 import { useLanguage } from './languageContext';
 
 export function LanguageSwitcher() {

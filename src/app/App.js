@@ -10,13 +10,16 @@ import Footer from '../widgets/footer/footer';
 import About from '../widgets/about/about';
 import Projects from '../widgets/projects/projects';
 import TitleNewsSection from '../widgets/titleNewsSection.jsx/titleNewsSection';
+import SwitcherSlider from '../shared/ui/buttons/switcherSlider/switcherSlider';
 
 import Page404 from '../pages/404/Page404';
 import Policy from '../pages/policy/policy';
 
+
 const MainLayout = () => (
 	<>
 		<Outlet />
+		
 		<Footer />
 	</>
 );
@@ -36,9 +39,10 @@ function App() {
 					element={
 						<>
 							<Header />
-							<About />
-							<Projects />
-							<TitleNewsSection />
+							{/* <About /> */}
+							{/* <Projects />
+							<TitleNewsSection /> */}
+							<SwitcherSlider/>
 						</>
 					}
 				/>
