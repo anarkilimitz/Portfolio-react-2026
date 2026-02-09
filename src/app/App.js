@@ -1,8 +1,8 @@
 import React from 'react';
 import { Routes, Route, Outlet } from 'react-router-dom';
+
 import './styles/global.scss';
 import './styles/variables.scss';
-
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 import Header from '../widgets/header/header';
@@ -12,14 +12,14 @@ import Projects from '../widgets/projects/projects';
 import TitleNewsSection from '../widgets/titleNewsSection.jsx/titleNewsSection';
 import SwitcherSlider from '../shared/ui/buttons/switcherSlider/switcherSlider';
 
+import ProjectsSlider from '../widgets/projectSlider/projectSlider';
+
 import Page404 from '../pages/404/Page404';
 import Policy from '../pages/policy/policy';
-
 
 const MainLayout = () => (
 	<>
 		<Outlet />
-		
 		<Footer />
 	</>
 );
@@ -39,10 +39,10 @@ function App() {
 					element={
 						<>
 							<Header />
-							{/* <About /> */}
-							{/* <Projects />
-							<TitleNewsSection /> */}
-							<SwitcherSlider/>
+							<About />
+							<Projects />
+							<TitleNewsSection />
+							<ProjectsSlider />
 						</>
 					}
 				/>

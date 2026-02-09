@@ -23,4 +23,3 @@ function SwitcherSlider({ slide, onSwitch }) {
 }
 
 export default SwitcherSlider;
-
