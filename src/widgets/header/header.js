@@ -29,9 +29,12 @@ function Header() {
 	// закрывать навбар при клике на категорию
 	const [expanded, setExpanded] = useState(false);
 	const closeNavbar = () => setExpanded(false);
-
 	// закрывать навбар при клике по экрану и esc
 	const navbarRef = useRef(null);
+	// состояние для смены цвета навбара
+	const [isDark, setIsDark] = useState(false);
+	// наблюдение за началом второй секции
+	const sectionRef = useRef(null);
 
 	useEffect(() => {
 		const handleClickOutside = (e) => {
@@ -58,11 +61,35 @@ function Header() {
 		};
 	}, [expanded]);
 
+	// наблюдатель;
+	useEffect(() => {
+		const target = sectionRef.current;
+		if (!target) return;
+
+		const observer = new IntersectionObserver(
+			([entry]) => {
+				// entry.isIntersecting = true → вторая секция видна хотя бы частично
+				setIsDark(entry.isIntersecting);
+			},
+			{
+				root: null, // viewport
+				threshold: 0.01, // чуть-чуть показалась → уже меняем
+				// rootMargin: "-80px 0px 0px 0px"   // если нужно учитывать высоту навбара
+			}
+		);
+
+		observer.observe(target);
+
+		return () => observer.disconnect();
+	}, []);
+
 	return (
 		<>
 			<Navbar
-				className={`fixed-top ${styles.customNavbar}`}
-				variant="dark"
+				className={`fixed-top ${styles.customNavbar} ${
+					isDark ? '' : styles.darkMode
+				}`}
+				variant={'dark'} // меняем цвет текста иконок
 				expand="lg"
 				expanded={expanded}
 				onToggle={setExpanded}
@@ -160,6 +187,10 @@ function Header() {
 					</Container>
 				</div>
 			</header>
+			{/* сюда ставим ref — начало второй секции */}
+			<div ref={sectionRef} id="about" className="second-section">
+				{/* здесь начинается About */}
+			</div>
 		</>
 	);
 }
