@@ -1,11 +1,11 @@
 @import 'bootstrap/scss/bootstrap';
 @import './variables.scss';
 @import './mixins';
-@import url('https://fonts.googleapis.com/css2?family=Merienda:wght@300..900&display=block');
+@import '../../assets/fonts.css';
 
 html body {
     margin: 0;
-    font-family: "Merienda", cursive, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+    font-family: 'Raleway', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }
@@ -14,6 +14,10 @@ html {
     overflow-y: scroll;
     scrollbar-width: none;
     -ms-overflow-style: none;
+}
+
+body {
+    letter-spacing: 0.02em;
 }
 
 code {
