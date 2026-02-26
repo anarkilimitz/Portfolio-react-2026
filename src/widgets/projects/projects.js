@@ -14,7 +14,7 @@ function Projects() {
 		<Container className="mt-5 mb-5">
 			<section className={styles.projects}>
 				<div className={`text-white pt-5 ${styles.titleProjects}`}>
-					<h1 className={styles.title}>{ t.projects}</h1>
+					<h1 className={styles.title}>{t.projects}</h1>
 				</div>
 				<Row className="mt-5 align-items-start">
 					{/* левая колонка */}
@@ -39,7 +39,7 @@ function Projects() {
 										target="_blank"
 										rel="noopener noreferrer"
 									>
-										View Project
+										{t.linksProject}
 									</a>
 								</Accordion.Body>
 							</Accordion.Item>
@@ -63,7 +63,7 @@ function Projects() {
 										target="_blank"
 										rel="noopener noreferrer"
 									>
-										View Project
+										{t.linksProject}
 									</a>
 								</Accordion.Body>
 							</Accordion.Item>
@@ -87,7 +87,7 @@ function Projects() {
 										target="_blank"
 										rel="noopener noreferrer"
 									>
-										View Project
+										{t.linksProject}
 									</a>
 								</Accordion.Body>
 							</Accordion.Item>
@@ -111,7 +111,7 @@ function Projects() {
 										target="_blank"
 										rel="noopener noreferrer"
 									>
-										View Project
+										{t.linksProject}
 									</a>
 								</Accordion.Body>
 							</Accordion.Item>
@@ -135,7 +135,7 @@ function Projects() {
 										target="_blank"
 										rel="noopener noreferrer"
 									>
-										View Project
+										{t.linksProject}
 									</a>
 								</Accordion.Body>
 							</Accordion.Item>

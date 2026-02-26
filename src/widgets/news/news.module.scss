@@ -89,7 +89,6 @@
 }
 
 // кнопки
-
 .newsBtn {
     @include btn-news;
     margin: 2.5rem auto;
@@ -138,7 +137,7 @@
 
     .news {
         .title {
-            font-size: 2.2rem;
+            font-size: 1.8rem;
             padding-right: 0;
             text-align: center;
             align-items: center;
