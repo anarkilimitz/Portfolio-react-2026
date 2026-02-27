@@ -67,10 +67,19 @@
                 transparent 100%);
     }
 
+    // менять цвет навбара
     &.darkMode {
         background-color: rgba(0, 0, 0, 0.326) !important;
         box-shadow: 0 4px 30px rgba(0, 0, 0, 0.4);
         backdrop-filter: blur(12px);
+    }
+
+    // скрывать навбар
+    &.hidden {
+        transform: translateY(-120%);
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
     }
 }
 

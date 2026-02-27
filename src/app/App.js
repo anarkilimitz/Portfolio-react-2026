@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import { Routes, Route, Outlet } from 'react-router-dom';
 
 import './styles/global.scss';
@@ -10,7 +10,6 @@ import Footer from '../widgets/footer/footer';
 import About from '../widgets/about/about';
 import Projects from '../widgets/projects/projects';
 import TitleNewsSection from '../widgets/titleNewsSection.jsx/titleNewsSection';
-import SwitcherSlider from '../shared/ui/buttons/switcherSlider/switcherSlider';
 
 import ProjectsSlider from '../widgets/projectSlider/projectSlider';
 
@@ -31,6 +30,9 @@ const PolicyLayout = () => (
 );
 
 function App() {
+	const aboutRef = useRef(null); // для навбара скрыть/цвет изменить
+	const bottomRef = useRef(null); // для навбара скрыть/цвет изменить
+
 	return (
 		<Routes>
 			<Route element={<MainLayout />}>
@@ -38,11 +40,17 @@ function App() {
 					index
 					element={
 						<>
-							<Header />
-							<About />
-							<Projects />
-							<TitleNewsSection />
-							<ProjectsSlider />
+							<Header aboutRef={aboutRef} bottomRef={bottomRef} />
+
+							<div ref={aboutRef}>
+								<About />
+								<Projects />
+							</div>
+
+							<div ref={bottomRef}>
+								<TitleNewsSection />
+								<ProjectsSlider />
+							</div>
 						</>
 					}
 				/>

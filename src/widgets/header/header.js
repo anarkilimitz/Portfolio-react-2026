@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React from 'react';
 import styles from './header.module.scss';
 
 import { Container, Navbar, Nav } from 'react-bootstrap';
@@ -6,90 +6,41 @@ import Button from 'react-bootstrap/Button';
 
 import { FaGithub } from 'react-icons/fa';
 
+import { useNavbarBehavior } from '../../shared/hooks/useNavbarBehavior';
 import { LanguageSwitcher } from '../../shared/i18n/languageSwitcher';
 import { useLanguage } from '../../shared/i18n/languageContext';
 
-function Header() {
-	const technologies = [
-		'HTML5',
-		'CSS3',
-		'JavaScript',
-		'React',
-		'SASS/SCSS',
-		'Bootstrap',
-		'Git',
-		'REST API',
-		'Webpack',
-		'Figma',
-		'Responsive Design',
-		'UI/UX',
-	];
+const technologies = [
+	'HTML5',
+	'CSS3',
+	'JavaScript',
+	'React',
+	'SASS/SCSS',
+	'Bootstrap',
+	'Git',
+	'REST API',
+	'Webpack',
+	'Figma',
+	'Responsive Design',
+	'UI/UX',
+];
 
+export default function Header({ aboutRef, bottomRef }) {
 	const { t } = useLanguage();
-	// закрывать навбар при клике на категорию
-	const [expanded, setExpanded] = useState(false);
-	const closeNavbar = () => setExpanded(false);
-	// закрывать навбар при клике по экрану и esc
-	const navbarRef = useRef(null);
-	// состояние для смены цвета навбара
-	const [isDark, setIsDark] = useState(false);
-	// наблюдение за началом второй секции
-	const sectionRef = useRef(null);
 
-	useEffect(() => {
-		const handleClickOutside = (e) => {
-			if (e.key === 'Escape') {
-				setExpanded(false);
-				return;
-			}
-
-			if (
-				expanded &&
-				navbarRef.current &&
-				!navbarRef.current.contains(e.target)
-			) {
-				setExpanded(false);
-			}
-		};
-
-		document.addEventListener('mousedown', handleClickOutside);
-		document.addEventListener('keydown', handleClickOutside);
-
-		return () => {
-			document.removeEventListener('mousedown', handleClickOutside);
-			document.removeEventListener('keydown', handleClickOutside);
-		};
-	}, [expanded]);
-
-	// наблюдатель;
-	useEffect(() => {
-		const target = sectionRef.current;
-		if (!target) return;
-
-		const observer = new IntersectionObserver(
-			([entry]) => {
-				// entry.isIntersecting = true → вторая секция видна хотя бы частично
-				setIsDark(entry.isIntersecting);
-			},
-			{
-				root: null, // viewport
-				threshold: 0.01, // чуть-чуть показалась → уже меняем
-				// rootMargin: "-80px 0px 0px 0px"   // если нужно учитывать высоту навбара
-			}
-		);
-
-		observer.observe(target);
-
-		return () => observer.disconnect();
-	}, []);
+	const { expanded, setExpanded, isDark, isHidden, navbarRef, closeNavbar } =
+		useNavbarBehavior({
+			aboutRef,
+			bottomRef,
+		});
 
 	return (
 		<>
 			<Navbar
 				className={`fixed-top ${styles.customNavbar} ${
-					isDark ? '' : styles.darkMode
-				}`}
-				variant={'dark'} // меняем цвет текста иконок
+					isDark ? styles.darkMode : ''
+				} ${isHidden ? styles.hidden : ''}`}
+				variant='dark'
 				expand="lg"
 				expanded={expanded}
 				onToggle={setExpanded}
@@ -102,22 +53,22 @@ function Header() {
 						<Nav className="ms-auto">
 							<Nav.Link
 								href="#about"
-								className={`${styles.navbarNavLink} px-3 px-lg-4`}
-								onClick={() => setExpanded(false)}
+								className={styles.navbarNavLink}
+								onClick={closeNavbar}
 							>
 								{t.about}
 							</Nav.Link>
 							<Nav.Link
 								href="#projects"
-								className={`${styles.navbarNavLink} px-3 px-lg-4`}
-								onClick={() => setExpanded(false)}
+								className={styles.navbarNavLink}
+								onClick={closeNavbar}
 							>
 								{t.projects}
 							</Nav.Link>
 							<Nav.Link
 								href="#contacts"
-								className={`${styles.navbarNavLink} px-3 px-lg-4`}
-								onClick={() => setExpanded(false)}
+								className={styles.navbarNavLink}
+								onClick={closeNavbar}
 							>
 								{t.contacts}
 							</Nav.Link>
@@ -132,12 +83,12 @@ function Header() {
 			<header
 				className={`min-vh-100 d-flex align-items-stretch ${styles.header}`}
 			>
-				{/* title */}
 				<Container fluid className="p-3 p-sm-4 p-md-4 p-lg-5 h-100">
 					<div className={`text-white p-5 ${styles.titleHeader}`}>
 						<h1 className="pb-3">{t.titleHeader}</h1>
 						<h3 className="pb-3">{t.subtitleHeader}</h3>
 						<p>{t.textHeader}</p>
+
 						<div className={`d-flex gap-4 mt-5 ${styles.btnWrapper}`}>
 							<Button variant="none" className={styles.primaryBtn} size="lg">
 								{t.btnViewHeader}
@@ -163,36 +114,19 @@ function Header() {
 						<div className={styles.technologiesContainer}>
 							<div className={styles.technologiesWrapper}>
 								<div className={styles.technologiesTrack}>
-									{/* первый набор */}
-									{technologies.map((tech, index) => (
-										<span key={`first-${index}`} className={styles.techItem}>
-											{tech}
-										</span>
-									))}
-									{/* второй набор */}
-									{technologies.map((tech, index) => (
-										<span key={`second-${index}`} className={styles.techItem}>
-											{tech}
-										</span>
-									))}
-									{/* третий набор */}
-									{technologies.map((tech, index) => (
-										<span key={`third-${index}`} className={styles.techItem}>
-											{tech}
-										</span>
-									))}
+									{[...technologies, ...technologies, ...technologies].map(
+										(tech, i) => (
+											<span key={i} className={styles.techItem}>
+												{tech}
+											</span>
+										)
+									)}
 								</div>
 							</div>
 						</div>
 					</Container>
 				</div>
 			</header>
-			{/* сюда ставим ref — начало второй секции */}
-			<div ref={sectionRef} id="about" className="second-section">
-				{/* здесь начинается About */}
-			</div>
 		</>
 	);
 }
-
-export default Header;
