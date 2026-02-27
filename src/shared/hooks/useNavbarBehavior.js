@@ -5,7 +5,6 @@ import { useState, useEffect, useRef, useCallback } from 'react';
 export function useNavbarBehavior({
 	aboutRef = null,
 	bottomRef = null,
-	themeOptions = {},
 	hideOptions = {},
 } = {}) {
 	const [expanded, setExpanded] = useState(false);

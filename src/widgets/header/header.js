@@ -37,10 +37,11 @@ export default function Header({ aboutRef, bottomRef }) {
 	return (
 		<>
 			<Navbar
-				className={`fixed-top ${styles.customNavbar} ${
-					isDark ? styles.darkMode : ''
-				} ${isHidden ? styles.hidden : ''}`}
-				variant='dark'
+				className={`fixed-top 
+					${styles.customNavbar} 
+					${isDark ? styles.darkMode : ''}
+					${isHidden ? styles.hidden : ''}`}
+				variant="dark"
 				expand="lg"
 				expanded={expanded}
 				onToggle={setExpanded}
