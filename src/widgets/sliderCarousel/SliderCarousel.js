@@ -38,7 +38,7 @@ function SliderCarousel({ mode, imageSrc, description }) {
 
 				{/* DETAILS */}
 				<div className="carousel-item">
-					<div className="p-4 bg-light">
+					<div className="p-4">
 						<h4>Описание</h4>
 						<p>{description}</p>
 					</div>
