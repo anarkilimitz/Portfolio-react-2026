@@ -1,0 +1,91 @@
+@import '../../../../app/styles/mixins.scss';
+
+.arc-button-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    // Вызываем наш миксин
+    @include arc-button-style(#00f2ff, 280px, 70px);
+
+    .shine-overlay {
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, transparent 50%);
+        z-index: 3;
+        pointer-events: none;
+    }
+
+    .glitch {
+        position: relative;
+        display: inline-block;
+    }
+        /* Эффект красного глитча (теперь работает всегда) */
+        .glitch::before {
+            content: attr(data-text);
+            position: absolute;
+            top: 0;
+            left: 2px;
+            width: 100%;
+            height: 100%;
+            text-shadow: -2px 0 var(--glitch-red);
+            clip: rect(44px, 450px, 56px, 0);
+            /* Анимация запускается сразу */
+            animation: glitch-anim 3s infinite linear alternate-reverse;
+            background: var(--card-bg);
+            /* Важно, чтобы перекрывать основной текст */
+            z-index: -1;
+        }
+    
+        /* Эффект цианового глитча (теперь работает всегда) */
+        .glitch::after {
+            content: attr(data-text);
+            position: absolute;
+            top: 0;
+            left: -2px;
+            width: 100%;
+            height: 100%;
+            text-shadow: -2px 0 var(--glitch-cyan), 2px 2px var(--glitch-red);
+            /* Анимация запускается сразу */
+            animation: glitch-anim-2 3s infinite linear alternate-reverse;
+            background: var(--card-bg);
+            z-index: -2;
+        }
+}
+
+// ГЛИТЧ
+@keyframes glitch-anim {
+
+    /* 0% - 80% времени текст спокойный */
+    0%,
+    80% {
+        clip: rect(0, 0, 0, 0);
+        transform: skew(0deg);
+    }
+
+    /* 81% - 100% времени происходит резкий скачок */
+    85% {
+        clip: rect(12px, 9999px, 56px, 0);
+        transform: skew(0.5deg);
+    }
+
+    95% {
+        clip: rect(40px, 9999px, 20px, 0);
+        transform: skew(-0.5deg);
+    }
+
+    100% {
+        clip: rect(0, 0, 0, 0);
+    }
+}
+
+@keyframes glitch-anim-2 {
+    0% {
+        clip: rect(98px, 9999px, 12px, 0);
+        transform: skew(0.4deg);
+    }
+
+    100% {
+        clip: rect(2px, 9999px, 88px, 0);
+        transform: skew(0.9deg);
+    }
+}

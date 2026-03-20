@@ -13,6 +13,8 @@ import TitleNewsSection from '../widgets/titleNewsSection.jsx/titleNewsSection';
 
 import ProjectsSlider from '../widgets/projectSlider/projectSlider';
 
+import ArcButton from '../shared/ui/buttons/arcButton/arcButton';
+
 import Page404 from '../pages/404/Page404';
 import Policy from '../pages/policy/policy';
 
@@ -45,6 +47,7 @@ function App() {
 							<div ref={aboutRef}>
 								<About />
 								<Projects />
+								<ArcButton />
 							</div>
 
 							<div ref={bottomRef}>
