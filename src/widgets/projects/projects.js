@@ -21,7 +21,11 @@ function Projects() {
 					<Col lg={7}>
 						<Accordion className={`mt-5 ${styles.customAccordion}`}>
 							<Accordion.Item eventKey="0">
-								<Accordion.Header>{t.titleAccordionProjects}</Accordion.Header>
+								<Accordion.Header>
+									{t.titleAccordionProjects}
+									<span className="icon"></span>
+								</Accordion.Header>
+
 								<Accordion.Body>
 									{t.subtitleAccordionProjects}
 									<ul className="mt-3">
@@ -44,7 +48,10 @@ function Projects() {
 								</Accordion.Body>
 							</Accordion.Item>
 							<Accordion.Item eventKey="1">
-								<Accordion.Header>E-commerce Store</Accordion.Header>
+								<Accordion.Header>
+									E-commerce Store
+									<span className="icon"></span>
+								</Accordion.Header>
 								<Accordion.Body>
 									An online store application powered by the Platzi Fake Store
 									API.
@@ -68,7 +75,10 @@ function Projects() {
 								</Accordion.Body>
 							</Accordion.Item>
 							<Accordion.Item eventKey="2">
-								<Accordion.Header>E-commerce Store</Accordion.Header>
+								<Accordion.Header>
+									E-commerce Store
+									<span className="icon"></span>
+								</Accordion.Header>
 								<Accordion.Body>
 									An online store application powered by the Platzi Fake Store
 									API.
@@ -92,7 +102,10 @@ function Projects() {
 								</Accordion.Body>
 							</Accordion.Item>
 							<Accordion.Item eventKey="3">
-								<Accordion.Header>E-commerce Store</Accordion.Header>
+								<Accordion.Header>
+									E-commerce Store
+									<span className="icon"></span>
+								</Accordion.Header>
 								<Accordion.Body>
 									An online store application powered by the Platzi Fake Store
 									API.
@@ -116,7 +129,10 @@ function Projects() {
 								</Accordion.Body>
 							</Accordion.Item>
 							<Accordion.Item eventKey="4">
-								<Accordion.Header>E-commerce Store</Accordion.Header>
+								<Accordion.Header>
+									E-commerce Store
+									<span className="icon"></span>
+								</Accordion.Header>
 								<Accordion.Body>
 									An online store application powered by the Platzi Fake Store
 									API.
