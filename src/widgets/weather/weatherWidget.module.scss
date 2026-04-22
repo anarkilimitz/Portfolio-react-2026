@@ -1,0 +1,97 @@
+.weatherWidget {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    padding: 24px;
+    color: black;
+    max-width: 350px;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+    transition: transform 0.3s ease;
+
+    &:hover {
+        transform: translateY(-5px);
+    }
+}
+
+.mainInfo {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.tempBlock {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.temperature {
+    font-size: 3.5rem;
+    font-weight: 700;
+    line-height: 1;
+}
+
+.stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 15px;
+}
+
+.statItem {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .label {
+        font-size: 0.7rem;
+        opacity: 0.6;
+        text-transform: uppercase;
+    }
+
+    .value {
+        font-weight: 600;
+        font-size: 0.9rem;
+    }
+}
+
+.iconBox {
+    // Солнце
+    color: #ffce54;
+    filter: drop-shadow(0 0 15px rgba(255, 206, 84, 0.5));
+
+    // Дождь
+    :global(.wi-rain) {
+        color: #4fc3f7;
+    }
+
+    // Снег
+    :global(.wi-snow) {
+        color: #ffffff;
+    }
+}
+
+.animatedIcon {
+    display: inline-block;
+    animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+        opacity: 0.9;
+    }
+
+    50% {
+        transform: scale(1.1);
+        opacity: 1;
+    }
+
+    100% {
+        transform: scale(1);
+        opacity: 0.9;
+    }
+}
