@@ -14,7 +14,6 @@ import TitleNewsSection from '../widgets/titleNewsSection.jsx/titleNewsSection';
 import ProjectsSlider from '../widgets/projectSlider/projectSlider';
 
 import ArcButton from '../shared/ui/buttons/arcButton/arcButton';
-import WeatherWidget from '../widgets/weather/WeatherWidget';
 
 import Page404 from '../pages/404/Page404';
 import Policy from '../pages/policy/policy';
@@ -47,14 +46,14 @@ function App() {
 
 							<div ref={aboutRef}>
 								<About />
-								<Projects />
+								<ProjectsSlider />
+
 								{/* <ArcButton /> */}
-								<WeatherWidget />
 							</div>
 
 							<div ref={bottomRef}>
 								<TitleNewsSection />
-								<ProjectsSlider />
+								<Projects />
 							</div>
 						</>
 					}

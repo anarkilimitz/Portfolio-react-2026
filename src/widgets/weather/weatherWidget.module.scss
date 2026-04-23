@@ -4,14 +4,9 @@
     border: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: 20px;
     padding: 24px;
-    color: black;
+    color: #fff;
     max-width: 350px;
     box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
-    transition: transform 0.3s ease;
-
-    &:hover {
-        transform: translateY(-5px);
-    }
 }
 
 .mainInfo {
@@ -76,7 +71,7 @@
 
 .animatedIcon {
     display: inline-block;
-    animation: pulse 2s ease-in-out infinite;
+    animation: pulse 1.5s ease-in-out infinite;
 }
 
 @keyframes pulse {
@@ -93,5 +88,62 @@
     100% {
         transform: scale(1);
         opacity: 0.9;
+    }
+}
+
+@media (max-width: 768px) {
+    .weatherWidget {
+        max-width: 140px;
+        padding: 16px;
+    }
+
+    .mainInfo {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 8px;
+    }
+
+    .tempBlock {
+        gap: 15px;
+    }
+
+    .temperature {
+        font-size: 2.2rem;
+    }
+
+    .details {
+        h3 {
+            font-size: 1rem;
+        }
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 2px;
+    }
+
+    .stats {
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+        padding-top: 10px;
+    }
+
+    .statItem {
+        align-items: center;
+
+        .label {
+            font-size: 0.6rem;
+        }
+
+        .value {
+            font-size: 0.75rem;
+        }
+    }
+
+    .animatedIcon {
+        font-size: 1.4rem;
     }
 }

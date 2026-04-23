@@ -9,6 +9,7 @@ import { FaGithub } from 'react-icons/fa';
 import { useNavbarBehavior } from '../../shared/hooks/useNavbarBehavior';
 import { LanguageSwitcher } from '../../shared/i18n/languageSwitcher';
 import { useLanguage } from '../../shared/i18n/languageContext';
+import WeatherWidget from '../weather/WeatherWidget';
 
 const technologies = [
 	'HTML5',
@@ -85,6 +86,7 @@ export default function Header({ aboutRef, bottomRef }) {
 				className={`min-vh-100 d-flex align-items-stretch ${styles.header}`}
 			>
 				<Container fluid className="p-3 p-sm-4 p-md-4 p-lg-5 h-100">
+					<WeatherWidget />
 					<div className={`text-white p-5 ${styles.titleHeader}`}>
 						<h1 className="pb-3">{t.titleHeader}</h1>
 						<h3 className="pb-3">{t.subtitleHeader}</h3>

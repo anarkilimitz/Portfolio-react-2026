@@ -2,13 +2,22 @@ import React from 'react';
 import { useWeather } from '../../shared/hooks/useWeather';
 import WeatherIcon from 'react-weathericons';
 import 'weather-icons/css/weather-icons.css';
+import { FaRegSmileWink } from 'react-icons/fa';
 
 import styles from './weatherWidget.module.scss';
 
 function WeatherWidget() {
 	const { weather, loading } = useWeather();
 
-	if (loading) return <div className={styles.loader}>Смотрим за окно...</div>;
+	if (loading)
+		return (
+			<div className={styles.loader}>
+				<p>Погода не загрузилась</p>
+				<p>
+					Смотрим за окно <FaRegSmileWink />
+				</p>
+			</div>
+		);
 	if (!weather) return null;
 
 	const weatherId = weather.weather[0].id;

@@ -1,4 +1,3 @@
-// src/shared/hooks/useWeather.js
 import { useState, useEffect } from 'react';
 import { fetchWeather } from '../api/weatherApi';
 

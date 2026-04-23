@@ -2,6 +2,8 @@
 @use '../../app/styles/mixins.scss' as *;
 
 .projects {
+    margin-top: 180px;
+    margin-bottom: 160px;
     min-height: 50vw;
     background-image: url('../../assets/img/Wall.png');
     background-size: 60%;
@@ -38,12 +40,21 @@
         border: none !important;
     }
 }
+
 // круг вместо стандартной стрелки
 .customAccordion {
+
+    :global(.accordion-item) {
+        border-top: none;
+        border-left: none;
+        border-right: none;
+    }
 
     :global(.accordion-button) {
         position: relative;
         padding-right: 70px;
+        padding-top: 30px;
+        padding-bottom: 30px;
     }
 
     // убрать кастомные bootstrap стрелку
@@ -104,17 +115,17 @@
     :global(.accordion-button:not(.collapsed) span.icon::after) {
         transform: rotate(90deg) scaleY(0); // исчезает вертикаль
     }
-    
+
     :global(.accordion-button:not(.collapsed)::before) {
         background: #ffffff;
         border: none;
     }
-    
+
     :global(.accordion-button:not(.collapsed) span.icon::before),
     :global(.accordion-button:not(.collapsed) span.icon::after) {
         background: #a100ff;
     }
-   
+
     :global(.accordion-button:hover::before) {
         transform: translateY(-50%) scale(1.08);
     }
@@ -161,6 +172,7 @@
 
 @media (max-width: 992px) {
     .projects {
+        margin-top: 140px;
 
         .title {
             font-size: 4.2rem;
@@ -186,6 +198,9 @@
 @media (max-width: 576px) {
 
     .projects {
+        margin-top: 100px;
+        margin-bottom: 80px;
+
         h1 {
             &::after {
                 width: 40px;
