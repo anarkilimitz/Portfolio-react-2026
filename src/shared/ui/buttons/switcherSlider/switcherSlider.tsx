@@ -2,8 +2,24 @@ import styles from './switcherSlider.module.scss';
 
 import { useLanguage } from '../../../i18n/languageContext';
 
-function SwitcherSlider({ slide, onSwitch }) {
-	const { t } = useLanguage();
+type SlideType = 'IMAGE' | 'DETAILS';
+
+type SwitcherSliderProps = {
+	slide: SlideType;
+	onSwitch: (slide: SlideType) => void;
+};
+
+
+function SwitcherSlider({
+	slide,
+	onSwitch,
+}: SwitcherSliderProps) {
+	const { t } = useLanguage() as {
+		t: {
+			switchImg: string;
+			switchDet: string;
+		};
+	};
 
 	return (
 		<div className={styles.switcherSlider}>
