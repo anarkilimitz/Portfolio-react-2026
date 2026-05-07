@@ -13,7 +13,14 @@ function ProjectSlider() {
 				return (
 					<Row key={item.id} className="g-4 g-lg-5 mb-5 mb-lg-6">
 						{/* текстовая колонка */}
-						<Col xs={12} lg={6} className={isEven ? '' : 'order-lg-2'}>
+						<Col
+							xs={12}
+							lg={6}
+							className={`${
+								isEven ? '' : 'order-lg-2'
+							} align-self-lg-start sticky-lg-top`}
+							style={{ top: '4vw' }}
+						>
 							<div className={isEven ? 'pe-lg-4 pe-xl-5' : 'ps-lg-4 ps-xl-5'}>
 								<h2 className="mb-3 mb-lg-4 fw-bold">{item.title}</h2>
 								<p className="lead text-muted mb-0">{item.text}</p>
