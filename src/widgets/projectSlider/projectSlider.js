@@ -4,6 +4,8 @@ import { FaGithub } from 'react-icons/fa';
 import SliderBlock from '../sliderBlock/SliderBlock';
 import { sliderData } from '../sliderBlock/sliderData/sliderData';
 
+import styles from './projectSlider.module.scss'; 
+
 function ProjectSlider() {
 	return (
 		<Container className="py-5">
@@ -16,10 +18,12 @@ function ProjectSlider() {
 						<Col
 							xs={12}
 							lg={6}
-							className={`${
-								isEven ? '' : 'order-lg-2'
-							} align-self-lg-start sticky-lg-top`}
-							style={{ top: '220px' }}
+							className={`
+                                ${isEven ? '' : 'order-lg-2'}
+                                align-self-lg-start 
+                                sticky-lg-top 
+                                ${styles.stickyTextCol}
+                            `.trim()}
 						>
 							<div className={isEven ? 'pe-lg-4 pe-xl-5' : 'ps-lg-4 ps-xl-5'}>
 								<h2 className="mb-3 mb-lg-4 fw-bold">{item.title}</h2>

@@ -1,8 +1,9 @@
 import React from 'react';
 import { useWeather } from '../../shared/hooks/useWeather';
+import { FaRegSmileWink } from 'react-icons/fa';
+
 import WeatherIcon from 'react-weathericons';
 import 'weather-icons/css/weather-icons.css';
-import { FaRegSmileWink } from 'react-icons/fa';
 
 import styles from './weatherWidget.module.scss';
 

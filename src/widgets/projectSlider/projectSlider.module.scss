@@ -1,0 +1,8 @@
+.stickyTextCol {
+    top: 220px !important;
+    padding-bottom: 60px !important;
+
+    @media (min-width: 992px) {
+        padding-bottom: 200px !important;
+    }
+}
