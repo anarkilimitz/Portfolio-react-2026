@@ -19,7 +19,7 @@ function ProjectSlider() {
 							className={`${
 								isEven ? '' : 'order-lg-2'
 							} align-self-lg-start sticky-lg-top`}
-							style={{ top: '4vw' }}
+							style={{ top: '220px' }}
 						>
 							<div className={isEven ? 'pe-lg-4 pe-xl-5' : 'ps-lg-4 ps-xl-5'}>
 								<h2 className="mb-3 mb-lg-4 fw-bold">{item.title}</h2>

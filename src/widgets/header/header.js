@@ -15,12 +15,14 @@ const technologies = [
 	'HTML5',
 	'CSS3',
 	'JavaScript',
+	'TypeScript',
 	'React',
 	'SASS/SCSS',
 	'Bootstrap',
 	'Git',
 	'REST API',
 	'Webpack',
+	'Supabase',
 	'Figma',
 	'Responsive Design',
 	'UI/UX',
@@ -85,14 +87,17 @@ export default function Header({ aboutRef, bottomRef }) {
 			<header
 				className={`min-vh-100 d-flex align-items-stretch ${styles.header}`}
 			>
-				<Container fluid className="p-3 p-sm-4 p-md-4 p-lg-5 h-100">
+				<Container
+					fluid
+					className="p-3 p-sm-4 p-md-4 p-lg-5 flex-grow-1 d-flex flex-column"
+				>
 					<WeatherWidget />
-					<div className={`text-white p-5 ${styles.titleHeader}`}>
-						<h1 className="pb-3">{t.titleHeader}</h1>
-						<h3 className="pb-3">{t.subtitleHeader}</h3>
-						<p>{t.textHeader}</p>
+					<div className={`text-white mt-auto ${styles.titleHeader}`}>
+						<h1 className="mb-0">{t.titleHeader}</h1>
+						<h3 className="mb-2 mb-sm-5">{t.subtitleHeader}</h3>
+						<p className="pt-3 pt-sm-2 pt-md-1">{t.textHeader}</p>
 
-						<div className={`d-flex gap-4 mt-5 ${styles.btnWrapper}`}>
+						<div className={`d-flex gap-4 mt-0 ${styles.btnWrapper}`}>
 							<Button variant="none" className={styles.primaryBtn} size="lg">
 								{t.btnViewHeader}
 							</Button>
