@@ -1,6 +1,8 @@
 import React, { useRef } from 'react';
 import { Routes, Route, Outlet } from 'react-router-dom';
 
+import { useSmoothScroll } from '../shared/hooks/useSmoothScroll';
+
 import './styles/global.scss';
 import './styles/variables.scss';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -10,10 +12,10 @@ import Footer from '../widgets/footer/footer';
 import About from '../widgets/about/about';
 import Projects from '../widgets/projects/projects';
 import TitleNewsSection from '../widgets/titleNewsSection.jsx/titleNewsSection';
-
 import ProjectsSlider from '../widgets/projectSlider/projectSlider';
+import Carousel3D from '../widgets/carousel3D/carousel3D';
 
-import ArcButton from '../shared/ui/buttons/arcButton/arcButton';
+// import ArcButton from '../shared/ui/buttons/arcButton/arcButton';
 
 import Page404 from '../pages/404/Page404';
 import Policy from '../pages/policy/policy';
@@ -32,6 +34,8 @@ const PolicyLayout = () => (
 );
 
 function App() {
+	useSmoothScroll();
+
 	const aboutRef = useRef(null); // для навбара скрыть/цвет изменить
 	const bottomRef = useRef(null); // для навбара скрыть/цвет изменить
 
@@ -54,6 +58,9 @@ function App() {
 							<div ref={bottomRef}>
 								<TitleNewsSection />
 								<Projects />
+							</div>
+							<div>
+								<Carousel3D />
 							</div>
 						</>
 					}

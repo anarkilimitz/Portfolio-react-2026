@@ -13,7 +13,7 @@ function TitleNewsSection() {
 	return (
 		<Container className="mt-5 mb-5">
 			<section className={styles.news}>
-				<div className={`text-white pt-5 ${styles.titleNews}`}>
+				<div className={`text-white ${styles.titleNews}`}>
 					<h1 className={styles.title}>{t.titleNews}</h1>
 					<h2 className={styles.subtitle}>
 						{t.poweredBy}{' '}

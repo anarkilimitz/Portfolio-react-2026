@@ -8,7 +8,7 @@ import styles from './projectSlider.module.scss';
 
 function ProjectSlider() {
 	return (
-		<Container className="py-5">
+		<Container className="pt-5 pb-4 pb-md-5 pb-lg-0">
 			{sliderData.map((item, index) => {
 				const isEven = index % 2 === 0;
 
