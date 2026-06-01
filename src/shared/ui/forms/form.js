@@ -76,19 +76,15 @@ const MainForm = () => {
 					terms: false,
 				}}
 				validationSchema={Yup.object({
-					name: Yup.string()
-						.min(2, 'At least 2 characters')
-						.required('Required'),
+					name: Yup.string().min(2, t.errorMinName).required(t.errorRequired),
 					email: Yup.string()
-						.email('Invalid email address')
+						.email(t.errorEmail)
 						.matches(/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/, 'Valid email required')
-						.required('Required'),
-					text: Yup.string()
-						.min(10, 'At least 10 characters')
-						.required('Required'),
+						.required(t.errorRequired),
+					text: Yup.string().min(10, t.errorMinText).required(t.errorRequired),
 					terms: Yup.boolean()
-						.required('Consent required')
-						.oneOf([true], 'Consent required'),
+						.required(t.errorConsent)
+						.oneOf([true], t.errorConsent),
 				})}
 				onSubmit={async (values, { resetForm, setSubmitting }) => {
 					// чтобы запомнить время начала отправки сообщения
@@ -148,20 +144,20 @@ const MainForm = () => {
 							id="name"
 							name="name"
 							type="text"
-							placeholder="Your name"
+							placeholder={t.yourName}
 						/>
 						<MyTextInput
 							id="email"
 							name="email"
 							type="email"
-							placeholder="Your email"
+							placeholder={t.yourEmail}
 						/>
 						<MyTextInput
 							id="text"
 							name="text"
 							as="textarea"
 							className="textarea"
-							placeholder="Your message"
+							placeholder={t.yourMessage}
 						/>
 						<MyCheckbox name="terms">
 							<Link to="/policy" className={styles.link}>
@@ -173,7 +169,7 @@ const MainForm = () => {
 							className={styles.buttonForm}
 							disabled={isSubmitting} // отключить кнопку во время отправки
 						>
-							{ t.sendBtn}
+							{t.sendBtn}
 						</button>
 					</Form>
 				)}

@@ -49,6 +49,13 @@ export const translations = {
 		sendBtn: 'Send',
 		allRights: 'Portfolio. All rights reserved.',
 		license: 'License',
+
+		// Ошибки формы
+		errorRequired: 'Required',
+		errorMinName: 'At least 2 characters',
+		errorMinText: 'At least 10 characters',
+		errorEmail: 'Invalid email address',
+		errorConsent: 'Consent required',
 	},
 	ru: {
 		// Header
@@ -91,8 +98,7 @@ export const translations = {
 
 		// Футер
 		titleFooter: 'Разработка на React и JavaScript',
-		textFooter:
-			'Создание современных интерфейсов с использованием React 19',
+		textFooter: 'Создание современных интерфейсов с использованием React 19',
 		socials: 'Социальные сети',
 		sendMessage: 'Отправить сообщение',
 		contacts: 'Контакты',
@@ -101,9 +107,16 @@ export const translations = {
 		yourName: 'Ваше имя',
 		yourEmail: 'Ваша почта',
 		yourMessage: 'Ваше сообщение',
-		agreePrivacy: 'Согласны с Политикой конфиденциальности?',
+		agreePrivacy: 'Политикоа конфиденциальности.',
 		sendBtn: 'Отправить',
 		allRights: 'Портфолио. Все права защищены.',
 		license: 'Лицензия',
+
+		// Ошибки формы
+		errorRequired: 'Обязательно',
+		errorMinName: 'Минимум 2 символа',
+		errorMinText: 'Минимум 10 символов',
+		errorEmail: 'Некорректный email',
+		errorConsent: 'Необходимо согласие',
 	},
 };
