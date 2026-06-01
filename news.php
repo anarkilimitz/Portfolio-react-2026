@@ -4,7 +4,13 @@ header('Access-Control-Allow-Origin: *');
 
 // ====== НАСТРОЙКИ ======
 $config = require __DIR__ . '/config.php';
-$apiKey = $config['NEWS_API_KEY'];
+$apiKey = $config['NEWS_API_KEY'] ?? '';
+
+if ($apiKey === '') {
+    http_response_code(500);
+    echo json_encode(['error' => 'Missing NEWS_API_KEY']);
+    exit;
+}
 
 // номер страницы (для кнопки "Load more")
 $page = isset($_GET['page']) ? max(1, (int)$_GET['page']) : 1;

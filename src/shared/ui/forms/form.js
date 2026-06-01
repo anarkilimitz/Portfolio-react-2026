@@ -94,7 +94,7 @@ const MainForm = () => {
 
 					try {
 						const response = await fetch(
-							'https://pavlenok.com/mailer/mailer.php',
+							'/mailer/mailer.php',
 							{
 								method: 'POST',
 								headers: {
