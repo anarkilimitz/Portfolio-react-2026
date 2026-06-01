@@ -33,6 +33,22 @@ export const translations = {
 		// Свитчер
 		switchImg: 'IMAGE',
 		switchDet: 'DETAILS',
+
+		// Футер
+		titleFooter: 'Development on React and JavaScript',
+		textFooter: 'Creating modern interfaces using React 19',
+		socials: 'Social Networks',
+		sendMessage: 'Send message',
+		contacts: 'Contacts',
+		email: 'Email',
+		phone: 'phone',
+		yourName: 'Your name',
+		yourEmail: 'Your email',
+		yourMessage: 'Your message',
+		agreePrivacy: 'Do you agree to the Privacy Policy?',
+		sendBtn: 'Send',
+		allRights: 'Portfolio. All rights reserved.',
+		license: 'License',
 	},
 	ru: {
 		// Header
@@ -72,5 +88,22 @@ export const translations = {
 		// Свитчер
 		switchImg: 'ФОТО',
 		switchDet: 'ДЕТАЛИ',
+
+		// Футер
+		titleFooter: 'Разработка на React и JavaScript',
+		textFooter:
+			'Создание современных интерфейсов с использованием React 19',
+		socials: 'Социальные сети',
+		sendMessage: 'Отправить сообщение',
+		contacts: 'Контакты',
+		email: 'Почта',
+		phone: 'Телефон',
+		yourName: 'Ваше имя',
+		yourEmail: 'Ваша почта',
+		yourMessage: 'Ваше сообщение',
+		agreePrivacy: 'Согласны с Политикой конфиденциальности?',
+		sendBtn: 'Отправить',
+		allRights: 'Портфолио. Все права защищены.',
+		license: 'Лицензия',
 	},
 };

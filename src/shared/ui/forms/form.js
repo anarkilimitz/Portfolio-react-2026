@@ -10,6 +10,8 @@ import { Link } from 'react-router-dom';
 
 import { DNA } from 'react-loader-spinner';
 
+import { useLanguage } from '../../i18n/languageContext';
+
 const MyTextInput = ({ label, as, ...props }) => {
 	const [field, meta] = useField(props);
 	const Component = as || 'input';
@@ -51,6 +53,7 @@ const MyCheckbox = ({ children, ...props }) => {
 };
 
 const MainForm = () => {
+	const { t } = useLanguage();
 	const [overlay, setOverlay] = useState(null);
 
 	const MIN_DELAY = 2000;
@@ -140,7 +143,7 @@ const MainForm = () => {
 			>
 				{({ isSubmitting }) => (
 					<Form className={styles.form}>
-						<h2 className={styles.formHeader}>Send message</h2>
+						<h2 className={styles.formHeader}>{t.sendMessage}</h2>
 						<MyTextInput
 							id="name"
 							name="name"
@@ -162,7 +165,7 @@ const MainForm = () => {
 						/>
 						<MyCheckbox name="terms">
 							<Link to="/policy" className={styles.link}>
-								Do you agree to the Privacy Policy?
+								{t.agreePrivacy}
 							</Link>
 						</MyCheckbox>
 						<button
@@ -170,7 +173,7 @@ const MainForm = () => {
 							className={styles.buttonForm}
 							disabled={isSubmitting} // отключить кнопку во время отправки
 						>
-							Send
+							{ t.sendBtn}
 						</button>
 					</Form>
 				)}

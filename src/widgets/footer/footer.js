@@ -5,20 +5,24 @@ import { Container, Row, Col } from 'react-bootstrap';
 
 import MainForm from '../../shared/ui/forms/form';
 
+import { useLanguage } from '../../shared/i18n/languageContext';
+
 function Footer() {
+	const { t } = useLanguage();
+
 	return (
 		<footer className={`bg-dark text-white ${styles.footer}`}>
 			<Container>
 				<Row className="align-items-center gy-4">
 					{/* обо мне */}
 					<Col md={4} className="text-md-start text-center">
-						<h5>I am a React Developer</h5>
-						<p>Creating modern interfaces using React 19</p>
+						<h5>{t.titleFooter}</h5>
+						<p>{t.textFooter}</p>
 					</Col>
 
 					{/* соцсети */}
 					<Col md={4} className="text-center">
-						<h5>Social Networks</h5>
+						<h5>{t.socials}</h5>
 						<div className={`${styles.contactsSocial} ${styles.socialCenter}`}>
 							{/* гитхаб */}
 							<a
@@ -77,9 +81,9 @@ function Footer() {
 
 					{/* контакты */}
 					<Col md={4} className="text-md-center text-center">
-						<h5>Contacts</h5>
-						<p>Email: devlimitz@yandex.ru</p>
-						<p>Phone: +7 (912) 284-50-53</p>
+						<h5>{t.contacts}</h5>
+						<p>{t.email}: devlimitz@yandex.ru</p>
+						<p>{t.phone}: +7 (912) 284-50-53</p>
 					</Col>
 				</Row>
 
@@ -95,10 +99,10 @@ function Footer() {
 				{/* лицензия */}
 				<Row>
 					<Col className={styles.bottomBar}>
-						<span>© 2025 Portfolio. All rights reserved.</span>
+						<span>© 2025 {t.allRights}</span>
 
 						<span className={styles.license}>
-							License
+							{t.license}
 							<a
 								href="https://creativecommons.org/licenses/by-nc-nd/4.0/"
 								target="_blank"
