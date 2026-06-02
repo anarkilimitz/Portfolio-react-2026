@@ -46,16 +46,18 @@ function App() {
 								aboutRef={refs.aboutRef}
 								bottomRef={refs.bottomRef}
 								onProjectsClick={actions.scrollToProjects}
+								onAboutClick={actions.scrollToAbout}
 							/>
 
-							{/* Секция About */}
+							{/* Блок About */}
 							<div ref={refs.aboutRef}>
 								<About />
+								
+							</div>
 
-								{/* Секция Projects - оборачиваем в див с рефом для скролла */}
-								<div ref={refs.projectsRef} id="projects">
-									<ProjectsSlider />
-								</div>
+							{/* Секция Projects */}
+							<div ref={refs.projectsRef} id="projects">
+								<ProjectsSlider />
 							</div>
 
 							{/* Остальные секции */}

@@ -11,6 +11,16 @@ export const useAppController = () => {
 	const projectsRef = useRef<HTMLDivElement>(null);
 	const bottomRef = useRef<HTMLDivElement>(null);
 
+	// Функция прокрутки к About
+	const scrollToAbout = useCallback(() => {
+		if (lenisRef.current && aboutRef.current) {
+			lenisRef.current.scrollTo(aboutRef.current, {
+				offset: 0,
+				duration: 1.7,
+			});
+		}
+	}, []);
+
 	// Функция прокрутки к проектам
 	const scrollToProjects = useCallback(() => {
 		if (lenisRef.current && projectsRef.current) {
@@ -28,6 +38,7 @@ export const useAppController = () => {
 			bottomRef,
 		},
 		actions: {
+			scrollToAbout,
 			scrollToProjects,
 		},
 	};

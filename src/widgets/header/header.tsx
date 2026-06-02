@@ -32,12 +32,14 @@ interface HeaderProps {
 	aboutRef: RefObject<HTMLDivElement | null>;
 	bottomRef: RefObject<HTMLDivElement | null>;
 	onProjectsClick?: () => void;
+	onAboutClick?: () => void;
 }
 
 export default function Header({
 	aboutRef,
 	bottomRef,
 	onProjectsClick,
+	onAboutClick,
 }: HeaderProps) {
 	const { t } = useLanguage();
 
@@ -47,6 +49,16 @@ export default function Header({
 			bottomRef,
 		} as any); // временное решение, если хук в JS
 
+	// Обработчик клика по About
+	const handleAboutClick = (e: React.MouseEvent<HTMLElement>) => {
+		e.preventDefault();
+		if (onAboutClick) {
+			onAboutClick();
+		}
+		closeNavbar();
+	};
+
+	// Обработчик клика по Project
 	const handleProjectsClick = (e: React.MouseEvent<HTMLElement>) => {
 		e.preventDefault();
 		if (onProjectsClick) {
@@ -76,7 +88,7 @@ export default function Header({
 							<Nav.Link
 								href="#about"
 								className={styles.navbarNavLink}
-								onClick={closeNavbar}
+								onClick={handleAboutClick}
 							>
 								{t.about}
 							</Nav.Link>
