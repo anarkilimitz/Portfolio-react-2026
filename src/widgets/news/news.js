@@ -1,6 +1,6 @@
-import React from 'react';
+// import React from 'react';
 import styles from './news.module.scss';
-
+ 
 import { Row, Col, Card, Button } from 'react-bootstrap';
 
 import { useNews } from '../../shared/hooks/useNews';

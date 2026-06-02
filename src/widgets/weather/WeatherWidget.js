@@ -1,9 +1,10 @@
-import React from 'react';
+// import React from 'react';
 import { useWeather } from '../../shared/hooks/useWeather';
-import { FaRegSmileWink } from 'react-icons/fa';
 
 import WeatherIcon from 'react-weathericons';
 import 'weather-icons/css/weather-icons.css';
+
+import { DNA } from 'react-loader-spinner';
 
 import styles from './weatherWidget.module.scss';
 
@@ -12,11 +13,10 @@ function WeatherWidget() {
 
 	if (loading)
 		return (
-			<div className={styles.loader}>
-				<p>Погода не загрузилась</p>
-				<p>
-					Смотрим за окно <FaRegSmileWink />
-				</p>
+			<div className={styles.weatherWidget}>
+				<div className={styles.loaderWrap}>
+					<DNA height="80" width="80" />
+				</div>
 			</div>
 		);
 	if (!weather) return null;

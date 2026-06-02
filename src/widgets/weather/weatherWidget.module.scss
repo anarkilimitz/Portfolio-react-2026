@@ -69,6 +69,13 @@
     }
 }
 
+// спиннер loading
+.loaderWrap {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .animatedIcon {
     display: inline-block;
     margin-right: 1rem;

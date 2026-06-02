@@ -3,7 +3,7 @@ export const translations = {
 		// Header
 		name: 'Evgeniy Pavlenok',
 		about: 'About',
-		projects: 'More Projects',
+		projects: 'Projects',
 		contacts: 'Contacts',
 		titleHeader: "Hi, I'm Evgeniy",
 		subtitleHeader: 'Front-End JavaScript & React Developer',
@@ -61,7 +61,7 @@ export const translations = {
 		// Header
 		name: 'Евгений Павленок',
 		about: 'Обо мне',
-		projects: 'Другие Проекты',
+		projects: 'Проекты',
 		contacts: 'Контакты',
 		titleHeader: 'Привет, я Евгений',
 		subtitleHeader: 'Front-End разработчик (JavaScript & React)',
