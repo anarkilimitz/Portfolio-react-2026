@@ -5,13 +5,17 @@
 /.pnp
 /config.php
 .pnp.js
+public/config.php
+config.php
+mailer
+dist
 
 # testing
 /coverage
 
 # production
 /build
-
+public/
 # misc
 .DS_Store
 
@@ -33,3 +37,8 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+# Кэш и временные файлы
+.cache
+.tmp
+.temp
