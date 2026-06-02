@@ -15,6 +15,7 @@
 
     perspective: 80vw;
 
+    -webkit-mask-image: radial-gradient(circle at center, #000 45%, transparent 90%);
     mask-image: radial-gradient(circle at center,
             #000 45%,
             transparent 90%);
@@ -43,8 +44,10 @@
 
 .a3d {
     display: grid;
-    place-self: center;
+    align-self: center;
+    justify-self: center;
     transform-style: preserve-3d;
+    will-change: transform;
     pointer-events: none;
 }
 
@@ -65,6 +68,8 @@
     cursor: pointer;
     text-decoration: none;
 
+    // Явно указываем Safari использовать GPU
+    -webkit-backface-visibility: hidden;
     backface-visibility: hidden;
 
     box-shadow: 0 15px 25px rgba(0, 0, 0, 0.2);
