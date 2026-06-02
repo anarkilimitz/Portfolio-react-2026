@@ -33,6 +33,7 @@ interface HeaderProps {
 	bottomRef: RefObject<HTMLDivElement | null>;
 	onProjectsClick?: () => void;
 	onAboutClick?: () => void;
+	onContactsClick?: () => void;
 }
 
 export default function Header({
@@ -40,6 +41,7 @@ export default function Header({
 	bottomRef,
 	onProjectsClick,
 	onAboutClick,
+	onContactsClick,
 }: HeaderProps) {
 	const { t } = useLanguage();
 
@@ -64,6 +66,13 @@ export default function Header({
 		if (onProjectsClick) {
 			onProjectsClick();
 		}
+		closeNavbar();
+	};
+
+	// Обработчик клика по Контакты
+	const handleContactsClick = (e: React.MouseEvent<HTMLElement>) => {
+		e.preventDefault();
+		onContactsClick?.();
 		closeNavbar();
 	};
 
@@ -104,7 +113,7 @@ export default function Header({
 							<Nav.Link
 								href="#contacts"
 								className={styles.navbarNavLink}
-								onClick={closeNavbar}
+								onClick={handleContactsClick}
 							>
 								{t.contacts}
 							</Nav.Link>

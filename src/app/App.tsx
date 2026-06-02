@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { RefObject } from 'react';
 import { Routes, Route, Outlet } from 'react-router-dom';
 
 import './styles/global.scss';
@@ -19,10 +19,16 @@ import Policy from '../pages/policy/policy';
 // хук контроллер для плавной прокрутки к блокам и сама плавная прокрутка инициализирована там!!!
 import { useAppController } from './hooks/useAppController';
 
-const MainLayout = () => (
+// интерфейс для пропсов MainLayout
+interface MainLayoutProps {
+	contactsRef: RefObject<HTMLElement | null>;
+}
+
+// применяем типизацию к компоненту
+const MainLayout = ({ contactsRef }: MainLayoutProps) => (
 	<>
 		<Outlet />
-		<Footer />
+		<Footer contactsRef={contactsRef} />
 	</>
 );
 
@@ -37,7 +43,8 @@ function App() {
 
 	return (
 		<Routes>
-			<Route element={<MainLayout />}>
+			{/* передаем contactsRef в компонент */}
+			<Route element={<MainLayout contactsRef={refs.contactsRef} />}>
 				<Route
 					index
 					element={
@@ -47,12 +54,12 @@ function App() {
 								bottomRef={refs.bottomRef}
 								onProjectsClick={actions.scrollToProjects}
 								onAboutClick={actions.scrollToAbout}
+								onContactsClick={actions.scrollToContacts}
 							/>
 
 							{/* Блок About */}
 							<div ref={refs.aboutRef}>
 								<About />
-								
 							</div>
 
 							{/* Секция Projects */}
@@ -61,6 +68,7 @@ function App() {
 							</div>
 
 							{/* Остальные секции */}
+							{/* bottomRef маячок для шапки, чтобы она знала, когда нужно поменять свой внешний вид*/}
 							<div ref={refs.bottomRef}>
 								<TitleNewsSection />
 								<Projects />

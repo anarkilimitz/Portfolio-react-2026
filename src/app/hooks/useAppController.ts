@@ -9,6 +9,7 @@ export const useAppController = () => {
 	// Рефы для секций
 	const aboutRef = useRef<HTMLDivElement>(null);
 	const projectsRef = useRef<HTMLDivElement>(null);
+	const contactsRef = useRef<HTMLElement>(null);
 	const bottomRef = useRef<HTMLDivElement>(null);
 
 	// Функция прокрутки к About
@@ -31,15 +32,27 @@ export const useAppController = () => {
 		}
 	}, []);
 
+	// функция скролла к контактам
+	const scrollToContacts = useCallback(() => {
+		if (lenisRef.current && contactsRef.current) {
+			lenisRef.current.scrollTo(contactsRef.current, {
+				offset: 0,
+				duration: 1.7,
+			});
+		}
+	}, []);
+
 	return {
 		refs: {
 			aboutRef,
 			projectsRef,
+			contactsRef,
 			bottomRef,
 		},
 		actions: {
 			scrollToAbout,
 			scrollToProjects,
+			scrollToContacts,
 		},
 	};
 };

@@ -1,4 +1,5 @@
 import React from 'react';
+import { RefObject } from 'react';
 import styles from './footer.module.scss';
 
 import { Container, Row, Col } from 'react-bootstrap';
@@ -7,11 +8,15 @@ import MainForm from '../../shared/ui/forms/form';
 
 import { useLanguage } from '../../shared/i18n/languageContext';
 
-function Footer() {
+interface FooterProps {
+	contactsRef?: RefObject<HTMLElement | null>; // реф для прокрутки
+}
+
+function Footer({ contactsRef }: FooterProps) {
 	const { t } = useLanguage();
 
 	return (
-		<footer className={`bg-dark text-white ${styles.footer}`}>
+		<footer ref={contactsRef} className={`bg-dark text-white ${styles.footer}`}>
 			<Container>
 				<Row className="align-items-center gy-4">
 					{/* обо мне */}
