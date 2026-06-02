@@ -4,7 +4,7 @@ import { FaGithub } from 'react-icons/fa';
 import SliderBlock from '../sliderBlock/SliderBlock';
 import { sliderData } from '../sliderBlock/sliderData/sliderData';
 
-import styles from './projectSlider.module.scss'; 
+import styles from './projectSlider.module.scss';
 
 function ProjectSlider() {
 	return (

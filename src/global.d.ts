@@ -38,3 +38,15 @@ declare module '*.webp' {
   const src: string;
   export default src;
 }
+
+// для обычных .scss файлов (глобальные стили)
+declare module '*.scss' {
+  const content: { [className: string]: string };
+  export default content;
+}
+
+// для обычных .css файлов (например, bootstrap)
+declare module '*.css' {
+  const content: { [className: string]: string };
+  export default content;
+}

@@ -1,7 +1,5 @@
-import React, { useRef } from 'react';
+import React from 'react';
 import { Routes, Route, Outlet } from 'react-router-dom';
-
-import { useSmoothScroll } from '../shared/hooks/useSmoothScroll';
 
 import './styles/global.scss';
 import './styles/variables.scss';
@@ -15,10 +13,11 @@ import TitleNewsSection from '../widgets/titleNewsSection.jsx/titleNewsSection';
 import ProjectsSlider from '../widgets/projectSlider/projectSlider';
 import Carousel3D from '../widgets/carousel3D/carousel3D';
 
-// import ArcButton from '../shared/ui/buttons/arcButton/arcButton';
-
 import Page404 from '../pages/404/Page404';
 import Policy from '../pages/policy/policy';
+
+// хук контроллер для плавной прокрутки к блокам и сама плавная прокрутка инициализирована там!!!
+import { useAppController } from './hooks/useAppController';
 
 const MainLayout = () => (
 	<>
@@ -34,10 +33,7 @@ const PolicyLayout = () => (
 );
 
 function App() {
-	useSmoothScroll();
-
-	const aboutRef = useRef(null); // для навбара скрыть/цвет изменить
-	const bottomRef = useRef(null); // для навбара скрыть/цвет изменить
+	const { refs, actions } = useAppController();
 
 	return (
 		<Routes>
@@ -46,19 +42,28 @@ function App() {
 					index
 					element={
 						<>
-							<Header aboutRef={aboutRef} bottomRef={bottomRef} />
+							<Header
+								aboutRef={refs.aboutRef}
+								bottomRef={refs.bottomRef}
+								onProjectsClick={actions.scrollToProjects}
+							/>
 
-							<div ref={aboutRef}>
+							{/* Секция About */}
+							<div ref={refs.aboutRef}>
 								<About />
-								<ProjectsSlider />
 
-								{/* <ArcButton /> */}
+								{/* Секция Projects - оборачиваем в див с рефом для скролла */}
+								<div ref={refs.projectsRef} id="projects">
+									<ProjectsSlider />
+								</div>
 							</div>
 
-							<div ref={bottomRef}>
+							{/* Остальные секции */}
+							<div ref={refs.bottomRef}>
 								<TitleNewsSection />
 								<Projects />
 							</div>
+
 							<div>
 								<Carousel3D />
 							</div>

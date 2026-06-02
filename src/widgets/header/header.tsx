@@ -1,8 +1,7 @@
-import React from 'react';
+import React, { RefObject } from 'react';
 import styles from './header.module.scss';
 
-import { Container, Navbar, Nav } from 'react-bootstrap';
-import Button from 'react-bootstrap/Button';
+import { Container, Navbar, Nav, Button } from 'react-bootstrap';
 
 import { FaGithub } from 'react-icons/fa';
 
@@ -28,22 +27,41 @@ const technologies = [
 	'UI/UX',
 ];
 
-export default function Header({ aboutRef, bottomRef }) {
+// Интерфейс пропсов. Важно добавить | null в дженерик RefObject
+interface HeaderProps {
+	aboutRef: RefObject<HTMLDivElement | null>;
+	bottomRef: RefObject<HTMLDivElement | null>;
+	onProjectsClick?: () => void;
+}
+
+export default function Header({
+	aboutRef,
+	bottomRef,
+	onProjectsClick,
+}: HeaderProps) {
 	const { t } = useLanguage();
 
 	const { expanded, setExpanded, isDark, isHidden, navbarRef, closeNavbar } =
 		useNavbarBehavior({
 			aboutRef,
 			bottomRef,
-		});
+		} as any); // временное решение, если хук в JS
+
+	const handleProjectsClick = (e: React.MouseEvent<HTMLElement>) => {
+		e.preventDefault();
+		if (onProjectsClick) {
+			onProjectsClick();
+		}
+		closeNavbar();
+	};
 
 	return (
 		<>
 			<Navbar
 				className={`fixed-top 
-					${styles.customNavbar} 
-					${isDark ? styles.darkMode : ''}
-					${isHidden ? styles.hidden : ''}`}
+                    ${styles.customNavbar} 
+                    ${isDark ? styles.darkMode : ''}
+                    ${isHidden ? styles.hidden : ''}`}
 				variant="dark"
 				expand="lg"
 				expanded={expanded}
@@ -62,13 +80,15 @@ export default function Header({ aboutRef, bottomRef }) {
 							>
 								{t.about}
 							</Nav.Link>
+
 							<Nav.Link
 								href="#projects"
 								className={styles.navbarNavLink}
-								onClick={closeNavbar}
+								onClick={handleProjectsClick}
 							>
 								{t.projects}
 							</Nav.Link>
+
 							<Nav.Link
 								href="#contacts"
 								className={styles.navbarNavLink}
