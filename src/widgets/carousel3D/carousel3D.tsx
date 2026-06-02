@@ -4,12 +4,17 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger'; // Обязательно и
 
 import { carouselData } from './data/carouselData';
 import styles from './carousel3D.module.scss';
+import { Container } from 'react-bootstrap';
+
+import { useLanguage } from '../../shared/i18n/languageContext';
 
 gsap.registerPlugin(ScrollTrigger); // Регистрация здесь обязательна
 
 const Carousel3D: React.FC = () => {
   const sceneRef = useRef<HTMLDivElement>(null);
   const wrapperRef = useRef<HTMLDivElement>(null);
+
+	const { t } = useLanguage();
 
   useEffect(() => {
     if (!wrapperRef.current || !sceneRef.current) return;
@@ -32,7 +37,12 @@ const Carousel3D: React.FC = () => {
 
   return (
     <section className={styles.scene} ref={sceneRef}>
-      <div
+			<Container>
+				<h2 className={styles.titleMore}>{t.moreProjects}</h2>
+			</Container>
+			
+  
+			<div
         className={styles.a3d}
         ref={wrapperRef}
         style={{ '--n': carouselData.length } as React.CSSProperties}

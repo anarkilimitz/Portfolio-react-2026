@@ -1,4 +1,4 @@
-import React from 'react';
+// import React from 'react';
 import styles from './about.module.scss';
 import { Container, Row, Col } from 'react-bootstrap';
 

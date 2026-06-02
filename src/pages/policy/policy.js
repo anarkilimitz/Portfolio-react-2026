@@ -1,4 +1,4 @@
-import React from 'react';
+// import React from 'react';
 import styles from './policy.module.scss';
 
 import { Container, Button } from 'react-bootstrap';

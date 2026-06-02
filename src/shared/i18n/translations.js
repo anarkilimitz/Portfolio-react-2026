@@ -34,6 +34,9 @@ export const translations = {
 		switchImg: 'IMAGE',
 		switchDet: 'DETAILS',
 
+		// More Projects
+		moreProjects: 'More Projects',
+
 		// Футер
 		titleFooter: 'Development on React and JavaScript',
 		textFooter: 'Creating modern interfaces using React 19',
@@ -95,6 +98,9 @@ export const translations = {
 		// Свитчер
 		switchImg: 'ФОТО',
 		switchDet: 'ДЕТАЛИ',
+
+		// More Projects
+		moreProjects: 'Ещё проекты',
 
 		// Футер
 		titleFooter: 'Разработка на React и JavaScript',

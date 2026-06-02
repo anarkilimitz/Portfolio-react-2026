@@ -1,3 +1,6 @@
+@use '../../app/styles/variables.scss' as *;
+@use '../../app/styles/mixins.scss' as *;
+
 .scene {
     display: grid;
     width: 100vw;
@@ -15,6 +18,27 @@
     mask-image: radial-gradient(circle at center,
             #000 45%,
             transparent 90%);
+
+    .titleMore {
+        @include section-title;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        width: fit-content;
+        margin-left: auto;
+        margin-top: 160px;
+        padding-right: 5rem;
+
+        &::after {
+            content: '';
+            display: block;
+            margin-left: 6px;
+            width: 115px;
+            height: 4px;
+            background: #000;
+            margin-top: 1rem;
+        }
+    }
 }
 
 .a3d {
@@ -27,7 +51,7 @@
 .card {
     --w: clamp(200px, 25vw, 400px);
     --ba: 1turn / var(--n);
-    --spacing-multiplier: 1.0;
+    --spacing-multiplier: 0.9;
 
     grid-area: 1 / 1;
     position: relative;
@@ -35,14 +59,14 @@
     width: var(--w);
     aspect-ratio: 7 / 10;
     border-radius: 1.5em;
-    
+
     pointer-events: auto;
     overflow: hidden;
     cursor: pointer;
     text-decoration: none;
 
     backface-visibility: hidden;
-    
+
     box-shadow: 0 15px 25px rgba(0, 0, 0, 0.2);
     transition: box-shadow 0.4s ease-in-out;
 
@@ -52,11 +76,11 @@
     &:hover {
         box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
         z-index: 2;
-        
+
         .cardImage {
             transform: scale(1.05);
         }
-        
+
         .cardOverlay {
             opacity: 1;
         }
@@ -80,9 +104,9 @@
     display: flex;
     align-items: flex-end;
     padding: 1.5em;
-    
+
     background: linear-gradient(to top, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0) 100%);
-    
+
     opacity: 0;
     transition: opacity 0.4s ease-in-out;
 }
@@ -95,13 +119,60 @@
     text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
 }
 
+@media (max-width: 992px) {
+    .scene {
+        height: 70vh;
+
+        .titleMore {
+            font-size: 4.2rem;
+        }
+    }
+}
+
 @media (max-width: 768px) {
     .scene {
         perspective: 100vw;
+
+        .titleMore {
+            font-size: 3.2rem;
+
+            &::after {
+                width: 60px;
+            }
+        }
     }
 
     .card {
-        --w: clamp(240px, 50vw, 350px);
-        --spacing-multiplier: 1.2;
+        --spacing-multiplier: 0.7;
+    }
+}
+
+@media (max-width: 576px) {
+
+    .scene {
+        height: 65vh;
+
+        .container {
+            padding-top: 0;
+            padding-bottom: 0;
+            padding-left: 0;
+            padding-right: 5rem;
+        }
+
+        .titleMore {
+            margin-top: 60px;
+            margin-bottom: 0;
+            padding-bottom: 0;
+            font-size: 2.2rem;
+
+            &::after {
+                width: 40px;
+            }
+        }
+    }
+
+    .card {
+        --w: clamp(260px, 80vw, 380px);
+        --spacing-multiplier: 0.6;
     }
 }
