@@ -28,6 +28,10 @@
 // аккордеон
 .projects {
 
+    :global(.accordion-item) {
+        background-color: transparent; // прозрачный фон в раскрытом состоянии блоков
+    }
+
     :global(.accordion-button),
     :global(.accordion-button:focus),
     :global(.accordion-button:hover),
@@ -135,37 +139,30 @@
     text-decoration: none;
     border-bottom: 1px solid currentColor;
     padding-bottom: 1px;
+    color: #a100ff;
+    font-weight: 500;
+
+    &:hover {
+        border-bottom: none;
+    }
 }
 
 // картинка
 .projectsImage {
     position: relative;
-    display: inline-block;
-}
-
-.projectsImage::before {
-    content: "";
-    position: absolute;
-    inset: 0px;
-    background: rgba(255, 255, 255, 0.4);
-    backdrop-filter: blur(2px);
-    -webkit-backdrop-filter: blur(6px);
-    border-radius: 15px;
-    z-index: 0;
-    transition: backdrop-filter 0.3s ease-in-out, background 0.3s ease-in-out;
-}
-
-.projectsImage:hover::before {
-    backdrop-filter: blur(0px);
-    -webkit-backdrop-filter: blur(0px);
-    background: rgba(255, 255, 255, 0.15);
+    display: block;
+    width: 100%;
+    height: 100%;
+    border-radius: 14px;
+    overflow: hidden;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
 }
 
 .projectsImage img {
-    width: 300px;
-    max-width: 380px;
-    border-radius: 15px;
-    box-shadow: 0px 29px 52px -2px rgba(34, 60, 80, 0.08);
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
     z-index: 1;
 }
 
@@ -176,6 +173,11 @@
         .title {
             font-size: 4.2rem;
         }
+    }
+
+    .projectsImage {
+        height: 400px;
+        margin-top: 2rem;
     }
 }
 
@@ -209,5 +211,9 @@
         .title {
             font-size: 2.2rem;
         }
+    }
+
+    .projectsImage {
+        height: 300px;
     }
 }

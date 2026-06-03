@@ -1,14 +1,32 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styles from './projects.module.scss';
 
 import { Container, Row, Col, Accordion } from 'react-bootstrap';
 
-import projectsImg from '../../assets/img/PlatziBg.png';
+import projectsImg1 from '../../assets/img/projects/PlatziBg.png';
+import projectsImg2 from '../../assets/img/projects/Screenshot_16.png';
+import projectsImg3 from '../../assets/img/projects/Screenshot_17.png';
+import projectsImg4 from '../../assets/img/projects/Screenshot_18.png';
+import projectsImg5 from '../../assets/img/projects/Screenshot_19.png';
 
 import { useLanguage } from '../../shared/i18n/languageContext';
 
 function Projects() {
 	const { t } = useLanguage();
+
+	const [activeKey, setActiveKey] = useState('0'); // состояние ключа активного аккордеона
+
+	const projectImages = {
+		0: projectsImg1,
+		1: projectsImg2,
+		2: projectsImg3,
+		3: projectsImg4,
+		4: projectsImg5,
+	};
+
+	const handleSelect = (key) => {
+		setActiveKey(key);
+	};
 
 	return (
 		<Container className="mt-5 mb-5">
@@ -16,10 +34,14 @@ function Projects() {
 				<div className={`text-white pt-5 ${styles.titleProjects}`}>
 					<h1 className={styles.title}>{t.projects}</h1>
 				</div>
-				<Row className="mt-5 align-items-start">
+				<Row className="mt-5 align-items-stretch">
 					{/* левая колонка */}
 					<Col lg={7}>
-						<Accordion className={`mt-5 ${styles.customAccordion}`}>
+						<Accordion
+							className={`mt-5 ${styles.customAccordion}`}
+							activeKey={activeKey}
+							onSelect={handleSelect}
+						>
 							<Accordion.Item eventKey="0">
 								<Accordion.Header>
 									{t.titleAccordionProjects}
@@ -158,10 +180,12 @@ function Projects() {
 						</Accordion>
 					</Col>
 					{/* картинка справа*/}
-					<Col lg={5} className="mt-4 mt-lg-0">
-						<div className={styles.projectsImage}>
-							<img src={projectsImg} alt="Preview" />
-						</div>
+					<Col lg={5} className="mt-lg-0 d-flex align-items-stretch">
+						{activeKey && (
+							<div className={styles.projectsImage}>
+								<img src={projectImages[activeKey]} alt="Preview" />
+							</div>
+						)}
 					</Col>
 				</Row>
 			</section>

@@ -47,6 +47,7 @@ function News() {
 										href={article.url}
 										target="_blank"
 										rel="noreferrer"
+										className={styles.customLink}
 									>
 										{t.btnViewNews}
 									</Card.Link>

@@ -10,6 +10,7 @@
     right: 50%;
     margin-left: -50vw;
     margin-right: -50vw;
+    padding-bottom: 65vw;
     overflow: hidden;
     background: #ffffff1a;
 
@@ -28,6 +29,7 @@
         width: fit-content;
         margin-left: auto;
         margin-top: 160px;
+        padding-bottom: 160px;
         padding-right: 5rem;
 
         &::after {
@@ -127,6 +129,7 @@
 @media (max-width: 992px) {
     .scene {
         height: 70vh;
+        padding-bottom: 80vw;
 
         .titleMore {
             font-size: 4.2rem;
@@ -137,6 +140,7 @@
 @media (max-width: 768px) {
     .scene {
         perspective: 100vw;
+        padding-bottom: 95vw;
 
         .titleMore {
             font-size: 3.2rem;
