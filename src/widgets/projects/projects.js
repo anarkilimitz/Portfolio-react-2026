@@ -3,11 +3,11 @@ import styles from './projects.module.scss';
 
 import { Container, Row, Col, Accordion } from 'react-bootstrap';
 
-import projectsImg1 from '../../assets/img/projects/PlatziBg.png';
-import projectsImg2 from '../../assets/img/projects/Screenshot_16.png';
-import projectsImg3 from '../../assets/img/projects/Screenshot_17.png';
-import projectsImg4 from '../../assets/img/projects/Screenshot_18.png';
-import projectsImg5 from '../../assets/img/projects/Screenshot_19.png';
+import projectsImg1 from '../../assets/img/projects/Screenshot_20.png';
+import projectsImg2 from '../../assets/img/projects/Screenshot_21.png';
+import projectsImg3 from '../../assets/img/projects/Screenshot_22.png';
+import projectsImg4 from '../../assets/img/projects/Screenshot_23.png';
+import projectsImg5 from '../../assets/img/projects/Screenshot_24.png';
 
 import { useLanguage } from '../../shared/i18n/languageContext';
 
