@@ -156,6 +156,7 @@
     border-radius: 14px;
     overflow: hidden;
     box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+    background-color: #1a1a1a;
 }
 
 .projectsImage img {
@@ -164,6 +165,67 @@
     height: 100%;
     object-fit: cover;
     z-index: 1;
+
+    animation: fadeIn 0.4s ease-in-out forwards;
+    animation: fadeInScale 0.5s ease-in-out forwards;
+}
+
+@keyframes fadeInScale {
+    0% {
+        opacity: 0;
+        transform: scale(1.15);
+    }
+
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+// наведение на левый блок
+.leftCol {
+
+    &:hover+.imageCol .imageOverlay {
+        transform: scale(0);
+        opacity: 0;
+        visibility: hidden;
+    }
+}
+
+// черный фон с текстом
+.imageOverlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 14px;
+    background-color: rgba(0, 0, 0, 0.85);
+    z-index: 2;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+
+    transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1),
+        opacity 0.5s ease,
+        visibility 0.5s ease;
+
+    h2 {
+        color: white;
+        margin: 0;
+        padding: 20px;
+        transition: transform 0.5s ease-in-out;
+        font-size: 22px;
+        font-weight: 400;
+        text-transform: uppercase;
+    }
+}
+
+.leftCol:hover+.imageCol .imageOverlay h2 {
+    transform: scale(0.5);
+    opacity: 0;
 }
 
 @media (max-width: 992px) {
@@ -178,6 +240,12 @@
     .projectsImage {
         height: 400px;
         margin-top: 2rem;
+    }
+
+    .imageOverlay:hover {
+        transform: scale(0);
+        opacity: 0;
+        visibility: hidden;
     }
 }
 

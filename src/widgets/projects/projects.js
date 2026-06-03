@@ -36,7 +36,7 @@ function Projects() {
 				</div>
 				<Row className="mt-5 align-items-stretch">
 					{/* левая колонка */}
-					<Col lg={7}>
+					<Col lg={7} className={styles.leftCol}>
 						<Accordion
 							className={`mt-5 ${styles.customAccordion}`}
 							activeKey={activeKey}
@@ -180,10 +180,20 @@ function Projects() {
 						</Accordion>
 					</Col>
 					{/* картинка справа*/}
-					<Col lg={5} className="mt-lg-0 d-flex align-items-stretch">
+					<Col
+						lg={5}
+						className={`mt-lg-0 d-flex align-items-stretch ${styles.imageCol}`}
+					>
 						{activeKey && (
 							<div className={styles.projectsImage}>
-								<img src={projectImages[activeKey]} alt="Preview" />
+								<img
+									key={activeKey}
+									src={projectImages[activeKey]}
+									alt="Preview"
+								/>
+								<div className={styles.imageOverlay}>
+									<h2>Интересные проекты</h2>
+								</div>
 							</div>
 						)}
 					</Col>
