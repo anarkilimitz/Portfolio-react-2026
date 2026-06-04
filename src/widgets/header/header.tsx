@@ -1,5 +1,7 @@
-import React, { RefObject } from 'react';
+import React, { RefObject, useEffect, useRef } from 'react';
 import styles from './header.module.scss';
+
+import { animateTypewriter } from '../../shared/lib/animations/textAnimations';
 
 import { Container, Navbar, Nav, Button } from 'react-bootstrap';
 
@@ -44,6 +46,49 @@ export default function Header({
 	onContactsClick,
 }: HeaderProps) {
 	const { t } = useLanguage();
+
+	const titleRef = useRef<HTMLHeadingElement>(null);
+	const subtitleRef = useRef<HTMLHeadingElement>(null);
+	const textRef = useRef<HTMLParagraphElement>(null);
+
+	// анимации
+	useEffect(() => {
+		let cleanups: Array<(() => void) | undefined> = [];
+		
+		const timer = setTimeout(() => {
+			
+			if (titleRef.current) titleRef.current.textContent = t.titleHeader;
+			if (subtitleRef.current)
+				subtitleRef.current.textContent = t.subtitleHeader;
+			if (textRef.current) textRef.current.textContent = t.textHeader;
+
+			cleanups.push(
+				animateTypewriter(titleRef.current, {
+					stagger: 0.07,
+					delay: 0.1,
+				})
+			);
+
+			cleanups.push(
+				animateTypewriter(subtitleRef.current, {
+					stagger: 0.045,
+					delay: 0.7,
+				})
+			);
+
+			cleanups.push(
+				animateTypewriter(textRef.current, {
+					stagger: 0.038,
+					delay: 1.3,
+				})
+			);
+		}, 50);
+
+		return () => {
+			clearTimeout(timer);
+			cleanups.forEach((cleanup) => cleanup?.());
+		};
+	}, [t]);
 
 	const { expanded, setExpanded, isDark, isHidden, navbarRef, closeNavbar } =
 		useNavbarBehavior({
@@ -134,9 +179,15 @@ export default function Header({
 				>
 					<WeatherWidget />
 					<div className={`text-white mt-auto ${styles.titleHeader}`}>
-						<h1 className="mb-0">{t.titleHeader}</h1>
-						<h3 className="mb-2 mb-sm-5">{t.subtitleHeader}</h3>
-						<p className="pt-3 pt-sm-2 pt-md-1">{t.textHeader}</p>
+						<h1 ref={titleRef} className="mb-0">
+							{t.titleHeader}
+						</h1>
+						<h3 ref={subtitleRef} className="mb-2 mb-sm-5">
+							{t.subtitleHeader}
+						</h3>
+						<p ref={textRef} className="pt-3 pt-sm-2 pt-md-1">
+							{t.textHeader}
+						</p>
 
 						<div className={`d-flex gap-4 mt-0 ${styles.btnWrapper}`}>
 							<Button variant="none" className={styles.primaryBtn} size="lg">
