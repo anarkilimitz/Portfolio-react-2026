@@ -4,6 +4,7 @@
 @use '../../app/styles/effects.scss' as *;
 
 .news {
+    margin-top: 240px;
     min-height: 50vw;
     background-size: 60%;
     background-position: bottom right;
@@ -118,7 +119,7 @@
 
 @media (max-width: 992px) {
     .news {
-
+        margin-top: 40px;
         .title {
             font-size: 4.2rem;
         }

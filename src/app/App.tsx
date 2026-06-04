@@ -70,8 +70,8 @@ function App() {
 							{/* Остальные секции */}
 							{/* bottomRef маячок для шапки, чтобы она знала, когда нужно поменять свой внешний вид*/}
 							<div ref={refs.bottomRef}>
-								<TitleNewsSection />
 								<Projects />
+								<TitleNewsSection />
 							</div>
 
 							<div>

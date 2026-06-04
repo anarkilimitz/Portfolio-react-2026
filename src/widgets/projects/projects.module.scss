@@ -2,7 +2,7 @@
 @use '../../app/styles/mixins.scss' as *;
 
 .projects {
-    margin-top: 180px;
+    margin-top: 0;
     min-height: 50vw;
     background-image: url('../../assets/img/Wall.png');
     background-size: 60%;
@@ -156,39 +156,16 @@
     border-radius: 14px;
     overflow: hidden;
     box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
-    background-color: #1a1a1a;
-}
+    background-color: #ffffff;
 
-.projectsImage img {
-    display: block;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    z-index: 1;
+    img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        z-index: 1;
 
-    animation: fadeIn 0.4s ease-in-out forwards;
-    animation: fadeInScale 0.5s ease-in-out forwards;
-}
-
-@keyframes fadeInScale {
-    0% {
-        opacity: 0;
-        transform: scale(1.15);
-    }
-
-    100% {
-        opacity: 1;
-        transform: scale(1);
-    }
-}
-
-// наведение на левый блок
-.leftCol {
-
-    &:hover+.imageCol .imageOverlay {
-        transform: scale(0);
-        opacity: 0;
-        visibility: hidden;
+        animation: fadeInScale 0.5s ease-in-out forwards;
     }
 }
 
@@ -200,17 +177,16 @@
     width: 100%;
     height: 100%;
     border-radius: 14px;
-    background-color: rgba(0, 0, 0, 0.85);
+    background-color: rgba(0, 0, 0, 0.9);
     z-index: 2;
 
     display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 40px;
+    color: #fff;
 
-    transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1),
-        opacity 0.5s ease,
-        visibility 0.5s ease;
+    transition: opacity 0.5s ease, transform 0.5s ease, visibility 0.5s;
 
     h2 {
         color: white;
@@ -223,14 +199,220 @@
     }
 }
 
-.leftCol:hover+.imageCol .imageOverlay h2 {
-    transform: scale(0.5);
-    opacity: 0;
+// рамка внутри
+.decorBorder {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    right: 20px;
+    bottom: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    pointer-events: none;
+    z-index: 1;
+}
+
+// Большой круг (абстрактный элемент)
+.decorCircle {
+    position: absolute;
+    top: 50%;
+    right: -50px;
+    width: 300px;
+    height: 300px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 50%;
+    transform: translateY(-50%);
+    pointer-events: none;
+}
+
+// Знак плюса (для связки с аккордеоном)
+.decorPlus {
+    position: absolute;
+    bottom: 40px;
+    right: 40px;
+    font-size: 40px;
+    font-weight: 300;
+    color: rgba(255, 255, 255, 0.3);
+    transform: rotate(45deg);
+}
+
+// Точки (сетка)
+.decorDots {
+    position: absolute;
+    top: 40px;
+    right: 40px;
+    width: 20px;
+    height: 20px;
+    background-image: radial-gradient(rgba(255, 255, 255, 0.4) 1px, transparent 1px);
+    background-size: 4px 4px;
+    opacity: 0.5;
+}
+
+// верхняя линия и подпись
+.overlayTop {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    z-index: 2;
+
+    .overlayLabel {
+        font-size: 10px;
+        letter-spacing: 3px;
+        text-transform: uppercase;
+        color: #a100ff;
+        font-weight: 700;
+    }
+
+    .overlayLine {
+        height: 1px;
+        flex-grow: 1;
+        background: linear-gradient(90deg, rgba(255, 255, 255, 0.3), transparent);
+    }
+}
+
+// центральный блок
+.overlayContent {
+    z-index: 2;
+    max-width: 80%;
+
+    .overlayTag {
+        display: inline-block;
+        padding: 6px 12px;
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        border-radius: 20px;
+        font-size: 10px;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        margin-bottom: 20px;
+        color: #fff;
+    }
+
+    h2 {
+        font-size: 3rem;
+        line-height: 1;
+        font-weight: 800;
+        margin: 0 0 20px 0;
+        letter-spacing: -1px;
+        text-transform: uppercase;
+
+        // для текста
+        background: linear-gradient(180deg, #fff, #888);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+
+    p {
+        font-size: 0.9rem;
+        line-height: 1.6;
+        color: rgba(255, 255, 255, 0.7);
+        margin: 0;
+        max-width: 400px;
+        border-left: 2px solid #a100ff;
+        padding-left: 15px;
+    }
+}
+
+// Нижний блок с тегами
+.overlayBottom {
+    z-index: 2;
+
+    .techTags {
+        display: flex;
+        gap: 15px;
+
+        span {
+            font-size: 12px;
+            color: rgba(255, 255, 255, 0.5);
+            position: relative;
+
+            &:not(:last-child)::after {
+                content: '/';
+                margin-left: 15px;
+                color: rgba(255, 255, 255, 0.2);
+            }
+        }
+    }
+}
+
+// вся анимация для текста оверлея
+.overlayContent h2 {
+    opacity: 1;
+    transform: translateX(0);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+    transition-delay: 0.4s;
+}
+
+.overlayContent p {
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+    transition-delay: 0.5s;
+}
+
+.overlayBottom {
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity 0.9s ease, transform 0.9s ease;
+    transition-delay: 0.5s;
+}
+
+.leftCol:hover+.imageCol {
+
+    .imageOverlay {
+        opacity: 0;
+        visibility: hidden;
+        transform: scale(0);
+    }
+
+    .overlayContent h2 {
+        opacity: 0;
+        transform: translateX(80px);
+    }
+
+    .overlayContent p {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    .overlayBottom {
+        opacity: 0;
+        transform: translateY(50px);
+    }
 }
 
 @media (max-width: 992px) {
+    .customAccordion {
+
+        :global(.accordion-button) {
+            padding-top: 10px;
+            padding-bottom: 10px;
+        }
+
+        // круг
+        :global(.accordion-button::before) {
+            right: 28px;
+            width: 20px;
+            height: 20px;
+        }
+
+        // контейнер для линий
+        :global(.accordion-button span.icon) {
+            right: 28px;
+            width: 20px;
+            height: 20px;
+        }
+
+        // линии
+        :global(.accordion-button span.icon::before),
+        :global(.accordion-button span.icon::after) {
+
+            width: 8px;
+            height: 2px;
+
+        }
+    }
+
     .projects {
-        margin-top: 140px;
+        margin-top: 40px;
 
         .title {
             font-size: 4.2rem;
@@ -247,6 +429,29 @@
         opacity: 0;
         visibility: hidden;
     }
+
+    .imageOverlay {
+        padding: 28px;
+    }
+
+    .overlayContent {
+        max-width: 100%;
+    }
+
+    .overlayContent h2 {
+        font-size: 2.2rem;
+    }
+
+    .overlayContent p {
+        max-width: 100%;
+        font-size: 0.85rem;
+    }
+
+    .decorCircle {
+        width: 220px;
+        height: 220px;
+        right: -40px;
+    }
 }
 
 @media (max-width: 768px) {
@@ -262,12 +467,46 @@
             font-size: 3.2rem;
         }
     }
+
+    .imageOverlay {
+        padding: 24px;
+    }
+
+    .overlayTop {
+        gap: 10px;
+    }
+
+    .overlayContent h2 {
+        font-size: 1.8rem;
+        line-height: 1.05;
+    }
+
+    .overlayContent p {
+        font-size: 0.8rem;
+        line-height: 1.5;
+    }
+
+    .techTags {
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+
+    .decorCircle {
+        width: 180px;
+        height: 180px;
+        right: -60px;
+    }
+
+    .decorPlus {
+        font-size: 30px;
+        right: 24px;
+        bottom: 24px;
+    }
 }
 
 @media (max-width: 576px) {
 
     .projects {
-        margin-top: 100px;
         margin-bottom: 80px;
 
         h1 {
@@ -283,5 +522,71 @@
 
     .projectsImage {
         height: 300px;
+    }
+
+    .imageOverlay {
+        padding: 18px;
+    }
+
+    .decorCircle,
+    .decorDots,
+    .decorPlus {
+        display: none;
+    }
+
+    .decorBorder {
+        top: 10px;
+        left: 10px;
+        right: 10px;
+        bottom: 10px;
+    }
+
+    .overlayLabel {
+        font-size: 8px;
+        letter-spacing: 2px;
+    }
+
+    .overlayContent h2 {
+        font-size: 1.4rem;
+        line-height: 1.05;
+        margin-bottom: 12px;
+    }
+
+    .overlayContent p {
+        font-size: 0.75rem;
+        padding-left: 10px;
+        line-height: 1.4;
+    }
+
+    .techTags {
+        gap: 8px;
+    }
+
+    .techTags span {
+        font-size: 10px;
+    }
+}
+
+@keyframes fadeInScale {
+    0% {
+        opacity: 0;
+        transform: scale(1.15);
+    }
+
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
     }
 }

@@ -29,7 +29,7 @@ function Projects() {
 	};
 
 	return (
-		<Container className="mt-5 mb-5">
+		<Container className="mt-5 mt-md-0 mb-5">
 			<section className={styles.projects}>
 				<div className={`text-white pt-5 ${styles.titleProjects}`}>
 					<h1 className={styles.title}>{t.projects}</h1>
@@ -179,20 +179,57 @@ function Projects() {
 							</Accordion.Item>
 						</Accordion>
 					</Col>
+
 					{/* картинка справа*/}
 					<Col
 						lg={5}
 						className={`mt-lg-0 d-flex align-items-stretch ${styles.imageCol}`}
 					>
 						{activeKey && (
-							<div className={styles.projectsImage}>
-								<img
-									key={activeKey}
-									src={projectImages[activeKey]}
-									alt="Preview"
-								/>
+							<div key={activeKey} className={styles.projectsImage}>
+								<img src={projectImages[activeKey]} alt="Preview" />
+
 								<div className={styles.imageOverlay}>
-									<h2>Интересные проекты</h2>
+									{/* рамка */}
+									<div className={styles.decorBorder}></div>
+
+									{/* мелкие подписи */}
+									<div className={styles.overlayTop}>
+										<span className={styles.overlayLabel}>PORTFOLIO 2025</span>
+										<div className={styles.overlayLine}></div>
+									</div>
+
+									{/* контент */}
+									<div className={styles.overlayContent}>
+										<span className={styles.overlayTag}>Featured Work</span>
+										<h2>
+											CREATIVE
+											<br />
+											WEB
+											<br />
+											SOLUTIONS
+										</h2>
+										<p>
+											Take a look at modern interfaces and technological
+											solutions created with attention to detail.
+										</p>
+									</div>
+
+									{/* Нижние элементы и теги */}
+									<div className={styles.overlayBottom}>
+										<div className={styles.techTags}>
+											<span>HTML</span>
+											<span>JS</span>
+											<span>SCSS</span>
+											<span>React</span>
+											<span>Redux</span>
+										</div>
+									</div>
+
+									{/* круги и элементы */}
+									<div className={styles.decorCircle}></div>
+									<div className={styles.decorPlus}>+</div>
+									<div className={styles.decorDots}></div>
 								</div>
 							</div>
 						)}
