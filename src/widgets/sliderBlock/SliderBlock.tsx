@@ -1,12 +1,16 @@
+import React, { useState } from 'react';
 import styles from '../sliderBlock/sliderBlock.module.scss';
 
 import SwitcherSlider from '../../shared/ui/buttons/switcherSlider/switcherSlider';
-import SliderCarousel from '../../widgets/sliderCarousel/SliderCarousel';
+import SliderCarousel from '../sliderCarousel/SliderCarousel';
 
-import { useState } from 'react';
+interface SliderBlockProps {
+	image: string;
+	description: string;
+}
 
-function SliderBlock({ image, description }) {
-	const [mode, setMode] = useState('IMAGE');
+function SliderBlock({ image, description }: SliderBlockProps) {
+	const [mode, setMode] = useState<'IMAGE' | 'DETAILS'>('IMAGE');
 
 	return (
 		<div className={styles.wrapper}>

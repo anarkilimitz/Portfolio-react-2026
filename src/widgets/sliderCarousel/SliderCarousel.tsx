@@ -1,15 +1,22 @@
 import { useEffect, useRef } from 'react';
 import { Carousel } from 'bootstrap';
 
-function SliderCarousel({ mode, imageSrc, description }) {
-	const carouselRef = useRef(null);
-	const carouselApiRef = useRef(null);
+interface SliderCarouselProps {
+	mode: 'IMAGE' | 'DETAILS' | string;
+	imageSrc: string;
+	description: string;
+}
+
+function SliderCarousel({ mode, imageSrc, description }: SliderCarouselProps) {
+	const carouselRef = useRef<HTMLDivElement>(null);
+	const carouselApiRef = useRef<Carousel | null>(null);
 
 	// init Bootstrap Carousel
 	useEffect(() => {
-		if (!carouselRef.current) return;
+		const refElement = carouselRef.current;
+		if (!refElement) return;
 
-		carouselApiRef.current = new Carousel(carouselRef.current, {
+		carouselApiRef.current = new Carousel(refElement, {
 			interval: false,
 			ride: false,
 			touch: true,
