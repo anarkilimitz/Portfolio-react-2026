@@ -1,7 +1,9 @@
-import React, { useState } from 'react';
+import { useState, useRef } from 'react';
 import styles from './projects.module.scss';
 
 import { Container, Row, Col, Accordion } from 'react-bootstrap';
+
+import { useScrollTypewriter } from '../../shared/hooks/useScrollTypewriter';
 
 import projectsImg1 from '../../assets/img/projects/Screenshot_20.png';
 import projectsImg2 from '../../assets/img/projects/Screenshot_21.png';
@@ -14,9 +16,18 @@ import { useLanguage } from '../../shared/i18n/languageContext';
 function Projects() {
 	const { t } = useLanguage();
 
-	const [activeKey, setActiveKey] = useState('0'); // состояние ключа активного аккордеона
+	const [activeKey, setActiveKey] = useState<string | null>('0'); // состояние ключа активного аккордеона
 
-	const projectImages = {
+	const sectionRef = useRef<HTMLElement>(null);
+	const titleRef = useRef<HTMLHeadingElement>(null);
+
+	// анимация
+	useScrollTypewriter(titleRef, t.projects, sectionRef, {
+		stagger: 0.07,
+		delay: 0.2,
+	});
+
+	const projectImages: Record<string, string> = {
 		0: projectsImg1,
 		1: projectsImg2,
 		2: projectsImg3,
@@ -24,15 +35,17 @@ function Projects() {
 		4: projectsImg5,
 	};
 
-	const handleSelect = (key) => {
+	const handleSelect = (key: string | null) => {
 		setActiveKey(key);
 	};
 
 	return (
 		<Container className="mt-5 mt-md-0 mb-5">
-			<section className={styles.projects}>
+			<section ref={sectionRef} className={styles.projects}>
 				<div className={`text-white pt-5 ${styles.titleProjects}`}>
-					<h1 className={styles.title}>{t.projects}</h1>
+					<h1 ref={titleRef} className={styles.title}>
+						{t.projects}
+					</h1>
 				</div>
 				<Row className="mt-5 align-items-stretch">
 					{/* левая колонка */}
@@ -185,7 +198,7 @@ function Projects() {
 						lg={5}
 						className={`mt-lg-0 d-flex align-items-stretch ${styles.imageCol}`}
 					>
-						{activeKey && (
+						{activeKey && projectImages[activeKey] && (
 							<div key={activeKey} className={styles.projectsImage}>
 								<img src={projectImages[activeKey]} alt="Preview" />
 

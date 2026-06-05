@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import { useRef } from 'react';
 import styles from './about.module.scss';
 
 import { Container, Row, Col } from 'react-bootstrap';
@@ -7,7 +7,7 @@ import { useScrollTypewriter } from '../../shared/hooks/useScrollTypewriter';
 
 import aboutImag from '../../assets/img/PortfolioBgColor390Deg.jpg';
 import { useLanguage } from '../../shared/i18n/languageContext';
-
+ 
 function About() {
 	const { t } = useLanguage();
 

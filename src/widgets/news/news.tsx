@@ -1,8 +1,6 @@
-// import React from 'react';
 import styles from './news.module.scss';
- 
-import { Row, Col, Card, Button } from 'react-bootstrap';
 
+import { Row, Col, Card, Button } from 'react-bootstrap';
 import { useNews } from '../../shared/hooks/useNews';
 
 import { DNA } from 'react-loader-spinner';
@@ -12,15 +10,27 @@ import ErrorMessage from '../../shared/ui/errorMessage/errorMessage';
 
 import { useLanguage } from '../../shared/i18n/languageContext';
 
+interface IArticle {
+	title: string;
+	description: string | null;
+	url: string;
+	urlToImage: string | null;
+}
+
 function News() {
-	const { news, loading, error, loadMore } = useNews();
+	const { news, loading, error, loadMore } = useNews() as {
+		news: IArticle[];
+		loading: boolean;
+		error: string | null;
+		loadMore: () => void;
+	};
 
 	const { t } = useLanguage();
 
 	if (loading && !news.length) {
 		return (
 			<div className={styles.loaderWrap}>
-				<DNA height="100" width="100" />
+				<DNA height="100" width="100" visible={true} ariaLabel="dna-loading" />
 			</div>
 		);
 	}
@@ -31,16 +41,24 @@ function News() {
 		<>
 			<div className={styles.newsInner}>
 				<Row xs={1} md={2} className="g-4">
-					{news.map((article, index) => (
+					{news.map((article: IArticle, index: number) => (
 						<Col key={`${article.url}-${index}`}>
 							<Card className={styles.newsCard}>
 								<Card.Img
 									src={article.urlToImage || imgFallback}
-									onError={(e) => (e.currentTarget.src = imgFallback)}
+									onError={(
+										e: React.SyntheticEvent<HTMLImageElement, Event>
+									) => {
+										e.currentTarget.src = imgFallback;
+									}}
 								/>
 								<Card.Body>
-									<Card.Title>{article.title}</Card.Title>
-									<Card.Text>{article.description}</Card.Text>
+									<Card.Title className={styles.cardTitle}>
+										{article.title}
+									</Card.Title>
+									<Card.Text className={styles.cardText}>
+										{article.description || 'No description available.'}
+									</Card.Text>
 								</Card.Body>
 								<Card.Body>
 									<Card.Link
@@ -72,5 +90,4 @@ function News() {
 		</>
 	);
 }
-
 export default News;
