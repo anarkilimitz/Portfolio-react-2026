@@ -9,6 +9,7 @@
 
 .imageWrapper {
     position: relative;
+    max-width: 500px;
     box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
 }
 
@@ -27,7 +28,7 @@
     &::before {
         content: "❋";
         position: absolute;
-        left: 310px;
+        left: 95%;
         top: -12%;
         transform: translateY(-50%) rotate(-13deg);
         font-size: 5.5rem;
@@ -57,6 +58,10 @@
 }
 
 @media (max-width: 1199px) {
+    .imageWrapper {
+        margin: 0 auto;
+    }
+
     .contentSection {
         margin-top: 40px;
     }
@@ -81,10 +86,7 @@
     }
 
     .decoratedTitle::before {
-        left: 255px;
-        top: -15%;
         font-size: 4.2rem;
-        transform: translateY(-50%) rotate(-12deg);
     }
 
     .decoratedTitle:hover::before {
@@ -113,8 +115,6 @@
     }
 
     .decoratedTitle::before {
-        left: 102%;
-        top: -10%;
         font-size: 3.2rem;
     }
 }
@@ -130,7 +130,6 @@
     }
 
     .decoratedTitle::before {
-        top: -28%;
         font-size: 2.6rem;
     }
 }
