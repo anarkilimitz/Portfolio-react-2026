@@ -2,7 +2,23 @@ import CoffeeImg from '../../../assets/img/slider/Coffee.png';
 import UmffzImg from '../../../assets/img/slider/umffz.png';
 import RentalImg from '../../../assets/img/slider/rental..png';
 
-export const sliderData = [
+export interface ITag {
+	text: string;
+	bg: string;
+}
+
+export interface ISliderItem {
+	id: number;
+	image: string;
+	title: string;
+	text: string;
+	tags: ITag[];
+	link: string;
+	linkGit?: string;
+	description: string;
+}
+
+export const sliderData: ISliderItem[] = [
 	{
 		id: 1,
 		image: CoffeeImg,

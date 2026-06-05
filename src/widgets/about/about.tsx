@@ -1,14 +1,12 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useRef } from 'react';
 import styles from './about.module.scss';
+
 import { Container, Row, Col } from 'react-bootstrap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { gsap } from 'gsap';
+
+import { useScrollTypewriter } from '../../shared/hooks/useScrollTypewriter';
 
 import aboutImag from '../../assets/img/PortfolioBgColor390Deg.jpg';
 import { useLanguage } from '../../shared/i18n/languageContext';
-import { animateTypewriter } from '../../shared/lib/animations/textAnimations';
-
-gsap.registerPlugin(ScrollTrigger);
 
 function About() {
 	const { t } = useLanguage();
@@ -17,43 +15,16 @@ function About() {
 	const textRef = useRef<HTMLParagraphElement>(null);
 	const sectionRef = useRef<HTMLElement>(null);
 
-	useEffect(() => {
-		const title = titleRef.current;
-		const text = textRef.current;
-		if (!title || !text) return;
+	// анимация
+	useScrollTypewriter(titleRef, t.titleAbout, sectionRef, {
+		stagger: 0.15,
+		delay: 0.1,
+	});
 
-		let titleCleanup: (() => void) | undefined;
-		let textCleanup: (() => void) | undefined;
-
-		gsap.set([title, text], { opacity: 0, visibility: 'hidden' });
-
-		const trigger = ScrollTrigger.create({
-			trigger: sectionRef.current,
-			start: 'top 100%',
-			once: false,
-			onEnter: () => {
-				gsap.set([title, text], { opacity: 1, visibility: 'visible' });
-
-				title.textContent = t.titleAbout;
-				titleCleanup = animateTypewriter(title, {
-					stagger: 0.15,
-					delay: 0.1,
-				});
-
-				text.textContent = t.textAbout;
-				textCleanup = animateTypewriter(text, {
-					stagger: 0.004,
-					delay: 0.3,
-				});
-			},
-		});
-
-		return () => {
-			trigger.kill();
-			titleCleanup?.();
-			textCleanup?.();
-		};
-	}, [t]);
+	useScrollTypewriter(textRef, t.textAbout, sectionRef, {
+		stagger: 0.004,
+		delay: 0.3,
+	});
 
 	return (
 		<Container className="mt-5 mb-5">

@@ -1,7 +1,7 @@
-import React, { RefObject, useEffect, useRef } from 'react';
+import React, { RefObject, useRef } from 'react';
 import styles from './header.module.scss';
 
-import { animateTypewriter } from '../../shared/lib/animations/textAnimations';
+import { useTypewriter } from '../../shared/hooks/useTypewriter';
 
 import { Container, Navbar, Nav, Button } from 'react-bootstrap';
 
@@ -52,43 +52,14 @@ export default function Header({
 	const textRef = useRef<HTMLParagraphElement>(null);
 
 	// анимации
-	useEffect(() => {
-		let cleanups: Array<(() => void) | undefined> = [];
-		
-		const timer = setTimeout(() => {
-			
-			if (titleRef.current) titleRef.current.textContent = t.titleHeader;
-			if (subtitleRef.current)
-				subtitleRef.current.textContent = t.subtitleHeader;
-			if (textRef.current) textRef.current.textContent = t.textHeader;
-
-			cleanups.push(
-				animateTypewriter(titleRef.current, {
-					stagger: 0.07,
-					delay: 0.1,
-				})
-			);
-
-			cleanups.push(
-				animateTypewriter(subtitleRef.current, {
-					stagger: 0.045,
-					delay: 0.7,
-				})
-			);
-
-			cleanups.push(
-				animateTypewriter(textRef.current, {
-					stagger: 0.038,
-					delay: 1.3,
-				})
-			);
-		}, 50);
-
-		return () => {
-			clearTimeout(timer);
-			cleanups.forEach((cleanup) => cleanup?.());
-		};
-	}, [t]);
+	useTypewriter(titleRef, t.titleHeader, { stagger: 0.07, delay: 0.1 }, 50);
+	useTypewriter(
+		subtitleRef,
+		t.subtitleHeader,
+		{ stagger: 0.045, delay: 0.7 },
+		50
+	);
+	useTypewriter(textRef, t.textHeader, { stagger: 0.038, delay: 1.3 }, 50);
 
 	const { expanded, setExpanded, isDark, isHidden, navbarRef, closeNavbar } =
 		useNavbarBehavior({
