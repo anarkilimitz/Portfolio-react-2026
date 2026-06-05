@@ -8,7 +8,8 @@ import './app/styles/global.scss';
 import App from './app/App';
 import { LanguageProvider } from './shared/i18n/languageContext';
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
+const root = ReactDOM.createRoot(document.getElementById('root')!);
+
 root.render(
 	<React.StrictMode>
 		<BrowserRouter>
