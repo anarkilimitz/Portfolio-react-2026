@@ -12,7 +12,35 @@ export const translations = {
 
 		// About
 		titleAbout: 'About',
-		textAbout: `I am a front-end developer specializing in building modern, user-friendly, and high-performance web applications. In my work, I use JavaScript, React, and modern tools from the front-end ecosystem to create clean and maintainable code. For me, it’s not just about implementing the interface — it’s important to deliver a great user experience, responsiveness, and fast loading speeds. I pay close attention to application architecture, code readability, and adherence to best development practices. I continuously learn new technologies, improve my skills, and apply them in real projects. I’m open to interesting challenges, teamwork, and professional growth.`,
+		textAbout: `Since the beginning of 2024, I have fully dedicated myself to frontend development and started my journey by learning the basics.`,
+		
+		timeline: [
+			{
+				year: '2024 — Start',
+				title: 'Beginning of the Path',
+				desc: 'Studying Htmlbook, Webref, Learn JavaScript, "Grokking Algorithms", "Eloquent JavaScript". Introductory course by Yandex Practicum.',
+			},
+			{
+				year: '2024',
+				title: 'First Projects',
+				desc: 'Creating the first website following the WebReference tutorial. Understanding the importance of practice.',
+			},
+			{
+				year: '2024',
+				title: 'Campfire School',
+				desc: 'Completed two major courses by Ivan Petrichenko:\n• Web Developer (HTML, SCSS, JS, BEM, Git, etc.)\n• JavaScript + React + Redux',
+			},
+			{
+				year: '2024 — Present',
+				title: 'Freelance',
+				desc: 'Main activity. Real projects, applying all knowledge in practice.',
+			},
+			{
+				year: 'Now',
+				title: 'Development',
+				desc: 'Active study of TypeScript. Translating portfolio to TypeScript.',
+			},
+		],
 
 		//Projects
 		titleAccordionProjects: 'E-commerce Store',
@@ -73,11 +101,35 @@ export const translations = {
 
 		// About
 		titleAbout: 'Обо мне',
-		textAbout: `Я front-end разработчик, специализирующийся на создании современных, удобных и производительных веб-приложений. В своей работе я использую JavaScript, React и современные инструменты экосистемы фронтенда для разработки чистого и поддерживаемого кода.
-
-		Мне важно не только реализовать интерфейс, но и обеспечить хороший пользовательский опыт, адаптивность и высокую скорость загрузки. Я уделяю внимание архитектуре приложения, читаемости кода и соблюдению лучших практик разработки.
-
-		Постоянно изучаю новые технологии, совершенствую навыки и применяю их в реальных проектах. Открыт к интересным задачам, командной работе и профессиональному росту.`,
+		textAbout: `С начала 2024 года я полностью посвятил себя фронтенд-разработке и начал свой путь с изучения основ.`,
+		
+		timeline: [
+			{
+				year: '2024 — начало',
+				title: 'Старт пути',
+				desc: 'Изучение Htmlbook, Webref, Learn JavaScript, «Грокаем алгоритмы», «Выразительный JavaScript». Вводный курс Яндекс.Практикума.',
+			},
+			{
+				year: '2024',
+				title: 'Первые проекты',
+				desc: 'Создание первого сайта по учебнику WebReference. Понимание важности практики.',
+			},
+			{
+				year: '2024',
+				title: 'Campfire School',
+				desc: 'Прошёл два больших курса от Ивана Петриченко:\n• Web-разработчик (HTML, SCSS, JS, БЭМ, Git и др.)\n• JavaScript + React + Redux',
+			},
+			{
+				year: '2024 — настоящее время',
+				title: 'Фриланс',
+				desc: 'Основная деятельность. Реальные проекты, применение всех знаний на практике.',
+			},
+			{
+				year: 'Сейчас',
+				title: 'Развитие',
+				desc: 'Активное изучение TypeScript. Перевожу портфолио на TypeScript.',
+			},
+		],
 
 		// Projects
 		titleAccordionProjects: 'Интернет-магазин',

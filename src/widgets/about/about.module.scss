@@ -4,13 +4,29 @@
 .about {
     background: #fff;
     box-shadow: 0px 29px 52px -2px rgba(34, 60, 80, 0.08);
-    padding-top: 60px;
+    padding: 60px;
+}
+
+.aboutWrapper {
+    align-items: flex-start;
+}
+
+.leftColumn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.mainRow {
+    display: flex;
+    align-items: flex-start !important; // контент к верху
 }
 
 .imageWrapper {
     position: relative;
     max-width: 500px;
     box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+    margin-bottom: 5rem;
 }
 
 .titleSection {
@@ -42,13 +58,163 @@
 
 .decoratedTitle:hover::before {
     transform: translateY(-50%) rotate(30deg) scale(1.2);
-
 }
 
 .contentSection {
+    margin-top: 8rem;
     font-size: 1.1rem;
     line-height: 1.4;
     letter-spacing: 0.04em;
+}
+
+.aboutText {
+    font-size: 1.1rem;
+    line-height: 1.75;
+    color: #333;
+    margin-bottom: 2.5rem;
+}
+
+// скилы
+.skillsSection {
+    margin-top: 2rem;
+    width: 100%;
+}
+
+.skillsTitle {
+    font-size: 1.6rem;
+    margin: 0 0 1.5rem 0;
+    position: relative;
+    display: inline-block;
+
+    &::after {
+        content: '';
+        position: absolute;
+        bottom: -8px;
+        left: 0;
+        width: 60px;
+        height: 3px;
+        background: #000;
+    }
+}
+
+.skillsGrid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px; // Расстояние между тегами
+}
+
+.skillTag {
+    background: #f8f8f8;
+    padding: 8px 16px;
+    border-radius: 50px;
+    font-size: 0.95rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    border: 1px solid #eee;
+
+    &:hover {
+        background: #000;
+        color: #fff;
+        transform: translateY(-2px);
+    }
+}
+
+// таймлайн
+.timelineTitle {
+    font-size: 1.8rem;
+    margin: 2rem 0 2.5rem;
+    position: relative;
+    display: inline-block;
+
+    &::after {
+        content: '';
+        position: absolute;
+        bottom: -2px;
+        left: 0;
+        width: 37px;
+        height: 2px;
+        background: #000;
+    }
+}
+
+.timeline {
+    position: relative;
+    padding-left: 40px;
+    margin-bottom: 3rem;
+
+    &::before {
+        content: '';
+        position: absolute;
+        left: 38px;
+        top: 10px;
+        bottom: 10px;
+        width: 3px;
+        background: #e0e0e0;
+        z-index: 0;
+    }
+}
+
+.timelineItem {
+    position: relative;
+    margin-bottom: 2.8rem;
+    z-index: 1;
+
+    &:last-child {
+        margin-bottom: 0;
+    }
+}
+
+.timelineMarker {
+    position: absolute;
+    left: -21px;
+    width: 42px;
+    height: 42px;
+    background: #fff;
+    border: 3px solid #000;
+    border-radius: 50%;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.1rem;
+    color: #000;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.timelineContent {
+    padding-left: 30px;
+}
+
+.timelineYear {
+    display: inline-block;
+    background: #000;
+    color: #fff;
+    padding: 4px 14px;
+    border-radius: 30px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+
+.timelineItemTitle {
+    font-size: 1.35rem;
+    margin: 0.4rem 0 0.8rem;
+    font-weight: 600;
+}
+
+.timelineDesc {
+    font-size: 1.05rem;
+    line-height: 1.65;
+    color: #444;
+}
+
+.timelineItem:hover .timelineMarker {
+    background: #000;
+    color: #fff;
+    transform: scale(1.1);
+    transition: all 0.3s ease;
 }
 
 @media (max-width: 1400px) {
@@ -58,6 +224,10 @@
 }
 
 @media (max-width: 1199px) {
+    .leftColumn {
+        align-items: center;
+    }
+
     .imageWrapper {
         margin: 0 auto;
     }
@@ -70,9 +240,31 @@
         top: -40px;
         right: -20px;
     }
+
+    .skillsSection {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .skillsGrid {
+        justify-items: center;
+    }
 }
 
 @media (max-width: 992px) {
+    .about {
+        padding: 40px 20px;
+    }
+
+    .aboutWrapper {
+        padding-top: 2.5rem;
+    }
+
+    .leftColumn {
+        margin-bottom: 2rem;
+    }
+
     .contentSection {
         margin-top: 0px;
     }
@@ -97,6 +289,14 @@
         padding-top: 2.5rem;
         padding-left: 1rem;
         padding-right: 1rem;
+    }
+
+    .skillsSection {
+        align-items: flex-start;
+    }
+
+    .skillsGrid {
+        grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
     }
 }
 
