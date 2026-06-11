@@ -76,8 +76,8 @@
         width: 36px;
         height: 36px;
         border-radius: 50%;
-        border: 2px solid #a100ff;
-        background-color: #a100ff;
+        border: 2px solid $main-color;
+        background-color: $main-color;
 
         transition: all 0.3s ease-in-out;
     }
@@ -126,7 +126,7 @@
 
     :global(.accordion-button:not(.collapsed) span.icon::before),
     :global(.accordion-button:not(.collapsed) span.icon::after) {
-        background: #a100ff;
+        background: $main-color;
     }
 
     :global(.accordion-button:hover::before) {
@@ -139,11 +139,12 @@
     text-decoration: none;
     border-bottom: 1px solid currentColor;
     padding-bottom: 1px;
-    color: #a100ff;
+    color: $main-color;
     font-weight: 500;
 
     &:hover {
         border-bottom: none;
+        color: $hover-color;
     }
 }
 
@@ -258,7 +259,7 @@
         font-size: 10px;
         letter-spacing: 3px;
         text-transform: uppercase;
-        color: #a100ff;
+        color: $main-color;
         font-weight: 700;
     }
 
@@ -306,7 +307,7 @@
         color: rgba(255, 255, 255, 0.7);
         margin: 0;
         max-width: 400px;
-        border-left: 2px solid #a100ff;
+        border-left: 2px solid $main-color;
         padding-left: 15px;
     }
 }

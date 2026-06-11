@@ -14,16 +14,82 @@ interface TimelineItem {
 	desc: string;
 }
 
+// тег-ссылки
+interface TechItem {
+	name: string;
+	url: string;
+}
+
+// технологии
+const techStack: TechItem[] = [
+	{ name: 'HTML', url: 'https://developer.mozilla.org/ru/docs/Web/HTML' },
+	{ name: 'SCSS / БЭМ', url: 'https://sass-lang.com/' },
+	{
+		name: 'JavaScript',
+		url: 'https://developer.mozilla.org/ru/docs/Web/JavaScript',
+	},
+	{ name: 'React', url: 'https://react.dev/' },
+	{ name: 'TypeScript', url: 'https://www.typescriptlang.org/' },
+
+	{ name: 'GSAP + Lenis', url: 'https://gsap.com/' },
+	{ name: 'FSD Architecture', url: 'https://feature-sliced.design/' },
+	{ name: 'WordPress + ACF', url: 'https://wordpress.org/' },
+	{ name: 'REST API', url: 'https://restfulapi.net/' },
+	{ name: 'Git / GitHub', url: 'https://github.com/' },
+	{ name: 'Figma', url: 'https://www.figma.com/' },
+	{ name: 'Vite', url: 'https://vitejs.dev/' },
+	{ name: 'Vercel', url: 'https://vercel.com/' },
+	{ name: 'Netlify', url: 'https://netlify.com/' },
+	{ name: 'Supabase', url: 'https://supabase.com/' },
+	{ name: 'Strapi', url: 'https://strapi.io/' },
+];
+
+// справочник
+const resources: TechItem[] = [
+	{ name: 'Yoksel Grid', url: 'https://yoksel.github.io/grid-cheatsheet/' },
+	{ name: 'Yoksel Flex', url: 'https://yoksel.github.io/flex-cheatsheet/' },
+	{
+		name: 'Free licenses',
+		url: 'https://creativecommons.org/cc-licenses/',
+	},
+	{ name: 'My Device', url: 'https://www.mydevice.io/' },
+	{
+		name: 'Animating Clip-Path',
+		url: 'https://css-tricks.com/animating-with-clip-path/',
+	},
+	{ name: 'Stack Overflow', url: 'https://stackoverflow.com/' },
+	{ name: 'CSS Box-Shadow', url: 'https://active-vision.ru/box-shadow/' },
+	{ name: 'Can I Use', url: 'https://caniuse.com/' },
+	{ name: 'Learn JavaScript', url: 'https://learn.javascript.ru/' },
+	{ name: 'Htmlbook', url: 'https://htmlbook.ru/' },
+	{ name: 'WebReference', url: 'https://webref.ru/' },
+	{ name: 'Doka', url: 'https://doka.guide/' },
+	{ name: 'Gradient', url: 'https://photogradient.com/' },
+	{ name: 'Slick-Slider', url: 'https://kenwheeler.github.io/slick/' },
+	{ name: 'Bootstrap', url: 'https://getbootstrap.com/' },
+	{
+		name: 'Tiny-Slider',
+		url: 'https://ganlanyuan.github.io/tiny-slider/demo/#base_wrapper',
+	},
+	{ name: 'React Bootstrap', url: 'https://react-bootstrap.github.io/' },
+	{ name: 'W3C Validate ', url: 'https://validator.w3.org/' },
+
+	{ name: 'Rough Notation', url: 'https://roughnotation.com/' },
+	{ name: 'Animate.css', url: 'https://animate.style/' },
+	{ name: 'Css Loaders', url: 'https://css-loaders.com/classic/' },
+];
+
 function About() {
 	const { t } = useLanguage();
 
 	const sectionRef = useRef<HTMLElement>(null);
 
-	// Рефы для анимации
+	// рефы для анимации
 	const titleRef = useRef<HTMLHeadingElement>(null);
 	const textRef = useRef<HTMLParagraphElement>(null);
 	const timelineTitleRef = useRef<HTMLHeadingElement>(null);
 	const skillsTitleRef = useRef<HTMLHeadingElement>(null);
+	const referenceTitleRef = useRef<HTMLHeadingElement>(null);
 
 	useScrollTypewriter(titleRef, t.titleAbout, sectionRef, {
 		stagger: 0.15,
@@ -35,14 +101,19 @@ function About() {
 		delay: 0.3,
 	});
 
-	useScrollTypewriter(timelineTitleRef, 'Мой путь', sectionRef, {
-		stagger: 0.05,
+	useScrollTypewriter(timelineTitleRef, 'Очень коротко', sectionRef, {
+		stagger: 0.09,
 		delay: 0.4,
 	});
 
 	useScrollTypewriter(skillsTitleRef, 'Технологии и инструменты', sectionRef, {
-		stagger: 0.05,
+		stagger: 0.09,
 		delay: 0.5,
+	});
+
+	useScrollTypewriter(referenceTitleRef, 'Справочник', sectionRef, {
+		stagger: 0.09,
+		delay: 0.6,
 	});
 
 	return (
@@ -73,24 +144,36 @@ function About() {
 							<h3 ref={skillsTitleRef} className={styles.skillsTitle}>
 								Технологии и инструменты
 							</h3>
-
 							<div className={styles.skillsGrid}>
-								{[
-									'React',
-									'TypeScript',
-									'JavaScript',
-									'SCSS / БЭМ',
-									'GSAP + Lenis',
-									'FSD Architecture',
-									'Supabase',
-									'WordPress + ACF',
-									'REST API',
-									'Git / GitHub',
-									'Figma',
-								].map((tech: string, i: number) => (
-									<span key={i} className={styles.skillTag}>
-										{tech}
-									</span>
+								{techStack.map((tech: TechItem, i: number) => (
+									<a
+										key={i}
+										href={tech.url}
+										target="_blank"
+										rel="noopener noreferrer"
+										className={styles.skillTag}
+									>
+										{tech.name}
+									</a>
+								))}
+							</div>
+						</div>
+						{/* СПРАВОЧНИК */}
+						<div className={styles.skillsSection}>
+							<h3 ref={referenceTitleRef} className={styles.skillsTitle}>
+								Справочник
+							</h3>
+							<div className={styles.skillsGrid}>
+								{resources.map((resource: TechItem, i: number) => (
+									<a
+										key={i}
+										href={resource.url}
+										target="_blank"
+										rel="noopener noreferrer"
+										className={`${styles.skillTag} ${styles.resourceTag}`}
+									>
+										{resource.name}
+									</a>
 								))}
 							</div>
 						</div>

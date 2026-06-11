@@ -11,34 +11,34 @@ export const translations = {
 		btnViewHeader: 'View Portfolio',
 
 		// About
-		titleAbout: 'About',
-		textAbout: `Since the beginning of 2024, I have fully dedicated myself to frontend development and started my journey by learning the basics.`,
-		
+		titleAbout: 'About Me',
+		textAbout: `At the beginning of 2024, I got interested in Web programming. I started my journey by reading well-known books: Htmlbook.ru, Webref.ru, Doka.guide, Learn.javascript.ru, 'Grokking Algorithms', 'Eloquent JavaScript', and other excellent resources. In parallel, I completed the free introductory course by Yandex Practicum on Java and finally realized that frontend is my thing.`,
+
 		timeline: [
 			{
-				year: '2024 — Start',
-				title: 'Beginning of the Path',
-				desc: 'Studying Htmlbook, Webref, Learn JavaScript, "Grokking Algorithms", "Eloquent JavaScript". Introductory course by Yandex Practicum.',
+				year: '2024 — theory',
+				title: 'Start',
+				desc: 'Studying Htmlbook, WebReference, Doka, Learn JavaScript, "Grokking Algorithms", "Eloquent JavaScript", etc. Introductory course by Yandex Practicum on Java. Simultaneously took interactive courses on Freecodecamp.org and Mimo',
 			},
 			{
-				year: '2024',
-				title: 'First Projects',
-				desc: 'Creating the first website following the WebReference tutorial. Understanding the importance of practice.',
+				year: '2024 — first practice',
+				title: 'First Project',
+				desc: 'Created my first website following the WebReference tutorial and refined it. Realized that live practice is needed for a deeper understanding of the acquired information.',
 			},
 			{
-				year: '2024',
+				year: '2024-2025 — courses',
 				title: 'Campfire School',
-				desc: 'Completed two major courses by Ivan Petrichenko:\n• Web Developer (HTML, SCSS, JS, BEM, Git, etc.)\n• JavaScript + React + Redux',
+				desc: 'Completed two major courses by Ivan Petrichenko:\n• Web Developer (HTML, SCSS, JS, BEM, Git, Gulp, Vite, etc.)\n• JavaScript + React + Redux / Redux Toolkit',
 			},
 			{
-				year: '2024 — Present',
+				year: '2026 — present time',
 				title: 'Freelance',
-				desc: 'Main activity. Real projects, applying all knowledge in practice.',
+				desc: 'Main activity — commercial projects.\n\nWhat I did:\n• Website layout and responsiveness (Vanilla JS) + Vite\n• Integration of forms and email (PHPMailer, WP Mail SMTP)\n• WordPress implementation + Advanced Custom Fields\n• Adding products with Supabase + custom CMS\n• Bootstrap, FSD architecture\n• REST API (Platzi Fake Store, Weather API, NewsAPI, MarvelAPI)\n• Animations: GSAP + Lenis\n• Working with Figma / Zeplin\n• Git + GitHub',
 			},
 			{
 				year: 'Now',
-				title: 'Development',
-				desc: 'Active study of TypeScript. Translating portfolio to TypeScript.',
+				title: 'Growth',
+				desc: 'Active study of TypeScript.\n Translating portfolio to TypeScript.\n\n Interested in: Supabase / Strapi / Firebase \n\n Additional training:\n• Design patterns, security, and implementation of API Gateway.',
 			},
 		],
 
@@ -101,33 +101,33 @@ export const translations = {
 
 		// About
 		titleAbout: 'Обо мне',
-		textAbout: `С начала 2024 года я полностью посвятил себя фронтенд-разработке и начал свой путь с изучения основ.`,
-		
+		textAbout: `В начале 2024 увлекся Веб-программированием. Начал свой путь с прочтения всем известных книг: Htmlbook.ru, Webref.ru, Doka.guide, Learn.javascript.ru, Грокаем Алгоритмы, Выразительный JavaScript и другие отличные ресурсы. Параллельно прошёл бесплатный вводный курс Яндекс.Практикума по Java и окончательно понял, что мое — это фронтенд.`,
+
 		timeline: [
 			{
-				year: '2024 — начало',
-				title: 'Старт пути',
-				desc: 'Изучение Htmlbook, Webref, Learn JavaScript, «Грокаем алгоритмы», «Выразительный JavaScript». Вводный курс Яндекс.Практикума.',
+				year: '2024 — теория',
+				title: 'Начало',
+				desc: 'Изучение Htmlbook, WebReference, Doka, Learn JavaScript, «Грокаем алгоритмы», «Выразительный JavaScript» и др. Вводный курс Яндекс.Практикума по Java. Параллельно проходил интерактивное обучение на Freecodecamp.org и Mimo',
 			},
 			{
-				year: '2024',
-				title: 'Первые проекты',
-				desc: 'Создание первого сайта по учебнику WebReference. Понимание важности практики.',
+				year: '2024 — первая практика',
+				title: 'Первый проект',
+				desc: 'Создал свой первый сайт по учебнику WebReference и переработал его. Понял, что нужна живая практика для более глубокого понимания поступившей информации.',
 			},
 			{
-				year: '2024',
+				year: '2024-2025 — курсы',
 				title: 'Campfire School',
-				desc: 'Прошёл два больших курса от Ивана Петриченко:\n• Web-разработчик (HTML, SCSS, JS, БЭМ, Git и др.)\n• JavaScript + React + Redux',
+				desc: 'Прошёл два больших курса от Ивана Петриченко:\n• Web-разработчик (HTML, SCSS, JS, БЭМ, Git, Gulp, Vite и др.)\n• JavaScript + React + Redux / Redux Toolkit',
 			},
 			{
-				year: '2024 — настоящее время',
+				year: '2026 — настоящее время',
 				title: 'Фриланс',
-				desc: 'Основная деятельность. Реальные проекты, применение всех знаний на практике.',
+				desc: 'Основной вид деятельности — коммерческие проекты.\n\nЧто сделал:\n• Вёрстка и адаптив сайтов (Vanilla JS) + Vite\n• Интеграция форм и почты (PHPMailer, WP Mail SMTP)\n• Посадка на WordPress + Advanced Custom Fields\n• Добавление товаров с Supabase + своя CMS\n• Bootstrap, FSD-архитектура\n• REST API (Platzi Fake Store, Weather API, NewsAPI, MarvelAPI)\n• Анимации: GSAP + Lenis\n• Работа с Figma / Zeplin\n• Git + GitHub',
 			},
 			{
 				year: 'Сейчас',
 				title: 'Развитие',
-				desc: 'Активное изучение TypeScript. Перевожу портфолио на TypeScript.',
+				desc: 'Активное изучение TypeScript.\n Перевожу портфолио на TypeScript.\n\n Интересует: Supabase / Strapi / Firebase \n\n Доп. обучение:\n• Паттерны проектирования, безопасность и внедрение API Gateway.',
 			},
 		],
 

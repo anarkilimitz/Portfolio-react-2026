@@ -18,9 +18,13 @@ export const animateTypewriter = (
 	element.innerHTML = originalText;
 
 	const split = new SplitType(element, {
-		types: 'chars',
+		types: 'chars,words',
 		tagName: 'span',
 	});
+
+	if (!split.chars || split.chars.length === 0) {
+		return undefined;
+	}
 
 	gsap.set(split.chars, { opacity: 0 });
 

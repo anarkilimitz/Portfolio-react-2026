@@ -1,8 +1,20 @@
+@use '../../app/styles/variables.scss' as *;
+@use '../../app/styles/mixins.scss' as *;
+
 .stickyTextCol {
     top: 220px !important;
     padding-bottom: 60px !important;
 
     @media (min-width: 992px) {
         padding-bottom: 200px !important;
+    }
+
+}
+
+.customLinkSlider {
+    color: $main-color !important;
+
+    &:hover {
+        color: $hover-color !important;
     }
 }

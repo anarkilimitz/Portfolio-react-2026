@@ -74,7 +74,7 @@ const ProjectItem: React.FC<ProjectItemProps> = ({ item, index }) => {
 										href={item.link}
 										target="_blank"
 										rel="noopener noreferrer"
-										className="icon-link icon-link-hover text-decoration-none fw-semibold"
+										className={`icon-link icon-link-hover text-decoration-none fw-semibold ${styles.customLinkSlider}`}
 									>
 										View Project
 										<span className="bi mb-2 ms-2" aria-hidden="true">
@@ -92,7 +92,7 @@ const ProjectItem: React.FC<ProjectItemProps> = ({ item, index }) => {
 										href={item.linkGit}
 										target="_blank"
 										rel="noopener noreferrer"
-										className="icon-link icon-link-hover text-decoration-none fw-semibold"
+										className={`icon-link icon-link-hover text-decoration-none fw-semibold ${styles.customLinkSlider}`}
 									>
 										GitHub
 										<span className="bi mb-2 ms-2" aria-hidden="true">

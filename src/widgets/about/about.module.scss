@@ -4,11 +4,11 @@
 .about {
     background: #fff;
     box-shadow: 0px 29px 52px -2px rgba(34, 60, 80, 0.08);
-    padding: 60px;
+    padding-top: 140px;
 }
 
 .aboutWrapper {
-    align-items: flex-start;
+    align-items: flex-end;
 }
 
 .leftColumn {
@@ -26,7 +26,7 @@
     position: relative;
     max-width: 500px;
     box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
-    margin-bottom: 5rem;
+    margin-bottom: 0rem;
 }
 
 .titleSection {
@@ -38,6 +38,11 @@
 
 .title {
     @include section-title;
+
+    .word {
+        white-space: nowrap;
+        display: inline-block;
+    }
 }
 
 .decoratedTitle {
@@ -72,11 +77,17 @@
     line-height: 1.75;
     color: #333;
     margin-bottom: 2.5rem;
+    font-weight: 500;
+
+    .word {
+        white-space: nowrap;
+        display: inline-block;
+    }
 }
 
 // скилы
 .skillsSection {
-    margin-top: 2rem;
+    margin-top: 6rem;
     width: 100%;
 }
 
@@ -89,18 +100,23 @@
     &::after {
         content: '';
         position: absolute;
-        bottom: -8px;
+        bottom: -2px;
         left: 0;
-        width: 60px;
+        width: 30px;
         height: 3px;
         background: #000;
+    }
+
+    .word {
+        white-space: nowrap;
+        display: inline-block;
     }
 }
 
 .skillsGrid {
     display: flex;
     flex-wrap: wrap;
-    gap: 10px; // Расстояние между тегами
+    gap: 10px;
 }
 
 .skillTag {
@@ -111,13 +127,32 @@
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    transition: all 0.3s ease;
+    transition: all 0.3s ease-in-out;
     border: 1px solid #eee;
+    cursor: pointer;
+
+    text-decoration: none;
+    color: inherit;
+    display: inline-flex;
 
     &:hover {
-        background: #000;
+        background: $hover-color;
+        color: black;
+        transform: translateY(-5px);
+        box-shadow: 0 10px 12px 3px rgba(158, 74, 236, 0.58);
+        text-decoration: none;
+    }
+}
+
+// справочник
+.resourceTag {
+    background: #f0f0f0;
+    border-color: #ddd;
+
+    &:hover {
+        background: $main-color;
         color: #fff;
-        transform: translateY(-2px);
+        box-shadow: 0 10px 12px 3px rgba(0, 255, 8, 0.58);
     }
 }
 
@@ -137,6 +172,11 @@
         height: 2px;
         background: #000;
     }
+
+    .word {
+        white-space: nowrap;
+        display: inline-block;
+    }
 }
 
 .timeline {
@@ -147,12 +187,28 @@
     &::before {
         content: '';
         position: absolute;
-        left: 38px;
+        left: 35px;
         top: 10px;
-        bottom: 10px;
-        width: 3px;
-        background: #e0e0e0;
+        bottom: -27px;
+        width: 7px;
+        background: $main-color;
         z-index: 0;
+        box-shadow: 2px 10px 37px 5px #9e4aec17;
+    }
+
+    // круг
+    &::after {
+        content: '';
+        position: absolute;
+        top: calc(100% + 19px);
+        left: 31px;
+        width: 16px;
+        height: 16px;
+
+        background: $main-color;
+        border-radius: 50%;
+        z-index: 0;
+        box-shadow: 0 0 10px rgba(158, 74, 236, 0.5);
     }
 }
 
@@ -168,23 +224,29 @@
 
 .timelineMarker {
     position: absolute;
-    left: -21px;
-    width: 42px;
-    height: 42px;
+    left: -16px;
+    width: 30px;
+    height: 30px;
     background: #fff;
-    border: 3px solid #000;
+    border: 1px solid $main-color;
     border-radius: 50%;
     z-index: 2;
     display: flex;
     align-items: center;
     justify-content: center;
     font-size: 1.1rem;
-    color: #000;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    color: #fff;
+    box-shadow: 2px 14px 27px 0 #9e4aec2b;
 }
 
 .timelineContent {
-    padding-left: 30px;
+    padding-left: 40px;
+    box-shadow: 10px 14px 32px 0 rgba(57, 57, 57, 0.07);
+    border-radius: 5px;
+
+    &:hover {
+        box-shadow: 10px 14px 32px 0 rgba(57, 57, 57, 0.15);
+    }
 }
 
 .timelineYear {
@@ -208,18 +270,36 @@
     font-size: 1.05rem;
     line-height: 1.65;
     color: #444;
+    font-weight: 500;
+    padding-bottom: 20px;
+    padding-right: 10px;
 }
 
 .timelineItem:hover .timelineMarker {
-    background: #000;
+    background: $hover-color;
     color: #fff;
-    transform: scale(1.1);
+    transform: scale(0.9);
     transition: all 0.3s ease;
+    border: 1px solid $hover-color;
 }
 
 @media (max-width: 1400px) {
     .contentSection {
         margin-top: 150px;
+    }
+
+    .timeline {
+        padding-left: 0;
+
+        // линия
+        &::before {
+            left: -4.5px;
+        }
+
+        // круг
+        &::after {
+            left: -9px;
+        }
     }
 }
 
@@ -254,7 +334,7 @@
 
 @media (max-width: 992px) {
     .about {
-        padding: 40px 20px;
+        padding: 40px 0px;
     }
 
     .aboutWrapper {
@@ -267,6 +347,8 @@
 
     .contentSection {
         margin-top: 0px;
+        padding-left: 0;
+        padding-right: 0;
     }
 
     .titleSection {
