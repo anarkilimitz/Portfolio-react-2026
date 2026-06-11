@@ -73,10 +73,28 @@ const resources: TechItem[] = [
 	},
 	{ name: 'React Bootstrap', url: 'https://react-bootstrap.github.io/' },
 	{ name: 'W3C Validate ', url: 'https://validator.w3.org/' },
-
 	{ name: 'Rough Notation', url: 'https://roughnotation.com/' },
 	{ name: 'Animate.css', url: 'https://animate.style/' },
 	{ name: 'Css Loaders', url: 'https://css-loaders.com/classic/' },
+	{ name: 'JSONPlaceholder', url: 'https://jsonplaceholder.typicode.com/' },
+	{
+		name: 'You Dont Know JS',
+		url: 'https://github.com/azat-io/you-dont-know-js-ru',
+	},
+	{
+		name: 'Event Loop Explorer',
+		url: 'https://vault-developer.github.io/event-loop-explorer/',
+	},
+	{ name: 'Git-commands', url: 'https://github.com/cyberspacedk/Git-commands' },
+	{ name: 'MUI React', url: 'https://mui.com/' },
+	{ name: 'Ant Design', url: 'https://ant.design/' },
+	{ name: 'React Router', url: 'https://reactrouter.com/' },
+	{ name: 'useHooks', url: 'https://usehooks.com/' },
+	{ name: 'Machina', url: 'https://machina-js.org/' },
+	{ name: 'YUP', url: 'https://github.com/jquense/yup' },
+	{ name: 'Redux Toolkit', url: 'https://redux-toolkit.js.org/' },
+	{ name: 'AXIOS', url: 'https://axios.rest/' },
+	{ name: 'TanStack Query', url: 'https://tanstack.com/' },
 ];
 
 function About() {

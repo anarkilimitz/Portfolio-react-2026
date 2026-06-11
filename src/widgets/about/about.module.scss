@@ -120,20 +120,19 @@
 }
 
 .skillTag {
-    background: #f8f8f8;
     padding: 8px 16px;
-    border-radius: 50px;
-    font-size: 0.95rem;
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    transition: all 0.3s ease-in-out;
+    background: #f8f8f8;
+    border-radius: 50px;
+    font-size: 0.95rem;
     border: 1px solid #eee;
-    cursor: pointer;
-
     text-decoration: none;
     color: inherit;
-    display: inline-flex;
+    box-shadow: inset 2px 4px 4px rgba(0, 0, 0, 0.16);
+    transition: all 0.3s ease-in-out;
+    cursor: pointer;
 
     &:hover {
         background: $hover-color;
@@ -148,6 +147,7 @@
 .resourceTag {
     background: #f0f0f0;
     border-color: #ddd;
+    box-shadow: inset 2px 3px 3px rgba(0, 0, 0, 0.1);
 
     &:hover {
         background: $main-color;
