@@ -1,12 +1,16 @@
-import { useRef } from 'react';
+import { useRef, useEffect } from 'react';
 import styles from './about.module.scss';
 
 import { Container, Row, Col } from 'react-bootstrap';
 
 import { useScrollTypewriter } from '../../shared/hooks/useScrollTypewriter';
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 import aboutImag from '../../assets/img/PortfolioBgColor390Deg.jpg';
 import { useLanguage } from '../../shared/i18n/languageContext';
+
+gsap.registerPlugin(ScrollTrigger);
 
 interface TimelineItem {
 	year: string;
@@ -109,6 +113,10 @@ function About() {
 	const skillsTitleRef = useRef<HTMLHeadingElement>(null);
 	const referenceTitleRef = useRef<HTMLHeadingElement>(null);
 
+	// рефы для анимации таймлайна
+	const timelineRef = useRef<HTMLDivElement>(null);
+	const lineRef = useRef<HTMLDivElement>(null);
+
 	useScrollTypewriter(titleRef, t.titleAbout, sectionRef, {
 		stagger: 0.15,
 		delay: 0.1,
@@ -133,6 +141,50 @@ function About() {
 		stagger: 0.09,
 		delay: 0.6,
 	});
+
+	useEffect(() => {
+		if (!timelineRef.current || !lineRef.current) return;
+
+		// Точка триггера (одинаковая для всех)
+		const triggerPoint = 'top 80%';
+
+		gsap.fromTo(
+			lineRef.current,
+			{ backgroundPosition: '0% 100%' }, // Линия прозрачна
+			{
+				backgroundPosition: '0% 0%', // Линия закрашена
+				ease: 'none',
+				scrollTrigger: {
+					trigger: timelineRef.current,
+					start: triggerPoint,
+					end: 'bottom 80%', // линия и кружки синхронизированы
+					scrub: true,
+				},
+			}
+		);
+
+		// Анимация кружков
+		const markers = gsap.utils.toArray<Element>(`.${styles.timelineMarker}`);
+
+		markers.forEach((marker) => {
+			gsap.to(marker, {
+				backgroundColor: '#9d4aec',
+				borderColor: '#9d4aec',
+				scale: 1.2,
+				duration: 0.3,
+				ease: 'power2.out',
+				scrollTrigger: {
+					trigger: marker,
+					start: triggerPoint, // Та же точка входа
+					toggleActions: 'play none none reverse',
+				},
+			});
+		});
+
+		return () => {
+			ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
+		};
+	}, []);
 
 	return (
 		<Container className="mt-5 mb-5">
@@ -208,7 +260,14 @@ function About() {
 								Мой путь
 							</h3>
 
-							<div className={styles.timeline}>
+							{/* Добавляем ref на контейнер и новый div для линии */}
+							<div ref={timelineRef} className={styles.timeline}>
+								{/* Линия теперь здесь */}
+								<div ref={lineRef} className={styles.timelineLine}></div>
+
+								{/* Кружок внизу оставляем как был (статичный) или тоже анимируем, если нужно */}
+								<div className={styles.timelineEndCircle}></div>
+
 								{(t.timeline as TimelineItem[]).map(
 									(item: TimelineItem, index: number) => (
 										<div key={index} className={styles.timelineItem}>
