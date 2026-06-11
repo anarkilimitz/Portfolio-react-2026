@@ -146,7 +146,7 @@ function About() {
 		if (!timelineRef.current || !lineRef.current) return;
 
 		// Точка триггера (одинаковая для всех)
-		const triggerPoint = 'top 80%';
+		const triggerPoint = 'top 70%';
 
 		gsap.fromTo(
 			lineRef.current,
@@ -157,7 +157,7 @@ function About() {
 				scrollTrigger: {
 					trigger: timelineRef.current,
 					start: triggerPoint,
-					end: 'bottom 80%', // линия и кружки синхронизированы
+					end: 'bottom 70%', // линия и кружки синхронизированы
 					scrub: true,
 				},
 			}
