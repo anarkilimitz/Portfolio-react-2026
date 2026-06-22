@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import styles from '../sliderBlock/sliderBlock.module.scss';
 
 import SwitcherSlider from '../../shared/ui/buttons/switcherSlider/switcherSlider';
@@ -6,10 +6,11 @@ import SliderCarousel from '../sliderCarousel/SliderCarousel';
 
 interface SliderBlockProps {
 	image: string;
+	commit: string;
 	description: string;
 }
 
-function SliderBlock({ image, description }: SliderBlockProps) {
+function SliderBlock({ image, commit,description }: SliderBlockProps) {
 	const [mode, setMode] = useState<'IMAGE' | 'DETAILS'>('IMAGE');
 
 	return (
@@ -22,6 +23,7 @@ function SliderBlock({ image, description }: SliderBlockProps) {
 				<SliderCarousel
 					mode={mode}
 					imageSrc={image}
+					commit={commit}
 					description={description}
 				/>
 			</div>

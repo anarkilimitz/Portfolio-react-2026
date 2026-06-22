@@ -108,7 +108,9 @@ const ProjectItem: React.FC<ProjectItemProps> = ({ item, index }) => {
 
 				{/* правая колонка */}
 				<Col xs={12} lg={6} className={isEven ? 'order-lg-2' : 'order-lg-1'}>
-					<SliderBlock image={item.image} description={item.description} />
+					<SliderBlock image={item.image}
+						commit={item.commit}
+						description={item.description} />
 				</Col>
 			</Row>
 		</div>

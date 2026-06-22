@@ -30,6 +30,7 @@ const techStack: TechItem[] = [
 	{ name: 'WordPress + ACF', url: 'https://wordpress.org/' },
 	{ name: 'REST API', url: 'https://restfulapi.net/' },
 	{ name: 'Git / GitHub', url: 'https://github.com/' },
+	{ name: 'Markdown', url: 'https://www.markdownguide.org/' },
 	{ name: 'Figma', url: 'https://www.figma.com/' },
 	{ name: 'Vite', url: 'https://vitejs.dev/' },
 	{ name: 'Gradient', url: 'https://photogradient.com/' },

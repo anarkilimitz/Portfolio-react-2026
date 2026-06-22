@@ -4,10 +4,11 @@ import { Carousel } from 'bootstrap';
 interface SliderCarouselProps {
 	mode: 'IMAGE' | 'DETAILS' | string;
 	imageSrc: string;
+	commit: string;
 	description: string;
 }
 
-function SliderCarousel({ mode, imageSrc, description }: SliderCarouselProps) {
+function SliderCarousel({ mode, imageSrc, commit, description }: SliderCarouselProps) {
 	const carouselRef = useRef<HTMLDivElement>(null);
 	const carouselApiRef = useRef<Carousel | null>(null);
 
@@ -46,7 +47,7 @@ function SliderCarousel({ mode, imageSrc, description }: SliderCarouselProps) {
 				{/* DETAILS */}
 				<div className="carousel-item">
 					<div className="p-4">
-						<h4>Описание</h4>
+						<h4>{commit}</h4>
 						<p>{description}</p>
 					</div>
 				</div>
