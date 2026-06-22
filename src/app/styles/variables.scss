@@ -2,16 +2,29 @@ $checkbox-footer: #212529;
 
 $main-color: #9d4aec;
 $hover-color: rgb(0, 255, 8);
-$mailer: #005A9C;
-
 
 $bg-selection: #9d4aec;
 $text-selection: #ffffffc0;
 
+
+// добавил цвета для Бутстрэпа
 $bg-mint: rgb(63, 207, 142);
+$bg-wp: #21759b;
+$acf-slate: #5A8EA0;
+$smtp-blue: #3b82f6;
+$bg-charcoal: #495057;
+$bg-mock: #78716c;
+$bg-gulp: #8B5E3C;
+$mailer: #005A9C;
 
 $theme-colors: (
     "purple": $main-color,
     "mint": $bg-mint,
     "mailer": $mailer,
+    'wpbg': $bg-wp,
+    'acf-slate': $acf-slate,
+    'smtp-blue': $smtp-blue,
+    'bg-charcoal': $bg-charcoal,
+    'bg-mock': $bg-mock,
+    'bg-gulp': $bg-gulp,
 );

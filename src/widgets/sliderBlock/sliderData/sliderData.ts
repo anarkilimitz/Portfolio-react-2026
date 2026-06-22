@@ -1,8 +1,8 @@
+import SofaSlider from '../../../assets/img/slider/sofadbslider.png';
 import CoffeeImg from '../../../assets/img/slider/Coffee.png';
-import UmffzImg from '../../../assets/img/slider/umffz.png';
 import Kosmoavto from '../../../assets/img/slider/kosmoavto.png';
 import Everest from '../../../assets/img/slider/everest.png';
-import SofaSlider from '../../../assets/img/slider/sofadbslider.png';
+import Umtnpo from '../../../assets/img/slider/umtnpo.png';
 
 export interface ITag {
 	text: string;
@@ -51,8 +51,8 @@ export const sliderData: ISliderItem[] = [
 		tags: [
 			{ text: 'React', bg: 'primary' },
 			{ text: 'Filter', bg: 'dark' },
-			{ text: 'Mock Data', bg: 'secondary' },
-			{ text: '2025', bg: 'success' },
+			{ text: 'Mock Data', bg: 'bg-mock' },
+			{ text: '2025', bg: 'secondary' },
 		],
 		link: 'https://coffee.limitz.ru/',
 		linkGit: 'https://github.com/anarkilimitz/Coffee-shop-react',
@@ -79,6 +79,27 @@ export const sliderData: ISliderItem[] = [
 	},
 	{
 		id: 4,
+		image: Umtnpo,
+		title: 'Компания НПО УМТ',
+		text: 'Коммерческий сайт на WordPress по продаже строительного оборудования.',
+		tags: [
+			{ text: 'HTML', bg: 'danger' },
+			{ text: 'CSS', bg: 'primary' },
+			{ text: 'JS', bg: 'warning' },
+			{ text: 'WordPress', bg: 'wpbg' },
+			{ text: 'ACF', bg: 'acf-slate' },
+			{ text: 'WP Mail SMTP', bg: 'smtp-blue' },
+			{ text: 'Slick-Slider', bg: 'bg-charcoal' },
+			{ text: 'Gulp', bg: 'bg-gulp' },
+			{ text: '2026', bg: 'secondary' },
+		],
+		link: 'https://uralmt.com',
+		// linkGit: 'https://github.com/anarkilimitz/UMFFZ-2025-to-git',
+		commit: 'Комментарии',
+		description: `Сайт на WordPress c Advanced Custom Fields (ACF). Настроен плагин WP Mail SMTP для отправки почты.`,
+	},
+	{
+		id: 5,
 		image: Everest,
 		title: 'Параллакс',
 		text: 'Параллакс эффект с отслеживанием курсора указателя.',
@@ -92,22 +113,5 @@ export const sliderData: ISliderItem[] = [
 		linkGit: 'https://github.com/anarkilimitz/Parallax-mountains',
 		commit: 'Комментарии',
 		description: `Этот код реализует эффект параллакса для группы элементов.`,
-	},
-	{
-		id: 5,
-		image: UmffzImg,
-		title: 'Федерация футбола UMFFZ',
-		text: 'Сайт с расписанием командных игр и официальными документами.',
-		tags: [
-			{ text: 'HTML', bg: 'danger' },
-			{ text: 'CSS', bg: 'primary' },
-			{ text: 'JS', bg: 'warning' },
-			{ text: 'Google Sheets', bg: 'success' },
-			{ text: '2024', bg: 'secondary' },
-		],
-		link: 'https://anarkilimitz.github.io/UMFFZ-2025-to-git/',
-		linkGit: 'https://github.com/anarkilimitz/UMFFZ-2025-to-git',
-		commit: 'Комментарии',
-		description: `Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dicta expedita cum, ratione quia fuga perferendis. Quo similique id modi animi minus at voluptate sit repellendus doloremque culpa. Quod, sapiente consequuntur. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Explicabo voluptate rem, laboriosam beatae consequatur ratione fuga sapiente voluptates, nam harum culpa ad quis obcaecati corporis facilis adipisci praesentium impedit placeat?`,
 	},
 ];
