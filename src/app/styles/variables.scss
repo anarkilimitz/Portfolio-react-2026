@@ -2,7 +2,16 @@ $checkbox-footer: #212529;
 
 $main-color: #9d4aec;
 $hover-color: rgb(0, 255, 8);
+$mailer: #005A9C;
 
 
 $bg-selection: #9d4aec;
 $text-selection: #ffffffc0;
+
+$bg-mint: rgb(63, 207, 142);
+
+$theme-colors: (
+    "purple": $main-color,
+    "mint": $bg-mint,
+    "mailer": $mailer,
+);
