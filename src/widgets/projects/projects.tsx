@@ -49,7 +49,7 @@ function Projects() {
 				</div>
 				<Row className="mt-5 align-items-stretch">
 					{/* левая колонка */}
-					<Col lg={7} className={styles.leftCol}>
+					<Col lg={6} className={styles.leftCol}>
 						<Accordion
 							className={`mt-5 ${styles.customAccordion}`}
 							activeKey={activeKey}
@@ -234,7 +234,7 @@ function Projects() {
 
 					{/* картинка справа*/}
 					<Col
-						lg={5}
+						lg={6}
 						className={`mt-lg-0 d-flex align-items-stretch ${styles.imageCol}`}
 					>
 						{activeKey && projectImages[activeKey] && (
