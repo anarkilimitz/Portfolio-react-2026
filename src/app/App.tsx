@@ -1,4 +1,4 @@
-import React, { RefObject } from 'react';
+import { RefObject } from 'react';
 import { Routes, Route, Outlet } from 'react-router-dom';
 
 import './styles/global.scss';

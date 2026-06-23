@@ -46,6 +46,7 @@ export const translations = {
 		titleAccordionProjects: 'E-commerce Store',
 		subtitleAccordionProjects:
 			'An online store application powered by the Platzi Fake Store API',
+		linksProjectToGit: 'Go to GitHub',
 
 		// News
 		titleNews: 'Latest News',
@@ -135,6 +136,7 @@ export const translations = {
 		titleAccordionProjects: 'Интернет-магазин',
 		subtitleAccordionProjects:
 			'Приложение интернет-магазина на базе API Platzi Fake Store',
+		linksProjectToGit: 'Перейти на GitHub',
 
 		// News
 		titleNews: 'Последние новости',
