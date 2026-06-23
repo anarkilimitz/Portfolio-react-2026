@@ -7,8 +7,8 @@ import { useScrollTypewriter } from '../../shared/hooks/useScrollTypewriter';
 
 import projectsImg1 from '../../assets/img/projects/Screenshot_23.png';
 import projectsImg2 from '../../assets/img/projects/Screenshot_20.png';
-import projectsImg3 from '../../assets/img/projects/Screenshot_22.png';
-import projectsImg4 from '../../assets/img/projects/Screenshot_23.png';
+import projectsImg3 from '../../assets/img/projects/umffz.png';
+import projectsImg4 from '../../assets/img/projects/uploader.png';
 import projectsImg5 from '../../assets/img/projects/Screenshot_24.png';
 
 import { useLanguage } from '../../shared/i18n/languageContext';
@@ -137,56 +137,69 @@ function Projects() {
 							</Accordion.Item>
 							<Accordion.Item eventKey="2">
 								<Accordion.Header>
-									E-commerce Store
+									{t.titleAccordionUmffz}
 									<span className="icon"></span>
 								</Accordion.Header>
 								<Accordion.Body>
-									An online store application powered by the Platzi Fake Store
-									API.
+									{t.subtitleAccordionUmffz}
 									<ul className="mt-3">
-										<li>React 19</li>
-										<li>Redux Toolkit + React Redux</li>
-										<li>React Router DOM</li>
-										<li>Axios</li>
-										<li>SCSS modules</li>
+										<li>HTML</li>
+										<li>CSS</li>
+										<li>JS</li>
 										<li>Normalize.css</li>
-										<li>Platzi Fake Store API</li>
+										<li>Google Sheets</li>
 									</ul>
-									<a
-										className={styles.customLink}
-										href="https://platzi-store-sable.vercel.app/"
-										target="_blank"
-										rel="noopener noreferrer"
-									>
-										{t.linksProject}
-									</a>
+									<ul className={`mt-3 ${styles.linksList}`}>
+										<li>
+											<a
+												className={styles.customLink}
+												href="https://anarkilimitz.github.io/UMFFZ-2025-to-git"
+												target="_blank"
+												rel="noopener noreferrer"
+											>
+												{t.linksProject}
+											</a>
+										</li>
+										<li>
+											<a
+												className={styles.customLink}
+												href="https://github.com/anarkilimitz/UMFFZ-2025-to-git"
+												target="_blank"
+												rel="noopener noreferrer"
+											>
+												{t.linksProjectToGit}
+											</a>
+										</li>
+									</ul>
 								</Accordion.Body>
 							</Accordion.Item>
 							<Accordion.Item eventKey="3">
 								<Accordion.Header>
-									{t.titleAccordionProjects}
+									{t.titleAccordionUploader}
 									<span className="icon"></span>
 								</Accordion.Header>
 
 								<Accordion.Body>
-									{t.subtitleAccordionProjects}
+									{t.subtitleAccordionUploader}
 									<ul className="mt-3">
-										<li>React 19</li>
-										<li>Redux Toolkit + React Redux</li>
-										<li>React Router DOM</li>
-										<li>Axios</li>
-										<li>SCSS modules</li>
-										<li>Normalize.css</li>
-										<li>Platzi Fake Store API</li>
+										<li>Backend: Node.js, Express, AWS SDK</li>
+										<li>Frontend: Vanilla JavaScript (Fetch API, FormData)</li>
+										<li>Sharp</li>
+										<li>Yandex Object Storage</li>
+										<li>AWS Lambda Serverless</li>
 									</ul>
-									<a
-										className={styles.customLink}
-										href="https://platzi-store-sable.vercel.app/"
-										target="_blank"
-										rel="noopener noreferrer"
-									>
-										{t.linksProject}
-									</a>
+									<ul className={`mt-3 ${styles.linksList}`}>
+										<li>
+											<a
+												className={styles.customLink}
+												href="https://github.com/anarkilimitz/photo-uploader"
+												target="_blank"
+												rel="noopener noreferrer"
+											>
+												{t.linksProjectToGit}
+											</a>
+										</li>
+									</ul>
 								</Accordion.Body>
 							</Accordion.Item>
 							<Accordion.Item eventKey="4">

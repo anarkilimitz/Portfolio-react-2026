@@ -49,9 +49,16 @@ export const translations = {
 			'An online store application powered by the Platzi Fake Store API',
 		linksProjectToGit: 'Go to GitHub',
 		// 2
-		// 2
 		titleAccordionPortfolio: 'Portfolio for a designer',
 		subtitleAccordionPortfolio: 'Commercial project: portfolio website',
+		// 3
+		titleAccordionUmffz: 'Website UMFFZ-24',
+		subtitleAccordionUmffz:
+			'One of the first projects written after reading the books',
+		// 4
+		titleAccordionUploader: 'Image Upload and Optimization Service',
+		subtitleAccordionUploader:
+			'A microservice for uploading images with automatic optimization and storage in Yandex Object Storage (S3 API)',
 
 		// News
 		titleNews: 'Latest News',
@@ -146,6 +153,14 @@ export const translations = {
 		// 2
 		titleAccordionPortfolio: 'Портфолио дизайнера',
 		subtitleAccordionPortfolio: 'Коммерческий проект: сайт портфолио',
+		// 3
+		titleAccordionUmffz: 'Веб-сайт УМФФЗ-24',
+		subtitleAccordionUmffz:
+			'Один из первых проектов, написанный после прочтения книг',
+		// 4
+		titleAccordionUploader: 'Сервис загрузки и оптимизации изображений',
+		subtitleAccordionUploader:
+			'Микросервис для загрузки изображений с их автоматической оптимизацией и хранением Yandex Object Storage (S3 API)',
 
 		// News
 		titleNews: 'Последние новости',
