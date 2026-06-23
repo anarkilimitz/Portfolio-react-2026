@@ -54,7 +54,7 @@ export const sliderData: ISliderItem[] = [
 			{ text: 'Mock Data', bg: 'bg-mock' },
 			{ text: '2025', bg: 'secondary' },
 		],
-		link: 'https://coffee.limitz.ru/',
+		link: 'https://coffee-shop-react-jade.vercel.app/goods',
 		linkGit: 'https://github.com/anarkilimitz/Coffee-shop-react',
 		commit: 'Комментарии',
 		description: `Реализовал понятную архитектуру. Добавил фильтр по товарам. Создал массив с карточками товара для быстрого добавления.`,

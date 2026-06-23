@@ -43,10 +43,15 @@ export const translations = {
 		],
 
 		//Projects
+		// 1
 		titleAccordionProjects: 'E-commerce Store',
 		subtitleAccordionProjects:
 			'An online store application powered by the Platzi Fake Store API',
 		linksProjectToGit: 'Go to GitHub',
+		// 2
+		// 2
+		titleAccordionPortfolio: 'Portfolio for a designer',
+		subtitleAccordionPortfolio: 'Commercial project: portfolio website',
 
 		// News
 		titleNews: 'Latest News',
@@ -133,10 +138,14 @@ export const translations = {
 		],
 
 		// Projects
+		// 1
 		titleAccordionProjects: 'Интернет-магазин',
 		subtitleAccordionProjects:
 			'Приложение интернет-магазина на базе API Platzi Fake Store',
 		linksProjectToGit: 'Перейти на GitHub',
+		// 2
+		titleAccordionPortfolio: 'Портфолио дизайнера',
+		subtitleAccordionPortfolio: 'Коммерческий проект: сайт портфолио',
 
 		// News
 		titleNews: 'Последние новости',

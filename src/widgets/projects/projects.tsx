@@ -97,29 +97,42 @@ function Projects() {
 							</Accordion.Item>
 							<Accordion.Item eventKey="1">
 								<Accordion.Header>
-									E-commerce Store
+									{t.titleAccordionPortfolio}
 									<span className="icon"></span>
 								</Accordion.Header>
 								<Accordion.Body>
-									An online store application powered by the Platzi Fake Store
-									API.
+									{t.subtitleAccordionPortfolio}
 									<ul className="mt-3">
-										<li>React 19</li>
-										<li>Redux Toolkit + React Redux</li>
-										<li>React Router DOM</li>
-										<li>Axios</li>
+										<li>HTML</li>
 										<li>SCSS modules</li>
-										<li>Normalize.css</li>
-										<li>Platzi Fake Store API</li>
+										<li>JS</li>
+										<li>Vite</li>
+										<li>FSD</li>
+										<li>Gsap / Lenis</li>
+										<li>Custom animation</li>
 									</ul>
-									<a
-										className={styles.customLink}
-										href="https://platzi-store-sable.vercel.app/"
-										target="_blank"
-										rel="noopener noreferrer"
-									>
-										{t.linksProject}
-									</a>
+									<ul className={`mt-3 ${styles.linksList}`}>
+										<li>
+											<a
+												className={styles.customLink}
+												href="https://designer.pavlenok.com"
+												target="_blank"
+												rel="noopener noreferrer"
+											>
+												{t.linksProject}
+											</a>
+										</li>
+										<li>
+											<a
+												className={styles.customLink}
+												href="https://github.com/anarkilimitz/kochurov-portfolio"
+												target="_blank"
+												rel="noopener noreferrer"
+											>
+												{t.linksProjectToGit}
+											</a>
+										</li>
+									</ul>
 								</Accordion.Body>
 							</Accordion.Item>
 							<Accordion.Item eventKey="2">
