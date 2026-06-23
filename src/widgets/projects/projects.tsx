@@ -9,7 +9,7 @@ import projectsImg1 from '../../assets/img/projects/Screenshot_23.png';
 import projectsImg2 from '../../assets/img/projects/Screenshot_20.png';
 import projectsImg3 from '../../assets/img/projects/umffz.png';
 import projectsImg4 from '../../assets/img/projects/uploader.png';
-import projectsImg5 from '../../assets/img/projects/Screenshot_24.png';
+import projectsImg5 from '../../assets/img/projects/marvel.png';
 
 import { useLanguage } from '../../shared/i18n/languageContext';
 
@@ -204,29 +204,41 @@ function Projects() {
 							</Accordion.Item>
 							<Accordion.Item eventKey="4">
 								<Accordion.Header>
-									E-commerce Store
+									{t.titleAccordionMarvel}
 									<span className="icon"></span>
 								</Accordion.Header>
 								<Accordion.Body>
-									An online store application powered by the Platzi Fake Store
-									API.
+									{t.subtitleAccordionMarvel}
 									<ul className="mt-3">
-										<li>React 19</li>
-										<li>Redux Toolkit + React Redux</li>
-										<li>React Router DOM</li>
-										<li>Axios</li>
-										<li>SCSS modules</li>
-										<li>Normalize.css</li>
-										<li>Platzi Fake Store API</li>
+										<li>React 18</li>
+										<li>Hooks</li>
+										<li>SCSS</li>
+										<li>Yup</li>
+										<li>React Router 7</li>
+										<li>React Helmet</li>
 									</ul>
-									<a
-										className={styles.customLink}
-										href="https://platzi-store-sable.vercel.app/"
-										target="_blank"
-										rel="noopener noreferrer"
-									>
-										{t.linksProject}
-									</a>
+									<ul className={`mt-3 ${styles.linksList}`}>
+										<li>
+											<a
+												className={styles.customLink}
+												href="https://marvel-five-roan.vercel.app/"
+												target="_blank"
+												rel="noopener noreferrer"
+											>
+												{t.linksProject}
+											</a>
+										</li>
+										<li>
+											<a
+												className={styles.customLink}
+												href="https://github.com/anarkilimitz/Marvel"
+												target="_blank"
+												rel="noopener noreferrer"
+											>
+												{t.linksProjectToGit}
+											</a>
+										</li>
+									</ul>
 								</Accordion.Body>
 							</Accordion.Item>
 						</Accordion>

@@ -59,6 +59,9 @@ export const translations = {
 		titleAccordionUploader: 'Image Upload and Optimization Service',
 		subtitleAccordionUploader:
 			'A microservice for uploading images with automatic optimization and storage in Yandex Object Storage (S3 API)',
+		// 5
+		titleAccordionMarvel: 'Marvel',
+		subtitleAccordionMarvel: 'Refined the character search engine',
 
 		// News
 		titleNews: 'Latest News',
@@ -161,6 +164,9 @@ export const translations = {
 		titleAccordionUploader: 'Сервис загрузки и оптимизации изображений',
 		subtitleAccordionUploader:
 			'Микросервис для загрузки изображений с их автоматической оптимизацией и хранением Yandex Object Storage (S3 API)',
+		// 5
+		titleAccordionMarvel: 'Марвел',
+		subtitleAccordionMarvel: 'Усовершенствован механизм поиска персонажей',
 
 		// News
 		titleNews: 'Последние новости',
