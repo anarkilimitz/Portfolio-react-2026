@@ -9,7 +9,7 @@ import Header from '../widgets/header/header';
 import Footer from '../widgets/footer/footer';
 import About from '../widgets/about/about';
 import Projects from '../widgets/projects/projects';
-import TitleNewsSection from '../widgets/titleNewsSection.jsx/titleNewsSection';
+import TitleNewsSection from '../widgets/titleNewsSection/titleNewsSection';
 import ProjectsSlider from '../widgets/projectSlider/projectSlider';
 import Carousel3D from '../widgets/carousel3D/carousel3D';
 

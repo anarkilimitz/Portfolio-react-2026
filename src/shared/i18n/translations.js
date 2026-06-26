@@ -33,12 +33,12 @@ export const translations = {
 			{
 				year: '2026 — present time',
 				title: 'Freelance',
-				desc: 'Main activity — commercial projects.\n\nWhat I did:\n• Website layout and responsiveness (Vanilla JS) + Vite / Gulp\n• Integration of forms and email (PHPMailer, WP Mail SMTP)\n• WordPress implementation + Advanced Custom Fields\n• DNS / SSL Configuration\n• Deploying to Production\n• Adding products with Supabase + custom CMS\n• Bootstrap, FSD architecture\n• REST API (Platzi Fake Store, Weather API, NewsAPI, MarvelAPI)\n• Animations: GSAP + Lenis\n• Working with Figma / Zeplin\n• Git + GitHub',
+				desc: 'Main activity — commercial projects.\n\nWhat I did:\n• Website layout and responsiveness (Vanilla JS) + Vite / Gulp\n• Integration of forms and email (PHPMailer, WP Mail SMTP)\n• WordPress implementation + Advanced Custom Fields\n• DNS / SSL Configuration\n• Deploying to Production\n• Adding products with Supabase + custom CMS\n• Bootstrap, FSD architecture\n• REST API (Platzi Fake Store, Weather API, NewsAPI, MarvelAPI)\n• Animations: GSAP + Lenis\n• Working with Figma / Zeplin\n• Git + GitHub\n• Google Analytics / Yandex Metrika',
 			},
 			{
 				year: 'Now',
 				title: 'Growth',
-				desc: 'Active study of TypeScript.\n Translating portfolio to TypeScript.\n\n Interested in: Supabase / Strapi / Firebase \n\n Additional training:\n• Design patterns, security, and implementation of API Gateway.',
+				desc: 'Active study of TypeScript.\n Translating portfolio to TypeScript.\n\n Interested in: React Native / React Compiler / Material UI / Tailwind / Supabase / Strapi / Firebase / PHP etc. \n\n Additional training:\n• Design patterns, security, and implementation of API Gateway.',
 			},
 		],
 
@@ -138,12 +138,12 @@ export const translations = {
 			{
 				year: '2026 — настоящее время',
 				title: 'Фриланс',
-				desc: 'Основной вид деятельности — коммерческие проекты.\n\nЧто сделал:\n• Вёрстка и адаптив сайтов (Vanilla JS) + Vite / Gulp\n• Интеграция форм и почты (PHPMailer, WP Mail SMTP)\n• Посадка на WordPress + Advanced Custom Fields\n• Настройка DNS / SSL\n• Деплой, развертывание на продакшен-сервере, публикация\n• Добавление товаров с Supabase + своя CMS\n• Bootstrap, FSD-архитектура\n• REST API (Platzi Fake Store, Weather API, NewsAPI, MarvelAPI)\n• Анимации: GSAP + Lenis\n• Работа с Figma / Zeplin\n• Git + GitHub',
+				desc: 'Основной вид деятельности — коммерческие проекты.\n\nЧто сделал:\n• Вёрстка и адаптив сайтов (Vanilla JS) + Vite / Gulp\n• Интеграция форм и почты (PHPMailer, WP Mail SMTP)\n• Посадка на WordPress + Advanced Custom Fields\n• Настройка DNS / SSL\n• Деплой, развертывание на продакшен-сервере, публикация\n• Добавление товаров с Supabase + своя CMS\n• Bootstrap, FSD-архитектура\n• REST API (Platzi Fake Store, Weather API, NewsAPI, MarvelAPI)\n• Анимации: GSAP + Lenis\n• Работа с Figma / Zeplin\n• Git + GitHub\n• Гугл Аналитика / Яндекс Метрика',
 			},
 			{
 				year: 'Сейчас',
 				title: 'Развитие',
-				desc: 'Активное изучение TypeScript.\n Перевожу портфолио на TypeScript.\n\n Интересует: Supabase / Strapi / Firebase \n\n Доп. обучение:\n• Паттерны проектирования, безопасность и внедрение API Gateway.',
+				desc: 'Активное изучение TypeScript.\n Перевожу портфолио на TypeScript.\n\n Интересует: React Native / React Compiler / Material UI / Tailwind / Supabase / Strapi / Firebase / PHP и тд. \n\n Доп. обучение:\n• Паттерны проектирования, безопасность и внедрение API Gateway.',
 			},
 		],
 
