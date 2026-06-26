@@ -18,6 +18,8 @@ import Policy from '../pages/policy/policy';
 
 // хук контроллер для плавной прокрутки к блокам и сама плавная прокрутка инициализирована там!!!
 import { useAppController } from './hooks/useAppController';
+// яндекс метрика
+import { useYandexMetrika } from '../shared/hooks/useYandexMetrika';
 
 // интерфейс для пропсов MainLayout
 interface MainLayoutProps {
@@ -40,6 +42,8 @@ const PolicyLayout = () => (
 
 function App() {
 	const { refs, actions } = useAppController();
+
+	useYandexMetrika(110162735);
 
 	return (
 		<Routes>
