@@ -21,12 +21,31 @@ export interface ISliderItem {
 	description: string;
 }
 
-export const sliderData: ISliderItem[] = [
+export interface ITranslations {
+	sofaTitle: string;
+	sofaText: string;
+	sofaDesc: string;
+	coffeeTitle: string;
+	coffeeText: string;
+	coffeeDesc: string;
+	kosmoTitle: string;
+	kosmoText: string;
+	kosmoDesc: string;
+	umtTitle: string;
+	umtText: string;
+	umtDesc: string;
+	parallaxTitle: string;
+	parallaxText: string;
+	parallaxDesc: string;
+	comments: string;
+}
+
+export const getSliderData = (t: ITranslations): ISliderItem[] => [
 	{
 		id: 1,
 		image: SofaSlider,
-		title: 'Первый Мягкий',
-		text: 'Каталожный сайт диванов.',
+		title: t.sofaTitle,
+		text: t.sofaText,
 		tags: [
 			{ text: 'HTML', bg: 'danger' },
 			{ text: 'CSS', bg: 'primary' },
@@ -40,14 +59,14 @@ export const sliderData: ISliderItem[] = [
 		],
 		link: 'https://sofa-amber.vercel.app',
 		linkGit: 'https://github.com/anarkilimitz/Sofa',
-		commit: 'Комментарии',
-		description: `Сайт создан в двух вариантах. Данный по ссылке: работает с локальным JSON. Этот же сайт реализовал с Supabase и собственной CMS для добавления в каталог товаров (в рамках обучения работы с Supabase). Архитектура фронта подготовлена к легкому переходу на полноценный бекенд. Сайт находится на стадии доработки макета и последующей адаптации.`,
+		commit: t.comments,
+		description: t.sofaDesc,
 	},
 	{
 		id: 2,
 		image: CoffeeImg,
-		title: 'Кофейня',
-		text: 'Приложение создано по предоставленному макету.',
+		title: t.coffeeTitle,
+		text: t.coffeeText,
 		tags: [
 			{ text: 'React', bg: 'primary' },
 			{ text: 'Filter', bg: 'dark' },
@@ -56,14 +75,14 @@ export const sliderData: ISliderItem[] = [
 		],
 		link: 'https://coffee-shop-react-jade.vercel.app/goods',
 		linkGit: 'https://github.com/anarkilimitz/Coffee-shop-react',
-		commit: 'Комментарии',
-		description: `Реализовал понятную архитектуру. Добавил фильтр по товарам. Создал массив с карточками товара для быстрого добавления.`,
+		commit: t.comments,
+		description: t.coffeeDesc,
 	},
 	{
 		id: 3,
 		image: Kosmoavto,
-		title: 'KosmoAvto112',
-		text: 'Лендинг по аренде такси, ремонту и покраске машин.',
+		title: t.kosmoTitle,
+		text: t.kosmoText,
 		tags: [
 			{ text: 'HTML', bg: 'danger' },
 			{ text: 'CSS', bg: 'primary' },
@@ -74,14 +93,14 @@ export const sliderData: ISliderItem[] = [
 		],
 		link: 'https://kosmoavto112.ru',
 		linkGit: 'https://github.com/anarkilimitz/autoservice-kosmonavtov-112',
-		commit: 'Комментарии',
-		description: `Реализовано 2 зависимых слайдера ДО/ПОСЛЕ. Аккордеоны со списком цен и услуг. Настроен PHPMailer `,
+		commit: t.comments,
+		description: t.kosmoDesc,
 	},
 	{
 		id: 4,
 		image: Umtnpo,
-		title: 'Компания НПО УМТ',
-		text: 'Коммерческий сайт на WordPress по продаже строительного оборудования.',
+		title: t.umtTitle,
+		text: t.umtText,
 		tags: [
 			{ text: 'HTML', bg: 'danger' },
 			{ text: 'CSS', bg: 'primary' },
@@ -95,14 +114,14 @@ export const sliderData: ISliderItem[] = [
 		],
 		link: 'https://uralmt.com',
 		// linkGit: 'https://github.com/anarkilimitz/UMFFZ-2025-to-git',
-		commit: 'Комментарии',
-		description: `Сайт на WordPress c Advanced Custom Fields (ACF). Настроен плагин WP Mail SMTP для отправки почты.`,
+		commit: t.comments,
+		description: t.umtDesc,
 	},
 	{
 		id: 5,
 		image: Everest,
-		title: 'Параллакс',
-		text: 'Параллакс эффект с отслеживанием курсора указателя.',
+		title: t.parallaxTitle,
+		text: t.parallaxText,
 		tags: [
 			{ text: 'HTML', bg: 'danger' },
 			{ text: 'CSS', bg: 'primary' },
@@ -111,7 +130,7 @@ export const sliderData: ISliderItem[] = [
 		],
 		link: 'https://parallax-mountains-ten.vercel.app',
 		linkGit: 'https://github.com/anarkilimitz/Parallax-mountains',
-		commit: 'Комментарии',
-		description: `Этот код реализует эффект параллакса для группы элементов.`,
+		commit: t.comments,
+		description: t.parallaxDesc,
 	},
 ];

@@ -6,6 +6,8 @@ import { Container, Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 
 function Policy() {
+	const currentYear = new Date().getFullYear();
+
 	return (
 		<header className={styles.policy}>
 			<Container>
@@ -80,7 +82,7 @@ function Policy() {
 
 				<footer className={styles.footerPolicy}>
 					<p className={styles.email}>Email: devlimitz@yandex.ru</p>©{' '}
-					{new Date().getFullYear()}
+					{currentYear}
 				</footer>
 			</Container>
 		</header>

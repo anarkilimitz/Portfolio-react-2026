@@ -13,6 +13,9 @@ export const translations = {
 		// About
 		titleAbout: 'About Me',
 		textAbout: `At the beginning of 2024, I got interested in Web programming. I started my journey by reading well-known books: Htmlbook.ru, Webref.ru, Doka.guide, Learn.javascript.ru, 'Grokking Algorithms', 'Eloquent JavaScript', and other excellent resources. In parallel, I completed the free introductory course by Yandex Practicum on Java and finally realized that frontend is my thing.`,
+		titleTimeline: 'Very briefly',
+		technologiesTitle: 'Technologies and tools',
+		directoryTitle: 'Directory',
 
 		timeline: [
 			{
@@ -41,6 +44,29 @@ export const translations = {
 				desc: 'Active study of TypeScript.\n Translating portfolio to TypeScript.\n\n Interested in: React Native / React Compiler / Material UI / Tailwind / Supabase / Strapi / Firebase / PHP etc. \n\n Additional training:\n• Design patterns, security, and implementation of API Gateway.',
 			},
 		],
+
+		// Slider
+		sofaTitle: 'First Soft',
+		sofaText: 'Catalog website for sofas.',
+		sofaDesc:
+			'The site was created in two versions. The one linked works with local JSON. I also implemented this site with Supabase and a custom CMS for adding products to the catalog (as part of learning Supabase). The frontend architecture is prepared for an easy transition to a full backend. The site is currently in the stage of layout refinement and subsequent adaptation.',
+		coffeeTitle: 'Coffee Shop',
+		coffeeText: 'Application created from a provided mockup.',
+		coffeeDesc:
+			'Implemented a clear architecture. Added a product filter. Created an array with product cards for quick addition.',
+		kosmoTitle: 'KosmoAvto112',
+		kosmoText: 'Landing page for taxi rental, car repair, and painting.',
+		kosmoDesc:
+			'Implemented 2 dependent BEFORE/AFTER sliders. Accordions with price lists and services. PHPMailer configured.',
+		umtTitle: 'Company UMZ NPO',
+		umtText: 'Commercial WordPress site for selling construction equipment.',
+		umtDesc:
+			'WordPress site with Advanced Custom Fields (ACF). Configured WP Mail SMTP plugin for sending emails.',
+		parallaxTitle: 'Parallax',
+		parallaxText: 'Parallax effect with cursor tracking.',
+		parallaxDesc:
+			'This code implements a parallax effect for a group of elements.',
+		comments: 'Comments',
 
 		//Projects
 		// 1
@@ -120,6 +146,9 @@ export const translations = {
 		// About
 		titleAbout: 'Обо мне',
 		textAbout: `В начале 2024 увлекся Веб-программированием. Начал свой путь с прочтения всем известных книг: Htmlbook.ru, Webref.ru, Doka.guide, Learn.javascript.ru, Грокаем Алгоритмы, Выразительный JavaScript и другие отличные ресурсы. Параллельно прошёл бесплатный вводный курс Яндекс.Практикума по Java и окончательно понял, что мое — это фронтенд.`,
+		titleTimeline: 'Очень коротко',
+		technologiesTitle: 'Технологии и инструменты',
+		directoryTitle: 'Справочник',
 
 		timeline: [
 			{
@@ -148,6 +177,29 @@ export const translations = {
 				desc: 'Активное изучение TypeScript.\n Перевожу портфолио на TypeScript.\n\n Интересует: React Native / React Compiler / Material UI / Tailwind / Supabase / Strapi / Firebase / PHP и тд. \n\n Доп. обучение:\n• Паттерны проектирования, безопасность и внедрение API Gateway.',
 			},
 		],
+
+		// Slider
+		sofaTitle: 'Первый Мягкий',
+		sofaText: 'Каталожный сайт диванов.',
+		sofaDesc:
+			'Сайт создан в двух вариантах. Данный по ссылке: работает с локальным JSON. Этот же сайт реализовал с Supabase и собственной CMS для добавления в каталог товаров (в рамках обучения работы с Supabase). Архитектура фронта подготовлена к легкому переходу на полноценный бекенд. Сайт находится на стадии доработки макета и последующей адаптации.',
+		coffeeTitle: 'Кофейня',
+		coffeeText: 'Приложение создано по предоставленному макету.',
+		coffeeDesc:
+			'Реализовал понятную архитектуру. Добавил фильтр по товарам. Создал массив с карточками товара для быстрого добавления.',
+		kosmoTitle: 'KosmoAvto112',
+		kosmoText: 'Лендинг по аренде такси, ремонту и покраске машин.',
+		kosmoDesc:
+			'Реализовано 2 зависимых слайдера ДО/ПОСЛЕ. Аккордеоны со списком цен и услуг. Настроен PHPMailer.',
+		umtTitle: 'Компания НПО УМТ',
+		umtText:
+			'Коммерческий сайт на WordPress по продаже строительного оборудования.',
+		umtDesc:
+			'Сайт на WordPress c Advanced Custom Fields (ACF). Настроен плагин WP Mail SMTP для отправки почты.',
+		parallaxTitle: 'Параллакс',
+		parallaxText: 'Параллакс эффект с отслеживанием курсора указателя.',
+		parallaxDesc: 'Этот код реализует эффект параллакса для группы элементов.',
+		comments: 'Комментарии',
 
 		// Projects
 		// 1

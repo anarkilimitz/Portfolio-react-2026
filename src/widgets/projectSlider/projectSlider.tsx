@@ -3,10 +3,14 @@ import { Container, Row, Col } from 'react-bootstrap';
 import { FaGithub } from 'react-icons/fa';
 
 import SliderBlock from '../sliderBlock/SliderBlock';
-import { sliderData, ISliderItem } from '../sliderBlock/sliderData/sliderData';
+import {
+	getSliderData,
+	ISliderItem,
+} from '../sliderBlock/sliderData/sliderData';
 
 import styles from './projectSlider.module.scss';
 import { useScrollTypewriter } from '../../shared/hooks/useScrollTypewriter';
+import { useLanguage } from '../../shared/i18n/languageContext';
 
 interface ProjectItemProps {
 	item: ISliderItem;
@@ -32,6 +36,8 @@ const ProjectItem: React.FC<ProjectItemProps> = ({ item, index }) => {
 		delay: 0.3,
 	});
 
+	const { t } = useLanguage();
+
 	return (
 		// Обертка div нужна, так как Row из Bootstrap не принимает ref напрямую
 		<div ref={sectionRef} className="mb-5 mb-lg-6">
@@ -48,13 +54,9 @@ const ProjectItem: React.FC<ProjectItemProps> = ({ item, index }) => {
                     `.trim()}
 				>
 					<div className={isEven ? 'pe-lg-4 pe-xl-5' : 'ps-lg-4 ps-xl-5'}>
-						<h2 ref={titleRef} className="mb-3 mb-lg-4 fw-bold">
-							{item.title}
-						</h2>
+						<h2 ref={titleRef} className="mb-3 mb-lg-4 fw-bold"></h2>
 
-						<p ref={textRef} className="lead text-muted mb-0">
-							{item.text}
-						</p>
+						<p ref={textRef} className="lead text-muted mb-0"></p>
 
 						{/* Бейджики */}
 						<div className="mt-4">
@@ -76,7 +78,7 @@ const ProjectItem: React.FC<ProjectItemProps> = ({ item, index }) => {
 										rel="noopener noreferrer"
 										className={`icon-link icon-link-hover text-decoration-none fw-semibold ${styles.customLinkSlider}`}
 									>
-										View Project
+										{t.linksProject}
 										<span className="bi mb-2 ms-2" aria-hidden="true">
 											&rarr;
 										</span>
@@ -94,7 +96,7 @@ const ProjectItem: React.FC<ProjectItemProps> = ({ item, index }) => {
 										rel="noopener noreferrer"
 										className={`icon-link icon-link-hover text-decoration-none fw-semibold ${styles.customLinkSlider}`}
 									>
-										GitHub
+										{t.linksProjectToGit}
 										<span className="bi mb-2 ms-2" aria-hidden="true">
 											&rarr;
 										</span>
@@ -108,9 +110,11 @@ const ProjectItem: React.FC<ProjectItemProps> = ({ item, index }) => {
 
 				{/* правая колонка */}
 				<Col xs={12} lg={6} className={isEven ? 'order-lg-2' : 'order-lg-1'}>
-					<SliderBlock image={item.image}
+					<SliderBlock
+						image={item.image}
 						commit={item.commit}
-						description={item.description} />
+						description={item.description}
+					/>
 				</Col>
 			</Row>
 		</div>
@@ -119,6 +123,10 @@ const ProjectItem: React.FC<ProjectItemProps> = ({ item, index }) => {
 
 // основной еомпонент
 function ProjectSlider() {
+	const { t } = useLanguage();
+	// вызываю функцию, передавая текущий язык
+	const sliderData = getSliderData(t);
+
 	return (
 		<Container className="pt-5 pb-4 pb-md-5 pb-lg-0">
 			{sliderData.map((item, index) => (

@@ -128,17 +128,17 @@ function About() {
 		delay: 0.3,
 	});
 
-	useScrollTypewriter(timelineTitleRef, 'Очень коротко', sectionRef, {
+	useScrollTypewriter(timelineTitleRef, t.titleTimeline, sectionRef, {
 		stagger: 0.09,
 		delay: 0.4,
 	});
 
-	useScrollTypewriter(skillsTitleRef, 'Технологии и инструменты', sectionRef, {
+	useScrollTypewriter(skillsTitleRef, t.technologiesTitle, sectionRef, {
 		stagger: 0.09,
 		delay: 0.5,
 	});
 
-	useScrollTypewriter(referenceTitleRef, 'Справочник', sectionRef, {
+	useScrollTypewriter(referenceTitleRef, t.directoryTitle, sectionRef, {
 		stagger: 0.09,
 		delay: 0.6,
 	});
@@ -212,9 +212,7 @@ function About() {
 
 						{/* ТЕХНОЛОГИИ */}
 						<div className={styles.skillsSection}>
-							<h3 ref={skillsTitleRef} className={styles.skillsTitle}>
-								Технологии и инструменты
-							</h3>
+							<h3 ref={skillsTitleRef} className={styles.skillsTitle}></h3>
 							<div className={styles.skillsGrid}>
 								{techStack.map((tech: TechItem, i: number) => (
 									<a
@@ -231,9 +229,7 @@ function About() {
 						</div>
 						{/* СПРАВОЧНИК */}
 						<div className={styles.skillsSection}>
-							<h3 ref={referenceTitleRef} className={styles.skillsTitle}>
-								Справочник
-							</h3>
+							<h3 ref={referenceTitleRef} className={styles.skillsTitle}></h3>
 							<div className={styles.skillsGrid}>
 								{resources.map((resource: TechItem, i: number) => (
 									<a
@@ -257,9 +253,7 @@ function About() {
 								{t.textAbout}
 							</p>
 
-							<h3 ref={timelineTitleRef} className={styles.timelineTitle}>
-								Мой путь
-							</h3>
+							<h3 ref={timelineTitleRef} className={styles.timelineTitle}></h3>
 
 							{/* Добавляем ref на контейнер и новый div для линии */}
 							<div ref={timelineRef} className={styles.timeline}>
