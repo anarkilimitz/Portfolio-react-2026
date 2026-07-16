@@ -43,7 +43,7 @@
 }
 
 .divider {
-    margin: 30px 0 20px;
+    margin: 10px 0 20px;
     border-color: rgb(255, 255, 255);
 }
 
@@ -77,6 +77,46 @@
     max-width: 1.5em;
     max-height: 1.5em;
 }
+
+// ====================================================
+// дисклеймер для инсты
+.instagramWrapper {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+
+    span {
+        position: absolute;
+        top: -6px;
+        right: -12px;
+
+        font-size: 30px;
+        line-height: 1;
+        color: rgba(255, 255, 255, 0.75);
+        user-select: none;
+        pointer-events: none;
+    }
+}
+
+.metaNotice {
+    width: 100%;
+    max-width: 100%;
+    margin: 0 auto;
+
+    font-size: 10px;
+    line-height: 1;
+    text-align: center;
+
+    color: rgba(255, 255, 255, 0.55);
+
+}
+
+.mark {
+    font-size: 25px;
+    vertical-align: middle;
+}
+
+// ====================================================
 
 @media (max-width: 768px) {
     .contactsSocial {

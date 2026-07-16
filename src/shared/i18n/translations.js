@@ -95,6 +95,8 @@ export const translations = {
 		agreePrivacy: 'Do you agree to the Privacy Policy?',
 		sendBtn: 'Send',
 		allRights: 'Portfolio. All rights reserved.',
+		disclaimerInstagram:
+			'Meta Platforms Inc. has been designated as an extremist organization. It`s activities are banned within the territory of the Russian Federation.',
 		license: 'License',
 
 		// Ошибки формы
@@ -200,6 +202,8 @@ export const translations = {
 		agreePrivacy: 'Политикоа конфиденциальности.',
 		sendBtn: 'Отправить',
 		allRights: 'Портфолио. Все права защищены.',
+		disclaimerInstagram:
+			'Meta Platforms Inc. признана экстремистской организацией. Ее деятельность запрещена на территории Российской Федерации.',
 		license: 'Лицензия',
 
 		// Ошибки формы
