@@ -21,17 +21,18 @@ export const useSmoothScroll = () => {
 
 		lenis.on('scroll', ScrollTrigger.update);
 
-		gsap.ticker.add((time) => {
+		const handleRaf = (time: number) => {
 			lenis.raf(time * 1000);
-		});
+		};
+
+		gsap.ticker.add(handleRaf);
 
 		gsap.ticker.lagSmoothing(0);
 
 		return () => {
+			gsap.ticker.remove(handleRaf);
 			lenis.destroy();
-			gsap.ticker.remove((time) => {
-				lenis.raf(time * 1000);
-			});
+			lenisRef.current = null;
 			// Убиваем все ScrollTrigger при уходе со страницы (опционально, но полезно для SPA)
 			ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
 		};

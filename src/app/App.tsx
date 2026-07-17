@@ -13,6 +13,8 @@ import TitleNewsSection from '../widgets/titleNewsSection/titleNewsSection';
 import ProjectsSlider from '../widgets/projectSlider/projectSlider';
 import Carousel3D from '../widgets/carousel3D/carousel3D';
 
+import ScrollToTopButton from '../shared/ui/buttons/upScroll/ScrollToTopButton';
+
 import Page404 from '../pages/404/Page404';
 import Policy from '../pages/policy/policy';
 
@@ -24,13 +26,15 @@ import { useYandexMetrika } from '../shared/hooks/useYandexMetrika';
 // интерфейс для пропсов MainLayout
 interface MainLayoutProps {
 	contactsRef: RefObject<HTMLElement | null>;
+	lenisRef: RefObject<any | null>;
 }
 
 // применяем типизацию к компоненту
-const MainLayout = ({ contactsRef }: MainLayoutProps) => (
+const MainLayout = ({ contactsRef, lenisRef }: MainLayoutProps) => (
 	<>
 		<Outlet />
 		<Footer contactsRef={contactsRef} />
+		<ScrollToTopButton lenisRef={lenisRef} />
 	</>
 );
 
@@ -41,14 +45,18 @@ const PolicyLayout = () => (
 );
 
 function App() {
-	const { refs, actions } = useAppController();
+	const { refs, actions, lenisRef } = useAppController();
 
 	useYandexMetrika(110162735);
 
 	return (
 		<Routes>
 			{/* передаем contactsRef в компонент */}
-			<Route element={<MainLayout contactsRef={refs.contactsRef} />}>
+			<Route
+				element={
+					<MainLayout contactsRef={refs.contactsRef} lenisRef={lenisRef} />
+				}
+			>
 				<Route
 					index
 					element={

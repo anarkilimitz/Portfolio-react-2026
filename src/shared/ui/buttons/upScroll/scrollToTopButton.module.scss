@@ -1,0 +1,46 @@
+@use '../../../../app/styles/variables.scss' as *;
+@use '../../../../app/styles/mixins.scss' as *;
+
+.btnUp {
+    position: fixed;
+    bottom: 40px;
+    right: 40px;
+    z-index: 9999;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: none;
+    background-color: #fff;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.25);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px;
+    transition: background-color 0.3s ease;
+
+    // иконка
+    img,
+    svg {
+        width: 100%;
+        height: 100%;
+        fill: $main-color;
+        transition: fill 0.3s ease;
+    }
+
+    &:hover {
+        background-color: $hover-color;
+
+        img,
+        svg {
+            fill: #fff;
+        }
+    }
+    
+    @media (max-width: 768px) {
+        bottom: 52px;
+        right: 20px;
+        width: 45px;
+        height: 45px;
+    }
+}

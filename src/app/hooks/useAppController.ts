@@ -1,5 +1,4 @@
 import { useRef, useCallback } from 'react';
-import Lenis from 'lenis';
 import { useSmoothScroll } from '../../shared/hooks/useSmoothScroll';
 
 export const useAppController = () => {
@@ -54,5 +53,6 @@ export const useAppController = () => {
 			scrollToProjects,
 			scrollToContacts,
 		},
+		lenisRef,
 	};
 };
