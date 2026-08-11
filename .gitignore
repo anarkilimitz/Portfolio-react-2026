@@ -43,6 +43,7 @@ yarn-error.log*
 .tmp
 .temp
 
-# Weather cache
-weather_cache.json
+# Cache
+news_cache_*.json
 weather_cache_*.json
+weather_cache.json
