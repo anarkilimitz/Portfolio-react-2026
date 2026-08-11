@@ -1,4 +1,5 @@
 <?php
+
 header('Content-Type: application/json; charset=utf-8');
 header('Access-Control-Allow-Origin: *');
 
@@ -7,7 +8,9 @@ $apiKey = $config['WEATHER_API_KEY'] ?? '';
 
 if ($apiKey === '') {
     http_response_code(500);
-    echo json_encode(['error' => 'Missing WEATHER_API_KEY']);
+    echo json_encode([
+        'error' => 'Missing WEATHER_API_KEY'
+    ]);
     exit;
 }
 
@@ -18,6 +21,7 @@ $params = [
 ];
 
 $city = isset($_GET['city']) ? trim((string) $_GET['city']) : '';
+
 if ($city !== '') {
     $params['q'] = $city;
 } else {
@@ -26,7 +30,9 @@ if ($city !== '') {
 
     if ($lat === null || $lon === null) {
         http_response_code(400);
-        echo json_encode(['error' => 'lat/lon or city are required']);
+        echo json_encode([
+            'error' => 'lat/lon or city are required'
+        ]);
         exit;
     }
 
@@ -35,8 +41,19 @@ if ($city !== '') {
 }
 
 $query = http_build_query($params);
-$cacheFile = __DIR__ . '/weather_cache_' . md5($query) . '.json';
-$cacheTime = 600;
+
+
+/* Кэш
+
+Всегда используется один файл.
+Старое содержимое будет перезаписываться.
+*/
+
+$cacheFile = __DIR__ . '/weather_cache.json';
+$cacheTime = 600; // 10 минут
+
+
+/* проверка кэш */
 
 if (is_file($cacheFile)) {
     $fileAge = time() - filemtime($cacheFile);
@@ -47,9 +64,13 @@ if (is_file($cacheFile)) {
     }
 }
 
+
+/* Запрос */
+
 $url = 'https://api.openweathermap.org/data/2.5/weather?' . $query;
 
 $ch = curl_init();
+
 curl_setopt_array($ch, [
     CURLOPT_URL => $url,
     CURLOPT_RETURNTRANSFER => true,
@@ -62,20 +83,35 @@ curl_setopt_array($ch, [
 $response = curl_exec($ch);
 $httpCode = (int) curl_getinfo($ch, CURLINFO_HTTP_CODE);
 $error = curl_error($ch);
+
 curl_close($ch);
 
+
+/* Ошибка соединения */
+
 if ($response === false) {
+
+    // Если есть старый кэш — используем его
     if (is_file($cacheFile)) {
         echo file_get_contents($cacheFile);
         exit;
     }
 
     http_response_code(502);
-    echo json_encode(['error' => $error ?: 'Failed to load weather']);
+
+    echo json_encode([
+        'error' => $error ?: 'Failed to load weather'
+    ]);
+
     exit;
 }
 
+
+/* Ошибка OpenWeather */
+
 if ($httpCode !== 200) {
+
+    // Если есть старый кэш — используем его
     if (is_file($cacheFile)) {
         echo file_get_contents($cacheFile);
         exit;
@@ -86,6 +122,14 @@ if ($httpCode !== 200) {
     exit;
 }
 
-file_put_contents($cacheFile, $response);
+
+/* Сохраняем новый кэш */
+
+file_put_contents(
+    $cacheFile,
+    $response,
+    LOCK_EX
+);
+
 echo $response;
 exit;
