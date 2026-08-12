@@ -163,7 +163,7 @@ export default function Header({
 						<div className={`d-flex gap-4 mt-0 ${styles.btnWrapper}`}>
 							<Button
 								as="a"
-								href="/portfolio.pdf"
+								href="/pavlenokportfolio.pdf"
 								rel="noopener noreferrer"
 								target="_blank"
 								variant="none"
