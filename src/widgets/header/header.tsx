@@ -161,7 +161,15 @@ export default function Header({
 						</p>
 
 						<div className={`d-flex gap-4 mt-0 ${styles.btnWrapper}`}>
-							<Button variant="none" className={styles.primaryBtn} size="lg">
+							<Button
+								as="a"
+								href="/portfolio.pdf"
+								rel="noopener noreferrer"
+								target="_blank"
+								variant="none"
+								className={styles.primaryBtn}
+								size="lg"
+							>
 								{t.btnViewHeader}
 							</Button>
 							<Button
