@@ -16,6 +16,7 @@ dist
 # production
 /build
 public/
+/public/pavlenokportfolio.pdf
 # misc
 .DS_Store
 
