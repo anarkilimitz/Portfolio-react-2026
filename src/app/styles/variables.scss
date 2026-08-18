@@ -16,6 +16,9 @@ $bg-charcoal: #495057;
 $bg-mock: #78716c;
 $bg-gulp: #8B5E3C;
 $mailer: #005A9C;
+$swiper: #007aff;
+$tailwind: #38BDF8;
+$scrolltrigger: rgba(0, 128, 0, 0.945);
 
 $theme-colors: (
     "purple": $main-color,
@@ -27,4 +30,7 @@ $theme-colors: (
     'bg-charcoal': $bg-charcoal,
     'bg-mock': $bg-mock,
     'bg-gulp': $bg-gulp,
+    'bg-swiper': $swiper,
+    'bg-tailwind': $tailwind,
+    'bg-scrolltrigger': $scrolltrigger,
 );

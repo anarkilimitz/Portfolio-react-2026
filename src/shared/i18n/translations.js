@@ -66,6 +66,10 @@ export const translations = {
 		parallaxText: 'Parallax effect with cursor tracking.',
 		parallaxDesc:
 			'This code implements a parallax effect for a group of elements.',
+		weddingTitle: 'Wedding organization',
+		weddingText: 'Wedding Agency Landing Page.',
+		weddingDesc:
+			'A premium responsive website for a wedding and event planning agency. The project focuses on elegant visual presentation, smooth GSAP animations, responsive layouts, semantic HTML, and a clear user journey from services and portfolio to the contact section. The site includes a responsive navigation menu, animated service cards, portfolio gallery, testimonials, contact form integration via Web3Forms, privacy policy page, Open Graph metadata, SEO configuration, robots.txt, sitemap.xml, and structured data preparation.',
 		comments: 'Comments',
 
 		//Projects
@@ -199,6 +203,10 @@ export const translations = {
 		parallaxTitle: 'Параллакс',
 		parallaxText: 'Параллакс эффект с отслеживанием курсора указателя.',
 		parallaxDesc: 'Этот код реализует эффект параллакса для группы элементов.',
+		weddingTitle: 'Организация свадеб',
+		weddingText: 'Лендинг свадебного агентства.',
+		weddingDesc:
+			'Премиальный адаптивный сайт для агентства по организации свадеб и мероприятий. Основной акцент сделан на визуальной подаче, анимациях на GSAP, адаптивной вёрстке, семантическом HTML и понятном пользовательском пути от услуг и портфолио до формы связи. На сайте реализованы адаптивное меню, анимированные карточки услуг, портфолио, отзывы, интеграция контактной формы через Web3Forms, страница политики конфиденциальности, Open Graph-разметка, базовая SEO-настройка, robots.txt, sitemap.xml и подготовка структурированных данных..',
 		comments: 'Комментарии',
 
 		// Projects

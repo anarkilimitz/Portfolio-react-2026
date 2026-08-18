@@ -1,4 +1,5 @@
 import SofaSlider from '../../../assets/img/slider/sofadbslider.png';
+import Wedding from '../../../assets/img/slider/wedding.png';
 import CoffeeImg from '../../../assets/img/slider/Coffee.png';
 import Kosmoavto from '../../../assets/img/slider/kosmoavto.png';
 import Everest from '../../../assets/img/slider/everest.png';
@@ -37,6 +38,9 @@ export interface ITranslations {
 	parallaxTitle: string;
 	parallaxText: string;
 	parallaxDesc: string;
+	weddingTitle: string;
+	weddingText: string;
+	weddingDesc: string;
 	comments: string;
 }
 
@@ -132,5 +136,26 @@ export const getSliderData = (t: ITranslations): ISliderItem[] => [
 		linkGit: 'https://github.com/anarkilimitz/Parallax-mountains',
 		commit: t.comments,
 		description: t.parallaxDesc,
+	},
+	{
+		id: 6,
+		image: Wedding,
+		title: t.weddingTitle,
+		text: t.weddingText,
+		tags: [
+			{ text: 'React', bg: 'primary' },
+			{ text: 'React Compiler', bg: 'mailer' },
+			{ text: 'Tailwind', bg: 'bg-tailwind ' },
+			{ text: 'GSAP', bg: 'success' },
+			{ text: 'ScrollTrigger', bg: 'bg-scrolltrigger' },
+			{ text: 'Vite', bg: 'purple' },
+			{ text: 'Web3Forms', bg: 'mailer' },
+			{ text: 'Swiper', bg: 'bg-swiper' },
+			{ text: 'Aug 2026', bg: 'secondary' },
+		],
+		link: 'https://wedding-landing-dusky.vercel.app/',
+		linkGit: 'https://github.com/anarkilimitz/wedding-landing',
+		commit: t.comments,
+		description: t.weddingDesc,
 	},
 ];

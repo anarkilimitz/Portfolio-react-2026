@@ -174,7 +174,7 @@ export default function Header({
 							</Button>
 							<Button
 								as="a"
-								href="https://github.com/anarkilimitz"
+								href="https://github.com/anarkilimitz/Portfolio-react-2026"
 								target="_blank"
 								rel="noopener noreferrer"
 								variant="none"
