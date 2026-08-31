@@ -1,0 +1,219 @@
+@use '../../app/styles/variables.scss' as *;
+@use '../../app/styles/mixins.scss' as *;
+
+.section {
+    width: 100%;
+    padding: 100px 0 140px;
+}
+
+.title {
+    @include section-title;
+
+    width: fit-content;
+    margin: 0 0 55px auto;
+
+    &::after {
+        content: '';
+        display: block;
+        width: 115px;
+        height: 4px;
+        margin-top: 1rem;
+        margin-left: 6px;
+        background: #000;
+    }
+}
+
+.switcher {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 25px;
+}
+
+.slider {
+    width: 100%;
+}
+
+/* == DETAILS === */
+
+.details {
+    min-height: 520px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    padding: clamp(30px, 5vw, 70px);
+
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    background: #f7f7f7;
+}
+
+.detailsHeader {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 30px;
+
+    padding-bottom: 50px;
+
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.detailsNumber {
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    color: #8c8c8c;
+}
+
+.detailsTitle {
+    margin: 0 0 15px;
+
+    font-size: clamp(2rem, 4vw, 3.5rem);
+    font-weight: 700;
+    letter-spacing: -0.04em;
+}
+
+.detailsDescription {
+    max-width: 620px;
+
+    margin: 0;
+
+    color: #6c757d;
+
+    font-size: clamp(1rem, 1.4vw, 1.15rem);
+    line-height: 1.7;
+}
+
+.detailsGrid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 50px;
+
+    padding-top: 50px;
+}
+
+.stackGroup {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.stackLabel {
+    font-size: 0.7rem;
+    font-weight: 900;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+}
+
+.stackList {
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
+}
+
+.stackList span {
+    font-size: 1rem;
+    font-weight: 500;
+    line-height: 1.4;
+
+    color: #212529;
+}
+
+/* ===== RESPONSIVE ===== */
+
+@media (max-width: 992px) {
+    .section {
+        padding: 80px 0 100px;
+    }
+
+    .title {
+        margin-bottom: 45px;
+        font-size: 4.2rem;
+    }
+
+    .detailsGrid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 40px;
+    }
+}
+
+@media (max-width: 768px) {
+    .section {
+        padding: 70px 0 90px;
+    }
+
+    .title {
+        font-size: 3.2rem;
+
+        &::after {
+            width: 60px;
+        }
+    }
+
+    .switcher {
+        justify-content: flex-start;
+    }
+
+    .details {
+        min-height: auto;
+        padding: 35px 25px;
+    }
+
+    .detailsHeader {
+        gap: 15px;
+        padding-bottom: 35px;
+    }
+
+    .detailsTitle {
+        font-size: 2rem;
+    }
+
+    .detailsGrid {
+        grid-template-columns: 1fr;
+        gap: 35px;
+        padding-top: 35px;
+    }
+}
+
+@media (max-width: 576px) {
+    .section {
+        padding: 55px 0 70px;
+    }
+
+    .title {
+        margin-bottom: 35px;
+        font-size: 2.2rem;
+
+        &::after {
+            width: 40px;
+        }
+    }
+
+    .switcher {
+        margin-bottom: 20px;
+    }
+
+    .details {
+        padding: 30px 20px;
+    }
+
+    .detailsHeader {
+        grid-template-columns: 1fr;
+    }
+
+    .detailsNumber {
+        order: -1;
+    }
+
+    .detailsTitle {
+        font-size: 1.8rem;
+    }
+
+    .detailsDescription {
+        font-size: 0.95rem;
+    }
+
+    .stackList span {
+        font-size: 0.9rem;
+    }
+}

@@ -11,7 +11,7 @@ import About from '../widgets/about/about';
 import Projects from '../widgets/projects/projects';
 import TitleNewsSection from '../widgets/titleNewsSection/titleNewsSection';
 import ProjectsSlider from '../widgets/projectSlider/projectSlider';
-import Carousel3D from '../widgets/carousel3D/carousel3D';
+import NexusCmsSlider from '../widgets/nexusCmsSlider/NexusCmsSlider';
 
 import ScrollToTopButton from '../shared/ui/buttons/upScroll/ScrollToTopButton';
 
@@ -22,6 +22,7 @@ import Policy from '../pages/policy/policy';
 import { useAppController } from './hooks/useAppController';
 // яндекс метрика
 import { useYandexMetrika } from '../shared/hooks/useYandexMetrika';
+
 
 // интерфейс для пропсов MainLayout
 interface MainLayoutProps {
@@ -87,7 +88,7 @@ function App() {
 							</div>
 
 							<div>
-								<Carousel3D />
+								<NexusCmsSlider lenisRef={lenisRef} />
 							</div>
 						</>
 					}
