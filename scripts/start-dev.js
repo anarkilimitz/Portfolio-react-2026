@@ -6,7 +6,6 @@ const projectRoot = path.resolve(__dirname, '..');
 const phpHost = process.env.PHP_HOST || '127.0.0.1';
 const phpPort = process.env.PHP_PORT || '8000';
 const backendUrl = `http://${phpHost}:${phpPort}`;
-const reactScriptsStart = require.resolve('react-scripts/scripts/start.js');
 
 function isWorkingPhp(command) {
 	if (!command) {
@@ -144,22 +143,26 @@ function shutdown(exitCode = 0) {
 }
 
 function startReactApp() {
-	console.log(`[dev] CRA: http://localhost:3000`);
+	console.log(`[dev] Vite: http://localhost:5173`);
 	console.log(`[dev] PHP backend: ${backendUrl}`);
 	console.log(`[dev] PHP binary: ${phpBinary}`);
 
-	reactProcess = spawn(process.execPath, [reactScriptsStart], {
-		cwd: projectRoot,
-		stdio: 'inherit',
-		env: {
-			...process.env,
-			PHP_HOST: phpHost,
-			PHP_PORT: phpPort,
-		},
-	});
+	reactProcess = spawn(
+		process.platform === 'win32' ? 'npm.cmd' : 'npm',
+		['run', 'dev'],
+		{
+			cwd: projectRoot,
+			stdio: 'inherit',
+			env: {
+				...process.env,
+				PHP_HOST: phpHost,
+				PHP_PORT: phpPort,
+			},
+		}
+	);
 
 	reactProcess.on('error', (error) => {
-		console.error(`[dev] Не удалось запустить React: ${error.message}`);
+		console.error(`[dev] Не удалось запустить Vite: ${error.message}`);
 		shutdown(1);
 	});
 
@@ -169,7 +172,7 @@ function startReactApp() {
 		}
 
 		if (signal) {
-			console.log(`[dev] React завершился по сигналу ${signal}`);
+			console.log(`[dev] Vite завершился по сигналу ${signal}`);
 		}
 
 		shutdown(typeof code === 'number' ? code : 0);

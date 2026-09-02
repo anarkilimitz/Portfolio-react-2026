@@ -23,7 +23,6 @@
     "react-icons": "^5.5.0",
     "react-loader-spinner": "^8.0.2",
     "react-router-dom": "^7.9.4",
-    "react-scripts": "5.0.1",
     "react-weathericons": "^1.0.4",
     "sass": "^1.93.2",
     "split-type": "^0.3.4",
@@ -35,20 +34,10 @@
   },
   "scripts": {
     "start": "node scripts/start-dev.js",
-    "start:react": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
-  },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ],
-    "parser": "@typescript-eslint/parser",
-    "plugins": [
-      "@typescript-eslint"
-    ]
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "test": "echo \"Tests are not configured yet\""
   },
   "browserslist": {
     "production": [
@@ -63,7 +52,9 @@
     ]
   },
   "devDependencies": {
+    "@vitejs/plugin-react": "^6.1.1",
     "stylelint": "^17.4.0",
-    "stylelint-config-standard": "^40.0.0"
+    "stylelint-config-standard": "^40.0.0",
+    "vite": "^8.2.2"
   }
 }
