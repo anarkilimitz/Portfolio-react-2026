@@ -153,6 +153,7 @@ function startReactApp() {
 		{
 			cwd: projectRoot,
 			stdio: 'inherit',
+			shell: process.platform === 'win32',
 			env: {
 				...process.env,
 				PHP_HOST: phpHost,
