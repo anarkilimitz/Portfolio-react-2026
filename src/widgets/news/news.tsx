@@ -46,6 +46,7 @@ function News() {
 							<Card className={styles.newsCard}>
 								<Card.Img
 									src={article.urlToImage || imgFallback}
+									alt={article.title}
 									onError={(
 										e: React.SyntheticEvent<HTMLImageElement, Event>
 									) => {

@@ -23,7 +23,6 @@ import { useAppController } from './hooks/useAppController';
 // яндекс метрика
 import { useYandexMetrika } from '../shared/hooks/useYandexMetrika';
 
-
 // интерфейс для пропсов MainLayout
 interface MainLayoutProps {
 	contactsRef: RefObject<HTMLElement | null>;
@@ -33,7 +32,9 @@ interface MainLayoutProps {
 // применяем типизацию к компоненту
 const MainLayout = ({ contactsRef, lenisRef }: MainLayoutProps) => (
 	<>
-		<Outlet />
+		<main>
+			<Outlet />
+		</main>
 		<Footer contactsRef={contactsRef} />
 		<ScrollToTopButton lenisRef={lenisRef} />
 	</>

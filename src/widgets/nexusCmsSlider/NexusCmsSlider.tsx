@@ -70,6 +70,17 @@ function NexusCmsSlider({ lenisRef }: NexusCmsSliderProps) {
 								</div>
 
 								<div className={styles.stackGroup}>
+									<span className={styles.stackLabel}>Authentication</span>
+
+									<div className={styles.stackList}>
+										<span>JWT</span>
+										<span>Access Tokens</span>
+										<span>Protected API Routes</span>
+										<span>NestJS Guards</span>
+									</div>
+								</div>
+
+								<div className={styles.stackGroup}>
 									<span className={styles.stackLabel}>Architecture</span>
 
 									<div className={styles.stackList}>

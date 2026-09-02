@@ -153,9 +153,9 @@ export default function Header({
 						<h1 ref={titleRef} className="mb-0">
 							{t.titleHeader}
 						</h1>
-						<h3 ref={subtitleRef} className="mb-2 mb-sm-5">
+						<h2 ref={subtitleRef} className="mb-2 mb-sm-5">
 							{t.subtitleHeader}
-						</h3>
+						</h2>
 						<p ref={textRef} className="pt-3 pt-sm-2 pt-md-1">
 							{t.textHeader}
 						</p>

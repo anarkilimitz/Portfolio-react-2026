@@ -36,6 +36,7 @@ function Footer({ contactsRef }: FooterProps) {
 								href="https://github.com/anarkilimitz"
 								target="_blank"
 								rel="noopener noreferrer"
+								aria-label="GitHub"
 							>
 								<svg
 									width="20"
@@ -54,6 +55,7 @@ function Footer({ contactsRef }: FooterProps) {
 									href="https://www.instagram.com/evgeniypavlenok/"
 									target="_blank"
 									rel="noopener noreferrer"
+									aria-label="Instagram"
 								>
 									<svg
 										width="20"
@@ -74,6 +76,7 @@ function Footer({ contactsRef }: FooterProps) {
 								href="https://t.me/this_evgeniy"
 								target="_blank"
 								rel="noopener noreferrer"
+								aria-label="Telegram"
 							>
 								<svg
 									width="20"
