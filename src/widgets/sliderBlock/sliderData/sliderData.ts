@@ -61,7 +61,7 @@ export const getSliderData = (t: ITranslations): ISliderItem[] => [
 			{ text: 'Supabase', bg: 'mint' },
 			{ text: '2026', bg: 'secondary' },
 		],
-		link: 'https://sofa-amber.vercel.app',
+		link: 'https://xn--b1aceodcfoxl6j2b.xn--p1ai/',
 		linkGit: 'https://github.com/anarkilimitz/Sofa',
 		commit: t.comments,
 		description: t.sofaDesc,

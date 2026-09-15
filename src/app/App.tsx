@@ -1,4 +1,4 @@
-import { RefObject } from 'react';
+import { lazy, Suspense, RefObject } from 'react';
 import { Routes, Route, Outlet } from 'react-router-dom';
 
 import './styles/global.scss';
@@ -15,8 +15,8 @@ import NexusCmsSlider from '../widgets/nexusCmsSlider/NexusCmsSlider';
 
 import ScrollToTopButton from '../shared/ui/buttons/upScroll/ScrollToTopButton';
 
-import Page404 from '../pages/404/Page404';
 import Policy from '../pages/policy/policy';
+const Page404 = lazy(() => import('../pages/404/Page404'));
 
 // хук контроллер для плавной прокрутки к блокам и сама плавная прокрутка инициализирована там!!!
 import { useAppController } from './hooks/useAppController';
@@ -98,7 +98,14 @@ function App() {
 			<Route element={<PolicyLayout />}>
 				<Route path="/policy" element={<Policy />} />
 			</Route>
-			<Route path="*" element={<Page404 />} />
+			<Route
+				path="*"
+				element={
+					<Suspense fallback={null}>
+						<Page404 />
+					</Suspense>
+				}
+			/>
 		</Routes>
 	);
 }
