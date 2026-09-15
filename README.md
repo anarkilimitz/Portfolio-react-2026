@@ -135,3 +135,31 @@
 Основной файл:
 
 - [`generate-webp.mjs`](https://github.com/anarkilimitz/Portfolio-react-2026/blob/main/scripts/generate-webp.mjs) — ресайз, конвертация изображений в WebP, сравнение размеров и замена ссылок в production-файлах.
+
+## 7. Оптимизация JavaScript bundle и lazy loading
+
+Провёл анализ production-сборки через `rollup-plugin-visualizer` и оптимизировал загрузку тяжёлых зависимостей без изменения поведения интерфейса.
+
+- **Анализ bundle** — подключён `rollup-plugin-visualizer` для оценки размера JS/CSS и поиска наиболее тяжёлых зависимостей.
+- **Lottie** — обнаружено, что `lottie-web` вместе с `lottie-react` занимал значительную часть основного JavaScript bundle.
+- **Lazy loading 404** — страница `404` переведена на `React.lazy()` и `Suspense`, поэтому Lottie загружается только при переходе на несуществующий маршрут.
+- **Разделение chunks** — код страницы 404 и Lottie вынесен из основного `index`-чанка в отдельный JS-файл.
+- **Основной bundle** — размер главного JS-файла уменьшен примерно с **1.19 MB до 705.15 KB**, то есть примерно на **40.8%**.
+- **Lottie chunk** — после разделения отдельный chunk страницы 404 составляет **362.36 KB** без gzip и загружается только при необходимости.
+- **Gzip** — основной JS после оптимизации составляет **232.06 KB** в gzip.
+- **Сохранение функциональности** — анимация Lottie на странице 404 продолжает работать, при этом она больше не попадает в initial bundle главной страницы.
+
+**Результат:**
+
+| Показатель | До | После |
+|---|---:|---:|
+| Основной JS bundle | ~1.19 MB | **705.15 KB** |
+| Снижение | — | **~40.8%** |
+| Основной JS gzip | — | **232.06 KB** |
+| Lottie + 404 | В основном bundle | **Отдельный lazy chunk 362.36 KB** |
+
+**Основные файлы:**
+
+- [`App.tsx`](https://github.com/anarkilimitz/Portfolio-react-2026/blob/main/src/app/App.tsx) — lazy loading страницы 404 через `React.lazy()` и `Suspense`
+- [`Page404.jsx`](https://github.com/anarkilimitz/Portfolio-react-2026/blob/main/src/pages/404/Page404.jsx) — страница 404 и Lottie-анимация
+- [`vite.config.mts`](https://github.com/anarkilimitz/Portfolio-react-2026/blob/main/vite.config.mts) — конфигурация production-сборки и анализатора bundle
