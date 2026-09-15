@@ -49,7 +49,7 @@ export const translations = {
 		sofaTitle: 'First Soft',
 		sofaText: 'Catalog website for sofas.',
 		sofaDesc:
-			'The site was created in two versions. The one linked works with local JSON. I also implemented this site with Supabase and a custom CMS for adding products to the catalog (as part of learning Supabase). The frontend architecture is prepared for an easy transition to a full backend. The site is currently in the stage of layout refinement and subsequent adaptation.',
+			'The website was created in three versions. The version available via the GitHub link works with local JSON data. The same website was also implemented with Supabase and a custom CMS for adding products to the catalog. The frontend architecture is designed to allow an easy transition to a full backend. The version available at первыймягкий.рф uses a fully custom backend and CMS.',
 		coffeeTitle: 'Coffee Shop',
 		coffeeText: 'Application created from a provided mockup.',
 		coffeeDesc:
@@ -186,7 +186,7 @@ export const translations = {
 		sofaTitle: 'Первый Мягкий',
 		sofaText: 'Каталожный сайт диванов.',
 		sofaDesc:
-			'Сайт создан в двух вариантах. Данный по ссылке: работает с локальным JSON. Этот же сайт реализовал с Supabase и собственной CMS для добавления в каталог товаров (в рамках обучения работы с Supabase). Архитектура фронта подготовлена к легкому переходу на полноценный бекенд. Сайт находится на стадии доработки макета и последующей адаптации.',
+			'Сайт создан в трех вариантах. Данный по ссылке на GitHub: работает с локальным JSON. Этот же сайт реализовал с Supabase и собственной CMS для добавления в каталог товаров. Архитектура фронта подготовлена к легкому переходу на полноценный бекенд. По ссылке первыймягкий.рф сайт с полноценным собстренным бэкендом и CMS.',
 		coffeeTitle: 'Кофейня',
 		coffeeText: 'Приложение создано по предоставленному макету.',
 		coffeeDesc:
