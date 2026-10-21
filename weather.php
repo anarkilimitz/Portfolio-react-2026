@@ -42,14 +42,10 @@ if ($city !== '') {
 
 $query = http_build_query($params);
 
+// КЭШ
 
-/* Кэш
-
-Всегда используется один файл.
-Старое содержимое будет перезаписываться.
-*/
-
-$cacheFile = __DIR__ . '/weather_cache.json';
+// Отдельный кэш для каждого запроса погоды
+$cacheFile = __DIR__ . '/weather_cache_' . md5($query) . '.json';
 $cacheTime = 600; // 10 минут
 
 

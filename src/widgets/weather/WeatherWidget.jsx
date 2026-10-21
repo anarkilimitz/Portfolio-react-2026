@@ -1,5 +1,6 @@
 // import React from 'react';
 import { useWeather } from '../../shared/hooks/useWeather';
+import CitySearch from './CitySearch';
 
 import WeatherIcon from 'react-weathericons';
 import 'weather-icons/css/weather-icons.css';
@@ -9,7 +10,7 @@ import { DNA } from 'react-loader-spinner';
 import styles from './weatherWidget.module.scss';
 
 function WeatherWidget() {
-	const { weather, loading } = useWeather();
+	const { weather, loading, selectCity } = useWeather();
 
 	if (loading)
 		return (
@@ -73,6 +74,7 @@ function WeatherWidget() {
 					<span className={styles.value}>{weather.main.humidity}%</span>
 				</div>
 			</div>
+			<CitySearch onSelectCity={selectCity} />
 		</div>
 	);
 }

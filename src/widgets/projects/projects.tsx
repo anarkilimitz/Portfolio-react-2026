@@ -115,7 +115,7 @@ function Projects() {
 										<li>
 											<a
 												className={styles.customLink}
-												href="https://designer.pavlenok.com"
+												href="https://kochurov.nl/"
 												target="_blank"
 												rel="noopener noreferrer"
 											>

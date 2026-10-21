@@ -50,12 +50,14 @@ function collectPhpCandidates() {
 		{
 			baseDir: 'C:\\OSPanel\\modules',
 			pattern: /^PHP-(\d+(?:\.\d+)*)(?:-FCGI)?$/i,
-			buildPath: (entryName) => path.join('C:\\OSPanel\\modules', entryName, 'PHP', 'php.exe'),
+			buildPath: (entryName) =>
+				path.join('C:\\OSPanel\\modules', entryName, 'PHP', 'php.exe'),
 		},
 		{
 			baseDir: 'C:\\MAMP\\bin\\php',
 			pattern: /^php(\d+(?:\.\d+)*)$/i,
-			buildPath: (entryName) => path.join('C:\\MAMP\\bin\\php', entryName, 'php.exe'),
+			buildPath: (entryName) =>
+				path.join('C:\\MAMP\\bin\\php', entryName, 'php.exe'),
 		},
 	];
 
@@ -123,7 +125,7 @@ function killChild(child) {
 
 	try {
 		child.kill();
-	} catch (error) {
+	} catch {
 		// Ignore shutdown errors, we are already exiting.
 	}
 }
@@ -180,15 +182,19 @@ function startReactApp() {
 	});
 }
 
-phpProcess = spawn(phpBinary, ['-S', `${phpHost}:${phpPort}`, '-t', projectRoot], {
-	cwd: projectRoot,
-	stdio: 'inherit',
-	env: {
-		...process.env,
-		PHP_HOST: phpHost,
-		PHP_PORT: phpPort,
-	},
-});
+phpProcess = spawn(
+	phpBinary,
+	['-S', `${phpHost}:${phpPort}`, '-t', projectRoot],
+	{
+		cwd: projectRoot,
+		stdio: 'inherit',
+		env: {
+			...process.env,
+			PHP_HOST: phpHost,
+			PHP_PORT: phpPort,
+		},
+	}
+);
 
 phpProcess.on('error', (error) => {
 	console.error(

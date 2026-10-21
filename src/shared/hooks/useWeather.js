@@ -24,15 +24,28 @@ export function useWeather() {
 					getWeatherData(position.coords.latitude, position.coords.longitude);
 				},
 				() => {
-					// Пользователь запретил или ошибка — ставим дефолтный город
+					// Пользователь запретил доступ — ставим дефолтный город
 					getWeatherData(null, null, 'Ekaterinburg');
 				}
 			);
 		} else {
-			// Браузер совсем старый — ставим дефолт
+			// Браузер не поддерживает геолокацию — ставим дефолт
 			getWeatherData(null, null, 'Ekaterinburg');
 		}
 	}, []);
 
-	return { weather, loading };
+	const selectCity = async (city) => {
+		setLoading(true);
+
+		try {
+			const data = await fetchWeather(city.lat, city.lon);
+			setWeather(data);
+		} catch (e) {
+			console.error(e);
+		} finally {
+			setLoading(false);
+		}
+	};
+
+	return { weather, loading, selectCity };
 }

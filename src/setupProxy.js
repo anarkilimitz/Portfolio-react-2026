@@ -12,5 +12,5 @@ const proxy = createProxyMiddleware({
 });
 
 module.exports = function setupProxy(app) {
-	app.use(['/news.php', '/weather.php', '/mailer'], proxy);
+	app.use(['/news.php', '/weather.php', '/cities.php', '/mailer'], proxy);
 };
