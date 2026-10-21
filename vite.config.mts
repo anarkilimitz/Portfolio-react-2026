@@ -15,6 +15,13 @@ export default defineConfig({
 
 	server: {
 		open: true,
+
+		proxy: {
+			'/news.php': 'http://127.0.0.1:8000',
+			'/weather.php': 'http://127.0.0.1:8000',
+			'/cities.php': 'http://127.0.0.1:8000',
+			'/mailer': 'http://127.0.0.1:8000',
+		},
 	},
 
 	build: {
