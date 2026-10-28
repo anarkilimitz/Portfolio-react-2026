@@ -1,4 +1,4 @@
-import React from 'react';
+import { useGoogleReCaptcha } from 'react-google-recaptcha-v3';
 import { useState } from 'react';
 import styles from '../forms/form.module.scss';
 import { Formik, Form, useField } from 'formik';
@@ -11,6 +11,48 @@ import { Link } from 'react-router-dom';
 import { DNA } from 'react-loader-spinner';
 
 import { useLanguage } from '../../i18n/languageContext';
+
+// ------------   ГУГЛ КАПЧА
+
+
+const RECAPTCHA_SITE_KEY = '6Ld_nwQuAAAAABy9OmdBxojKUjnCFDdfGqHEMzlP';
+
+const loadRecaptcha = () =>
+	new Promise((resolve, reject) => {
+		if (window.grecaptcha) {
+			window.grecaptcha.ready(() => resolve(window.grecaptcha));
+			return;
+		}
+
+		const existingScript = document.querySelector(
+			'script[data-recaptcha="true"]'
+		);
+
+		if (existingScript) {
+			existingScript.addEventListener('load', () => {
+				window.grecaptcha.ready(() => resolve(window.grecaptcha));
+			});
+
+			existingScript.addEventListener('error', reject);
+			return;
+		}
+
+		const script = document.createElement('script');
+		script.src = `https://www.google.com/recaptcha/api.js?render=${RECAPTCHA_SITE_KEY}`;
+		script.async = true;
+		script.defer = true;
+		script.dataset.recaptcha = 'true';
+
+		script.onload = () => {
+			window.grecaptcha.ready(() => resolve(window.grecaptcha));
+		};
+
+		script.onerror = () => reject(new Error('Failed to load reCAPTCHA'));
+
+		document.head.appendChild(script);
+	});
+
+	// ----------------------------------                 конец ГУГЛКАПЧА
 
 const MyTextInput = ({ label, as, ...props }) => {
 	const [field, meta] = useField(props);
@@ -74,6 +116,7 @@ const MainForm = () => {
 					email: '',
 					text: '',
 					terms: false,
+					honeypot: '',
 				}}
 				validationSchema={Yup.object({
 					name: Yup.string().min(2, t.errorMinName).required(t.errorRequired),
@@ -93,20 +136,25 @@ const MainForm = () => {
 					showOverlay('loading');
 
 					try {
-						const response = await fetch(
-							'/mailer/mailer.php',
-							{
-								method: 'POST',
-								headers: {
-									'Content-Type': 'application/json',
-								},
-								body: JSON.stringify({
-									name: values.name,
-									email: values.email,
-									text: values.text,
-								}),
-							}
-						);
+						// капча ----------------------------------------------------------------
+						const recaptcha = await loadRecaptcha();
+						const recaptchaToken = await recaptcha.execute(RECAPTCHA_SITE_KEY, {
+							action: 'contact_form',
+						});
+						// ----------------------------------------------------------------------
+						const response = await fetch('/mailer/mailer.php', {
+							method: 'POST',
+							headers: {
+								'Content-Type': 'application/json',
+							},
+							body: JSON.stringify({
+								name: values.name,
+								email: values.email,
+								text: values.text,
+								honeypot: values.honeypot,
+								recaptchaToken,
+							}),
+						});
 
 						const result = await response.json();
 
@@ -137,8 +185,20 @@ const MainForm = () => {
 					}
 				}}
 			>
-				{({ isSubmitting }) => (
+				{({ isSubmitting, values, handleChange }) => (
 					<Form className={styles.form}>
+						{/* скрытый инпут от ботяр */}
+						<input
+							type="text"
+							name="honeypot"
+							value={values.honeypot}
+							onChange={handleChange}
+							tabIndex={-1}
+							autoComplete="off"
+							aria-hidden="true"
+							className={styles.honeypot}
+						/>
+
 						<h2 className={styles.formHeader}>{t.sendMessage}</h2>
 						<MyTextInput
 							id="name"

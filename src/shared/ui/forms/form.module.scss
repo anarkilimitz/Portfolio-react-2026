@@ -8,6 +8,16 @@
     min-height: 400px;
     background-color: rgba(33, 37, 41, 0.9);
 
+    // скрытое поле от ботов
+    & .honeypot {
+        position: absolute;
+        left: -9999px;
+        width: 1px;
+        height: 1px;
+        opacity: 0;
+        pointer-events: none;
+    }
+
     & .formHeader {
         text-align: center;
         font-size: 14px;
