@@ -1,4 +1,6 @@
-import React, { useRef } from 'react';
+import React, { useEffect, useRef } from 'react';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { Container, Row, Col } from 'react-bootstrap';
 import { FaGithub } from 'react-icons/fa';
 
@@ -24,8 +26,9 @@ const ProjectItem: React.FC<ProjectItemProps> = ({ item, index }) => {
 	const sectionRef = useRef<HTMLDivElement>(null);
 	const titleRef = useRef<HTMLHeadingElement>(null);
 	const textRef = useRef<HTMLParagraphElement>(null);
+	const sliderRef = useRef<HTMLDivElement>(null);
 
-	// анимация
+	// анимация текста
 	useScrollTypewriter(titleRef, item.title, sectionRef, {
 		stagger: 0.05,
 		delay: 0.1,
@@ -35,6 +38,35 @@ const ProjectItem: React.FC<ProjectItemProps> = ({ item, index }) => {
 		stagger: 0.01,
 		delay: 0.3,
 	});
+
+	// Анимация появления слайдера при скролле
+	useEffect(() => {
+		if (!sliderRef.current) return;
+
+		const ctx = gsap.context(() => {
+			gsap.fromTo(
+				sliderRef.current,
+				{
+					autoAlpha: 0,
+					y: 85,
+				},
+				{
+					autoAlpha: 1,
+					y: 0,
+					duration: 0.7,
+					ease: 'power2.out',
+					scrollTrigger: {
+						trigger: sliderRef.current,
+						start: 'top 75%',
+						toggleActions: 'play none none none',
+						once: true,
+					},
+				}
+			);
+		}, sliderRef);
+
+		return () => ctx.revert();
+	}, []);
 
 	const { t } = useLanguage();
 
@@ -110,11 +142,13 @@ const ProjectItem: React.FC<ProjectItemProps> = ({ item, index }) => {
 
 				{/* правая колонка */}
 				<Col xs={12} lg={6} className={isEven ? 'order-lg-2' : 'order-lg-1'}>
-					<SliderBlock
-						image={item.image}
-						commit={item.commit}
-						description={item.description}
-					/>
+					<div ref={sliderRef}>
+						<SliderBlock
+							image={item.image}
+							commit={item.commit}
+							description={item.description}
+						/>
+					</div>
 				</Col>
 			</Row>
 		</div>

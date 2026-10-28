@@ -111,6 +111,11 @@ export const translations = {
 		// More Projects
 		moreProjects: 'More Projects',
 
+		// CMS
+		customCms: 'Self-developed CMS',
+		customCmsSubtitle:
+			'Custom CMS for managing content and the administrative side of web projects.',
+
 		// Футер
 		titleFooter: 'Development on React and JavaScript',
 		textFooter: 'Creating modern interfaces using React 19',
@@ -136,6 +141,7 @@ export const translations = {
 		errorEmail: 'Invalid email address',
 		errorConsent: 'Consent required',
 	},
+	//================================================================================
 	ru: {
 		// Header
 		name: 'Евгений Павленок',
@@ -247,6 +253,11 @@ export const translations = {
 
 		// More Projects
 		moreProjects: 'Ещё проекты',
+
+		// CMS
+		customCms: 'Собственная CMS',
+		customCmsSubtitle:
+			'Собственная CMS для управления контентом и административной частью веб-проектов.',
 
 		// Футер
 		titleFooter: 'Разработка на React и JavaScript',

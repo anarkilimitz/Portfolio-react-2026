@@ -3,6 +3,7 @@ import { Container } from 'react-bootstrap';
 
 import SwitcherSlider from '../../shared/ui/buttons/switcherSlider/switcherSlider';
 import NexusCmsCarousel from './nexusCmsCarousel/NexusCmsCarousel';
+import { useLanguage } from '../../shared/i18n/languageContext';
 
 import styles from './nexusCmsSlider.module.scss';
 
@@ -14,11 +15,12 @@ interface NexusCmsSliderProps {
 
 function NexusCmsSlider({ lenisRef }: NexusCmsSliderProps) {
 	const [mode, setMode] = useState<SlideType>('IMAGE');
+	const { t } = useLanguage();
 
 	return (
 		<section className={styles.section}>
 			<Container>
-				<h2 className={styles.title}>Собственная CMS</h2>
+				<h2 className={styles.title}>{t.customCms}</h2>
 
 				<div className={styles.switcher}>
 					<SwitcherSlider slide={mode} onSwitch={setMode} />
@@ -36,8 +38,7 @@ function NexusCmsSlider({ lenisRef }: NexusCmsSliderProps) {
 									<h3 className={styles.detailsTitle}>Nexus CMS</h3>
 
 									<p className={styles.detailsDescription}>
-										Собственная CMS для управления контентом и административной
-										частью веб-проектов.
+										{t.customCmsSubtitle}
 									</p>
 								</div>
 							</div>

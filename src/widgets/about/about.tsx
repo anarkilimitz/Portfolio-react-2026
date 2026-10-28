@@ -182,6 +182,33 @@ function About() {
 			});
 		});
 
+		// Анимация появления блоков таймлайна при скролле
+		const timelineItems = gsap.utils.toArray<HTMLElement>(
+			`.${styles.timelineItem}`
+		);
+
+		timelineItems.forEach((item) => {
+			gsap.fromTo(
+				item,
+				{
+					autoAlpha: 0,
+					y: 35,
+				},
+				{
+					autoAlpha: 1,
+					y: 0,
+					duration: 0.7,
+					ease: 'power2.out',
+					scrollTrigger: {
+						trigger: item,
+						start: 'top 85%',
+						toggleActions: 'play none none none',
+						once: true,
+					},
+				}
+			);
+		});
+
 		return () => {
 			ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
 		};
