@@ -14,7 +14,6 @@ import { useLanguage } from '../../i18n/languageContext';
 
 // ------------   ГУГЛ КАПЧА
 
-
 const RECAPTCHA_SITE_KEY = '6Ld_nwQuAAAAABy9OmdBxojKUjnCFDdfGqHEMzlP';
 
 const loadRecaptcha = () =>
@@ -52,7 +51,7 @@ const loadRecaptcha = () =>
 		document.head.appendChild(script);
 	});
 
-	// ----------------------------------                 конец ГУГЛКАПЧА
+// ----------------------------------                 конец ГУГЛКАПЧА
 
 const MyTextInput = ({ label, as, ...props }) => {
 	const [field, meta] = useField(props);
@@ -187,6 +186,8 @@ const MainForm = () => {
 			>
 				{({ isSubmitting, values, handleChange }) => (
 					<Form className={styles.form}>
+						<h2 className={styles.formHeader}>{t.sendMessage}</h2>
+						
 						{/* скрытый инпут от ботяр */}
 						<input
 							type="text"
@@ -199,7 +200,6 @@ const MainForm = () => {
 							className={styles.honeypot}
 						/>
 
-						<h2 className={styles.formHeader}>{t.sendMessage}</h2>
 						<MyTextInput
 							id="name"
 							name="name"
