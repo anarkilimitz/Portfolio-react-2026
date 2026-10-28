@@ -1,6 +1,5 @@
 import React, { useEffect, useRef } from 'react';
 import gsap from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { Container, Row, Col } from 'react-bootstrap';
 import { FaGithub } from 'react-icons/fa';
 

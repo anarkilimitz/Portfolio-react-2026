@@ -1,4 +1,3 @@
-import { useGoogleReCaptcha } from 'react-google-recaptcha-v3';
 import { useState } from 'react';
 import styles from '../forms/form.module.scss';
 import { Formik, Form, useField } from 'formik';
@@ -187,7 +186,7 @@ const MainForm = () => {
 				{({ isSubmitting, values, handleChange }) => (
 					<Form className={styles.form}>
 						<h2 className={styles.formHeader}>{t.sendMessage}</h2>
-						
+
 						{/* скрытый инпут от ботяр */}
 						<input
 							type="text"
