@@ -1,6 +1,7 @@
 import { lazy, Suspense, RefObject } from 'react';
 import { Routes, Route, Outlet } from 'react-router-dom';
 
+import type Lenis from 'lenis';
 import './styles/global.scss';
 import './styles/variables.scss';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -26,7 +27,7 @@ import { useYandexMetrika } from '../shared/hooks/useYandexMetrika';
 // интерфейс для пропсов MainLayout
 interface MainLayoutProps {
 	contactsRef: RefObject<HTMLElement | null>;
-	lenisRef: RefObject<any | null>;
+	lenisRef: RefObject<Lenis | null>;
 }
 
 // применяем типизацию к компоненту

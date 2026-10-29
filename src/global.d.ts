@@ -51,11 +51,24 @@ declare module '*.css' {
 	export default content;
 }
 
-// Бутстрэп
+// Bootstrap Carousel
 declare module 'bootstrap' {
-	export class Carousel {
-		constructor(element: Element | string, options?: any);
-		to(index: number): void;
-		dispose(): void;
-	}
+    interface CarouselOptions {
+        interval?: number | boolean;
+        keyboard?: boolean;
+        pause?: boolean | string;
+        ride?: boolean | string;
+        touch?: boolean;
+        wrap?: boolean;
+    }
+
+    export class Carousel {
+        constructor(
+            element: Element | string,
+            options?: CarouselOptions
+        );
+
+        to(index: number): void;
+        dispose(): void;
+    }
 }

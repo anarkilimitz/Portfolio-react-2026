@@ -1,11 +1,12 @@
 import { RefObject, useEffect, useState } from 'react';
+import type Lenis from 'lenis';
 
 import { nexusCmsCarouselData } from './nexusCmsCarouselData';
 
 import styles from './nexusCmsCarousel.module.scss';
 
 interface NexusCmsCarouselProps {
-	lenisRef: RefObject<any | null>;
+	lenisRef: RefObject<Lenis | null>;
 }
 
 function NexusCmsCarousel({ lenisRef }: NexusCmsCarouselProps) {
@@ -35,14 +36,18 @@ function NexusCmsCarousel({ lenisRef }: NexusCmsCarouselProps) {
 	};
 	
 	useEffect(() => {
+		const lenis = lenisRef.current;
+
+		if (!lenis) return;
+
 		if (isFullscreen) {
-			lenisRef.current?.stop();
+			lenis.stop();
 		} else {
-			lenisRef.current?.start();
+			lenis.start();
 		}
 
 		return () => {
-			lenisRef.current?.start();
+			lenis.start();
 		};
 	}, [isFullscreen, lenisRef]);
 	

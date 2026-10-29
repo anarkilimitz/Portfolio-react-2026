@@ -92,7 +92,7 @@ function Footer({ contactsRef }: FooterProps) {
 
 					{/* контакты */}
 					<Col md={4} className="text-md-center text-center">
-						<h5>{t.contacts}</h5>
+						<h5>{t.contactsFooter}</h5>
 						<p>{t.email}: devlimitz@yandex.ru</p>
 						<p>{t.phone}: +7 (912) 284-50-53</p>
 					</Col>

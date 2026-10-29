@@ -19,7 +19,7 @@ export const useAppController = () => {
 				duration: 1.7,
 			});
 		}
-	}, []);
+	}, [lenisRef]);
 
 	// Функция прокрутки к проектам
 	const scrollToProjects = useCallback(() => {
@@ -29,7 +29,7 @@ export const useAppController = () => {
 				duration: 1.7,
 			});
 		}
-	}, []);
+	}, [lenisRef]);
 
 	// функция скролла к контактам
 	const scrollToContacts = useCallback(() => {
@@ -39,7 +39,7 @@ export const useAppController = () => {
 				duration: 1.7,
 			});
 		}
-	}, []);
+	}, [lenisRef]);
 
 	return {
 		refs: {

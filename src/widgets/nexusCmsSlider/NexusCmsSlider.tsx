@@ -1,5 +1,6 @@
 import { RefObject, useState } from 'react';
 import { Container } from 'react-bootstrap';
+import type Lenis from 'lenis';
 
 import SwitcherSlider from '../../shared/ui/buttons/switcherSlider/switcherSlider';
 import NexusCmsCarousel from './nexusCmsCarousel/NexusCmsCarousel';
@@ -10,7 +11,7 @@ import styles from './nexusCmsSlider.module.scss';
 type SlideType = 'IMAGE' | 'DETAILS';
 
 interface NexusCmsSliderProps {
-	lenisRef: RefObject<any | null>;
+	lenisRef: RefObject<Lenis | null>;
 }
 
 function NexusCmsSlider({ lenisRef }: NexusCmsSliderProps) {

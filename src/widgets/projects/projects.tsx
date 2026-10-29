@@ -35,8 +35,10 @@ function Projects() {
 		4: projectsImg5,
 	};
 
-	const handleSelect = (key: string | null) => {
-		setActiveKey(key);
+	const handleSelect = (key: string | string[] | null) => {
+		if (typeof key === 'string' || key === null) {
+			setActiveKey(key);
+		}
 	};
 
 	return (

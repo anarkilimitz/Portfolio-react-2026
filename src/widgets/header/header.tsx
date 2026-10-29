@@ -65,7 +65,7 @@ export default function Header({
 		useNavbarBehavior({
 			aboutRef,
 			bottomRef,
-		} as any); // временное решение, если хук в JS
+		});
 
 	// Обработчик клика по About
 	const handleAboutClick = (e: React.MouseEvent<HTMLElement>) => {
