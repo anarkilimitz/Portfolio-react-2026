@@ -20,7 +20,7 @@ function NexusCmsSlider({ lenisRef }: NexusCmsSliderProps) {
 	return (
 		<section className={styles.section}>
 			<Container>
-				<h2 className={styles.title}>{t.customCms}</h2>
+				<h2 className={`${styles.title} ${styles.titleCms}`}>{t.customCms}</h2>
 
 				<div className={styles.switcher}>
 					<SwitcherSlider slide={mode} onSwitch={setMode} />

@@ -6,6 +6,10 @@
     margin: 0;
     border: none;
 
+    @media (max-width: 991px) {
+        justify-content: center;
+    }
+
 
     .customSwitcherBtn {
         border-radius: 99em !important;

@@ -134,7 +134,7 @@ export default function Header({
 								{t.contacts}
 							</Nav.Link>
 						</Nav>
-						<Nav.Item className="ms-3">
+						<Nav.Item className="ms-0 ms-lg-3">
 							<LanguageSwitcher />
 						</Nav.Item>
 					</Navbar.Collapse>
