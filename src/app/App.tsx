@@ -13,6 +13,7 @@ import Projects from '../widgets/projects/projects';
 import TitleNewsSection from '../widgets/titleNewsSection/titleNewsSection';
 import ProjectsSlider from '../widgets/projectSlider/projectSlider';
 import NexusCmsSlider from '../widgets/nexusCmsSlider/NexusCmsSlider';
+import OrqentivaSlider from '../widgets/orqentivaSlider/OrqentivaSlider';
 
 import ScrollToTopButton from '../shared/ui/buttons/upScroll/ScrollToTopButton';
 
@@ -91,6 +92,10 @@ function App() {
 
 							<div>
 								<NexusCmsSlider lenisRef={lenisRef} />
+							</div>
+
+							<div>
+								<OrqentivaSlider lenisRef={lenisRef} />
 							</div>
 						</>
 					}

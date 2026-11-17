@@ -116,6 +116,10 @@ export const translations = {
 		customCmsSubtitle:
 			'Custom CMS for managing content and the administrative side of web projects.',
 
+		// Orqentiva
+		orqentivaSubtitle:
+			'A full-stack ERP platform designed to manage Wildberries business operations. The application integrates with the Wildberries Seller API to centralize product management, inventory, orders, sales analytics and automated data synchronization. Built with React, TypeScript, NestJS and PostgreSQL, the platform features a secure authentication system based on JWT access and refresh tokens, HttpOnly cookies, refresh token rotation and bcrypt hashing. Sensitive Wildberries API credentials are encrypted using AES-256-GCM before being stored in the database. The architecture is designed around modular backend services, typed REST API communication, protected endpoints and background synchronization processes.',
+
 		// Футер
 		titleFooter: 'Development on React and JavaScript',
 		textFooter: 'Creating modern interfaces using React 19',
@@ -258,6 +262,10 @@ export const translations = {
 		customCms: 'Собственная CMS',
 		customCmsSubtitle:
 			'Собственная CMS для управления контентом и административной частью веб-проектов.',
+
+		// Orqentiva
+		orqentivaSubtitle:
+			'Полнофункциональная ERP-платформа для управления бизнес-процессами на Wildberries. Приложение интегрируется с Wildberries Seller API, объединяя в единой системе управление товарами, складскими остатками, заказами, аналитикой продаж и автоматизированной синхронизацией данных. Платформа разработана с использованием React, TypeScript, NestJS и PostgreSQL. Реализована защищённая система аутентификации на основе JWT Access и Refresh Tokens, HttpOnly Cookies, ротации Refresh Tokens и хеширования с помощью bcrypt. Конфиденциальные API-токены Wildberries шифруются с использованием AES-256-GCM перед сохранением в базе данных. Архитектура приложения построена на основе модульных backend-сервисов, типизированного взаимодействия через REST API, защищённых конечных точек и фоновых процессов синхронизации данных.',
 
 		// Футер
 		titleFooter: 'Разработка на React и JavaScript',
