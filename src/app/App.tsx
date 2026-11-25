@@ -14,6 +14,7 @@ import TitleNewsSection from '../widgets/titleNewsSection/titleNewsSection';
 import ProjectsSlider from '../widgets/projectSlider/projectSlider';
 import NexusCmsSlider from '../widgets/nexusCmsSlider/NexusCmsSlider';
 import OrqentivaSlider from '../widgets/orqentivaSlider/OrqentivaSlider';
+import Movies from '../widgets/movies/movies';
 
 import ScrollToTopButton from '../shared/ui/buttons/upScroll/ScrollToTopButton';
 
@@ -87,6 +88,7 @@ function App() {
 							{/* bottomRef маячок для шапки, чтобы она знала, когда нужно поменять свой внешний вид*/}
 							<div ref={refs.bottomRef}>
 								<Projects />
+								<Movies />
 								<TitleNewsSection />
 							</div>
 
