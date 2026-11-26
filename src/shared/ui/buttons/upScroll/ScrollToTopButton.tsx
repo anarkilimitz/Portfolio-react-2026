@@ -4,7 +4,7 @@ import styles from './scrollToTopButton.module.scss';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import Lenis from 'lenis';
-import ArrowUpIcon from '../../../../assets/icons/up/circle-up-regular-full.svg';
+import ArrowUpIcon from '../../../../assets/icons/circle-up-regular-full.svg';
 
 gsap.registerPlugin(ScrollTrigger);
 
