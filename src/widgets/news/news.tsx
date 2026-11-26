@@ -85,7 +85,7 @@ function News() {
 					size="lg"
 					disabled={loading}
 				>
-					{loading ? <DNA height="30" width="30" /> : t.loadMore}
+					<span>{loading ? <DNA height="30" width="30" /> : t.loadMore}</span>
 				</Button>
 			)}
 		</>
